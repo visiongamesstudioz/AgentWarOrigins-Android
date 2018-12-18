@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Master
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300001}
+  m_Snapshots:
+  - {fileID: 24500003}
+  - {fileID: 245057112226776612}
+  m_StartSnapshot: {fileID: 24500003}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 473186045a81f584db98b45f8f274361
+    name: GameMusicVol
+  m_AudioMixerGroupViews:
+  - guids:
+    - 858cec565abef324c987e0da26271ed6
+    - a05dc013aad66894bbbf5f5d2873fe92
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500003}
+--- !u!243 &24300001
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 858cec565abef324c987e0da26271ed6
+  m_Children:
+  - {fileID: 243708180759145178}
+  m_Volume: 2eee8d12c5404174c880af5e495fb9be
+  m_Pitch: 0ad3796ab65deb54eb0411de77f56406
+  m_Effects:
+  - {fileID: 24400002}
+  m_UserColorIndex: 8
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400002
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4e65a9f05134d6f42a477f054f5507e2
+  m_EffectName: Attenuation
+  m_MixLevel: dd8bee6bd94d65f4da060899e005f086
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500003
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UnMuteGameMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: ee39cc6b51b1d5c4abe207ef404070d5
+  m_FloatValues:
+    2eee8d12c5404174c880af5e495fb9be: -0.002441872
+    473186045a81f584db98b45f8f274361: 0.04171297
+  m_TransitionOverrides: {}
+--- !u!243 &243708180759145178
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Music
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a05dc013aad66894bbbf5f5d2873fe92
+  m_Children: []
+  m_Volume: 473186045a81f584db98b45f8f274361
+  m_Pitch: a04c725a2c5f60a4c8ac0d7e540c0d0d
+  m_Effects:
+  - {fileID: 244268877136575490}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &244268877136575490
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 0b2c994d07946d24682338756ae49e87
+  m_EffectName: Attenuation
+  m_MixLevel: afa2e2052cc5b514194a094c32e3f91c
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &245057112226776612
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MuteGameMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: cacee06409fde3f4daee334e5b5cb450
+  m_FloatValues:
+    2eee8d12c5404174c880af5e495fb9be: 0.025578514
+    473186045a81f584db98b45f8f274361: -80
+  m_TransitionOverrides: {}
