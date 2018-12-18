@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 834ade2d375aeaf48a9b471d405abd3b
+timeCreated: 1523109563
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: LOD_0
+    100002: LOD_1
+    100004: LOD_2
+    100006: //RootNode
+    100008: van03_glass
+    100010: van1_body_LOD_GRP
+    100012: van_body_LOD0
+    100014: van_body_LOD1
+    100016: van_body_LOD2
+    100018: van_wheel01__front_right
+    100020: van_wheel__front_left
+    100022: van_wheel__rear_left
+    100024: van_wheel_rear_right
+    400000: LOD_0
+    400002: LOD_1
+    400004: LOD_2
+    400006: //RootNode
+    400008: van03_glass
+    400010: van1_body_LOD_GRP
+    400012: van_body_LOD0
+    400014: van_body_LOD1
+    400016: van_body_LOD2
+    400018: van_wheel01__front_right
+    400020: van_wheel__front_left
+    400022: van_wheel__rear_left
+    400024: van_wheel_rear_right
+    2300000: van03_glass
+    2300002: van_body_LOD0
+    2300004: van_body_LOD1
+    2300006: van_body_LOD2
+    2300008: van_wheel01__front_right
+    2300010: van_wheel__front_left
+    2300012: van_wheel__rear_left
+    2300014: van_wheel_rear_right
+    3300000: van03_glass
+    3300002: van_body_LOD0
+    3300004: van_body_LOD1
+    3300006: van_body_LOD2
+    3300008: van_wheel01__front_right
+    3300010: van_wheel__front_left
+    3300012: van_wheel__rear_left
+    3300014: van_wheel_rear_right
+    4300000: van_wheel_rear_right
+    4300002: van_wheel__rear_left
+    4300004: van_wheel__front_left
+    4300006: van_wheel01__front_right
+    4300008: van03_glass
+    4300010: van_body_LOD0
+    4300012: van_body_LOD1
+    4300014: van_body_LOD2
+    9500000: //RootNode
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van1_mat
+    second: {fileID: 2100000, guid: cde2e797fab0737409131cc5bbf68446, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

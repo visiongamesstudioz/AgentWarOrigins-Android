@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 13a67ea282cc8b740ba88fb919a20406
+timeCreated: 1498799702
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: dias
+    100002: //RootNode
+    100004: ware_house_beams1
+    100006: ware_house_big_tube
+    100008: ware_house_big_tube1
+    100010: ware_house_corner_box2
+    100012: ware_house_door
+    100014: ware_house_glass_windows1
+    100016: ware_house_ground
+    100018: ware_house_light1_1
+    100020: ware_house_light1_2
+    100022: ware_house_light1_3
+    100024: ware_house_light1_4
+    100026: ware_house_light1_5
+    100028: ware_house_light1_6
+    100030: ware_house_light1_7
+    100032: ware_house_light1_8
+    100034: ware_house_pillars1
+    100036: ware_house_roof
+    100038: ware_house_walls
+    100040: ware_house_window_frames4
+    100042: ware_house_window_frames5
+    100044: ware_house_window_frames6
+    100046: ware_house_window_frames7
+    400000: dias
+    400002: //RootNode
+    400004: ware_house_beams1
+    400006: ware_house_big_tube
+    400008: ware_house_big_tube1
+    400010: ware_house_corner_box2
+    400012: ware_house_door
+    400014: ware_house_glass_windows1
+    400016: ware_house_ground
+    400018: ware_house_light1_1
+    400020: ware_house_light1_2
+    400022: ware_house_light1_3
+    400024: ware_house_light1_4
+    400026: ware_house_light1_5
+    400028: ware_house_light1_6
+    400030: ware_house_light1_7
+    400032: ware_house_light1_8
+    400034: ware_house_pillars1
+    400036: ware_house_roof
+    400038: ware_house_walls
+    400040: ware_house_window_frames4
+    400042: ware_house_window_frames5
+    400044: ware_house_window_frames6
+    400046: ware_house_window_frames7
+    2300000: dias
+    2300002: ware_house_beams1
+    2300004: ware_house_big_tube
+    2300006: ware_house_big_tube1
+    2300008: ware_house_corner_box2
+    2300010: ware_house_door
+    2300012: ware_house_glass_windows1
+    2300014: ware_house_ground
+    2300016: ware_house_light1_1
+    2300018: ware_house_light1_2
+    2300020: ware_house_light1_3
+    2300022: ware_house_light1_4
+    2300024: ware_house_light1_5
+    2300026: ware_house_light1_6
+    2300028: ware_house_light1_7
+    2300030: ware_house_light1_8
+    2300032: ware_house_pillars1
+    2300034: ware_house_roof
+    2300036: ware_house_walls
+    2300038: ware_house_window_frames4
+    2300040: ware_house_window_frames5
+    2300042: ware_house_window_frames6
+    2300044: ware_house_window_frames7
+    3300000: dias
+    3300002: ware_house_beams1
+    3300004: ware_house_big_tube
+    3300006: ware_house_big_tube1
+    3300008: ware_house_corner_box2
+    3300010: ware_house_door
+    3300012: ware_house_glass_windows1
+    3300014: ware_house_ground
+    3300016: ware_house_light1_1
+    3300018: ware_house_light1_2
+    3300020: ware_house_light1_3
+    3300022: ware_house_light1_4
+    3300024: ware_house_light1_5
+    3300026: ware_house_light1_6
+    3300028: ware_house_light1_7
+    3300030: ware_house_light1_8
+    3300032: ware_house_pillars1
+    3300034: ware_house_roof
+    3300036: ware_house_walls
+    3300038: ware_house_window_frames4
+    3300040: ware_house_window_frames5
+    3300042: ware_house_window_frames6
+    3300044: ware_house_window_frames7
+    4300000: ware_house_window_frames4
+    4300002: ware_house_ground
+    4300004: ware_house_light1_5
+    4300006: ware_house_light1_6
+    4300008: ware_house_light1_7
+    4300010: ware_house_light1_8
+    4300012: ware_house_light1_1
+    4300014: ware_house_light1_2
+    4300016: ware_house_light1_3
+    4300018: ware_house_light1_4
+    4300020: ware_house_big_tube
+    4300022: ware_house_big_tube1
+    4300024: dias
+    4300026: ware_house_roof
+    4300028: ware_house_pillars1
+    4300030: ware_house_beams1
+    4300032: ware_house_glass_windows1
+    4300034: ware_house_door
+    4300036: ware_house_window_frames5
+    4300038: ware_house_window_frames6
+    4300040: ware_house_window_frames7
+    4300042: ware_house_walls
+    4300044: ware_house_corner_box2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

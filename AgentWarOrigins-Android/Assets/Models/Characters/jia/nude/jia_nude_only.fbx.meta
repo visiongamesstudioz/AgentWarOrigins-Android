@@ -1,0 +1,1021 @@
+fileFormatVersion: 2
+guid: 8e4f70b2186641141bfa9258e01ed753
+timeCreated: 1531922428
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: body_low
+    100002: eyes
+    100004: Hips_game_result_JNT
+    100006: //RootNode
+    100008: leftBall_game_result_JNT
+    100010: leftFoot_game_result_JNT
+    100012: leftForeArm_game_result_JNT
+    100014: leftHand_base_game_result_JNT
+    100016: leftInder2_game_result_JNT
+    100018: leftInder3_game_result_JNT
+    100020: leftInder4_game_result_JNT
+    100022: leftindex1_game_result_JNT
+    100024: leftKnee_game_result_JNT
+    100026: leftMiddle1_game_result_JNT
+    100028: leftMiddle2_game_result_JNT
+    100030: leftMiddle3_game_result_JNT
+    100032: leftMiddle4_game_result_JNT
+    100034: leftPinky1_game_result_JNT
+    100036: leftPinky2_game_result_JNT
+    100038: leftPinky3_game_result_JNT
+    100040: leftPinky4_game_result_JNT
+    100042: leftRing1_game_result_JNT
+    100044: leftRing2_game_result_JNT
+    100046: leftRing3_game_result_JNT
+    100048: leftRing4_game_result_JNT
+    100050: leftShoulder_game_result_JNT
+    100052: leftThigh_game_result_JNT
+    100054: leftThumb1_game_result_JNT
+    100056: leftThumb2_game_result_JNT
+    100058: leftThumb3_game_result_JNT
+    100060: leftThumb4_game_result_JNT
+    100062: leftThumb_orbit_result_JNT
+    100064: leftToe_game_result_JNT
+    100066: leftUpperArm_game_result_JNT
+    100068: neck_base_game_result_JNT
+    100070: neck_end_game_result_JNT
+    100072: neck_mid_game_result_JNT
+    100074: rightBall_game_result_JNT
+    100076: rightFoot_game_result_JNT
+    100078: rightForeArm_game_result_JNT
+    100080: rightHand_base_game_result_JNT
+    100082: rightInder2_game_result_JNT
+    100084: rightInder3_game_result_JNT
+    100086: rightInder4_game_result_JNT
+    100088: rightindex1_game_result_JNT
+    100090: rightKnee_game_result_JNT
+    100092: rightMiddle1_game_result_JNT
+    100094: rightMiddle2_game_result_JNT
+    100096: rightMiddle3_game_result_JNT
+    100098: rightMiddle4_game_result_JNT
+    100100: rightPinky1_game_result_JNT
+    100102: rightPinky2_game_result_JNT
+    100104: rightPinky3_game_result_JNT
+    100106: rightPinky4_game_result_JNT
+    100108: rightRing1_game_result_JNT
+    100110: rightRing2_game_result_JNT
+    100112: rightRing3_game_result_JNT
+    100114: rightRing4_game_result_JNT
+    100116: rightShoulder_game_result_JNT
+    100118: rightThigh_game_result_JNT
+    100120: rightThumb1_game_result_JNT
+    100122: rightThumb2_game_result_JNT
+    100124: rightThumb3_game_result_JNT
+    100126: rightThumb4_game_result_JNT
+    100128: rightThumb_orbit_result_JNT
+    100130: rightToe_game_result_JNT
+    100132: rightUpperArm_game_result_JNT
+    100134: spine1_game_result_JNT
+    100136: spine2_game_result_JNT
+    100138: spine3_game_result_JNT
+    400000: body_low
+    400002: eyes
+    400004: Hips_game_result_JNT
+    400006: //RootNode
+    400008: leftBall_game_result_JNT
+    400010: leftFoot_game_result_JNT
+    400012: leftForeArm_game_result_JNT
+    400014: leftHand_base_game_result_JNT
+    400016: leftInder2_game_result_JNT
+    400018: leftInder3_game_result_JNT
+    400020: leftInder4_game_result_JNT
+    400022: leftindex1_game_result_JNT
+    400024: leftKnee_game_result_JNT
+    400026: leftMiddle1_game_result_JNT
+    400028: leftMiddle2_game_result_JNT
+    400030: leftMiddle3_game_result_JNT
+    400032: leftMiddle4_game_result_JNT
+    400034: leftPinky1_game_result_JNT
+    400036: leftPinky2_game_result_JNT
+    400038: leftPinky3_game_result_JNT
+    400040: leftPinky4_game_result_JNT
+    400042: leftRing1_game_result_JNT
+    400044: leftRing2_game_result_JNT
+    400046: leftRing3_game_result_JNT
+    400048: leftRing4_game_result_JNT
+    400050: leftShoulder_game_result_JNT
+    400052: leftThigh_game_result_JNT
+    400054: leftThumb1_game_result_JNT
+    400056: leftThumb2_game_result_JNT
+    400058: leftThumb3_game_result_JNT
+    400060: leftThumb4_game_result_JNT
+    400062: leftThumb_orbit_result_JNT
+    400064: leftToe_game_result_JNT
+    400066: leftUpperArm_game_result_JNT
+    400068: neck_base_game_result_JNT
+    400070: neck_end_game_result_JNT
+    400072: neck_mid_game_result_JNT
+    400074: rightBall_game_result_JNT
+    400076: rightFoot_game_result_JNT
+    400078: rightForeArm_game_result_JNT
+    400080: rightHand_base_game_result_JNT
+    400082: rightInder2_game_result_JNT
+    400084: rightInder3_game_result_JNT
+    400086: rightInder4_game_result_JNT
+    400088: rightindex1_game_result_JNT
+    400090: rightKnee_game_result_JNT
+    400092: rightMiddle1_game_result_JNT
+    400094: rightMiddle2_game_result_JNT
+    400096: rightMiddle3_game_result_JNT
+    400098: rightMiddle4_game_result_JNT
+    400100: rightPinky1_game_result_JNT
+    400102: rightPinky2_game_result_JNT
+    400104: rightPinky3_game_result_JNT
+    400106: rightPinky4_game_result_JNT
+    400108: rightRing1_game_result_JNT
+    400110: rightRing2_game_result_JNT
+    400112: rightRing3_game_result_JNT
+    400114: rightRing4_game_result_JNT
+    400116: rightShoulder_game_result_JNT
+    400118: rightThigh_game_result_JNT
+    400120: rightThumb1_game_result_JNT
+    400122: rightThumb2_game_result_JNT
+    400124: rightThumb3_game_result_JNT
+    400126: rightThumb4_game_result_JNT
+    400128: rightThumb_orbit_result_JNT
+    400130: rightToe_game_result_JNT
+    400132: rightUpperArm_game_result_JNT
+    400134: spine1_game_result_JNT
+    400136: spine2_game_result_JNT
+    400138: spine3_game_result_JNT
+    4300000: body_low
+    4300002: eyes
+    9500000: //RootNode
+    13700000: body_low
+    13700002: eyes
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cornea1
+    second: {fileID: 2100000, guid: 871be03e81c718e43b84a641b35ab7d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye1
+    second: {fileID: 2100000, guid: d7484098f013eb6408f26b30eff4026c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyelash1
+    second: {fileID: 2100000, guid: c352485d46357964dba95b84be259c83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_Body1
+    second: {fileID: 2100000, guid: 1d088f50de912f944a4fae1f1209476a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_Head1
+    second: {fileID: 2100000, guid: 8f67bcabb910ae94885a0dfefd3b89c8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: Hips_game_result_JNT
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftThigh_game_result_JNT
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightThigh_game_result_JNT
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftKnee_game_result_JNT
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightKnee_game_result_JNT
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftFoot_game_result_JNT
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightFoot_game_result_JNT
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine1_game_result_JNT
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine2_game_result_JNT
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck_base_game_result_JNT
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck_mid_game_result_JNT
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftShoulder_game_result_JNT
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightShoulder_game_result_JNT
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftUpperArm_game_result_JNT
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightUpperArm_game_result_JNT
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftForeArm_game_result_JNT
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightForeArm_game_result_JNT
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftHand_base_game_result_JNT
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightHand_base_game_result_JNT
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftToe_game_result_JNT
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightToe_game_result_JNT
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftThumb1_game_result_JNT
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftThumb2_game_result_JNT
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftThumb3_game_result_JNT
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftindex1_game_result_JNT
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftInder2_game_result_JNT
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftInder3_game_result_JNT
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftMiddle1_game_result_JNT
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftMiddle2_game_result_JNT
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftMiddle3_game_result_JNT
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftRing1_game_result_JNT
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftRing2_game_result_JNT
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftRing3_game_result_JNT
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftPinky1_game_result_JNT
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftPinky2_game_result_JNT
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftPinky3_game_result_JNT
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightThumb1_game_result_JNT
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightThumb2_game_result_JNT
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightThumb3_game_result_JNT
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightindex1_game_result_JNT
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightInder2_game_result_JNT
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightInder3_game_result_JNT
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightMiddle1_game_result_JNT
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightMiddle2_game_result_JNT
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightMiddle3_game_result_JNT
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightRing1_game_result_JNT
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightRing2_game_result_JNT
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightRing3_game_result_JNT
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightPinky1_game_result_JNT
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightPinky2_game_result_JNT
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightPinky3_game_result_JNT
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine3_game_result_JNT
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: jia_nude_only(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body_low
+      parentName: jia_nude_only(Clone)
+      position: {x: -0, y: -0.012976938, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eyes
+      parentName: jia_nude_only(Clone)
+      position: {x: -0, y: -0.012976938, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips_game_result_JNT
+      parentName: jia_nude_only(Clone)
+      position: {x: -0.00048130512, y: 1.0183402, z: -0.04111246}
+      rotation: {x: -0.49785548, y: 0.50213534, z: 0.50213534, w: -0.49785548}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftThigh_game_result_JNT
+      parentName: Hips_game_result_JNT
+      position: {x: 0.10978277, y: 0.016969535, z: 0.097412765}
+      rotation: {x: -0.0038003873, y: 0.70682687, z: 0.70722014, w: -0.01486863}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: leftKnee_game_result_JNT
+      parentName: leftThigh_game_result_JNT
+      position: {x: -0.43861642, y: 0.000003058086, z: 0.00047358245}
+      rotation: {x: 0.000033810662, y: -0.053652618, z: 0.0012395486, w: 0.9985589}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: leftFoot_game_result_JNT
+      parentName: leftKnee_game_result_JNT
+      position: {x: -0.35253105, y: -0.00000007614829, z: -0.000000029896146}
+      rotation: {x: 0.00023342363, y: 0.42633155, z: -0.00062111276, w: 0.9045667}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftBall_game_result_JNT
+      parentName: leftFoot_game_result_JNT
+      position: {x: -0.12838857, y: 0, z: -1.0658141e-16}
+      rotation: {x: 0.0017127469, y: 0.26286134, z: -0.00094658294, w: 0.96483165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftToe_game_result_JNT
+      parentName: leftBall_game_result_JNT
+      position: {x: -0.081524715, y: 3.5527136e-17, z: 1.7763568e-17}
+      rotation: {x: 0.70032066, y: 0.08447353, z: -0.084054604, w: 0.70381105}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightThigh_game_result_JNT
+      parentName: Hips_game_result_JNT
+      position: {x: 0.10809126, y: 0.01696957, z: -0.10024038}
+      rotation: {x: 0.70694846, y: 0.008271861, z: 0.010400314, w: 0.7071402}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: rightKnee_game_result_JNT
+      parentName: rightThigh_game_result_JNT
+      position: {x: 0.438616, y: -0.0000027760225, z: -0.00042584492}
+      rotation: {x: 0.000033810666, y: -0.053652618, z: 0.0012395486, w: 0.9985589}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: rightFoot_game_result_JNT
+      parentName: rightKnee_game_result_JNT
+      position: {x: 0.35253108, y: 0.00000008931975, z: -0.000000060435546}
+      rotation: {x: 0.00023342363, y: 0.42633155, z: -0.00062111276, w: 0.9045667}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: rightBall_game_result_JNT
+      parentName: rightFoot_game_result_JNT
+      position: {x: 0.12838846, y: 0.0000000062839893, z: 0.0000000201697}
+      rotation: {x: 0.0017127469, y: 0.26286134, z: -0.00094658294, w: 0.96483165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightToe_game_result_JNT
+      parentName: rightBall_game_result_JNT
+      position: {x: 0.08152478, y: 0.000000026459363, z: -0.000000037571365}
+      rotation: {x: 0.70032066, y: 0.08447353, z: -0.084054604, w: 0.70381105}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine1_game_result_JNT
+      parentName: Hips_game_result_JNT
+      position: {x: -0.14715993, y: 8.881784e-18, z: -0.00017871731}
+      rotation: {x: 1.5502368e-19, y: 0.002893124, z: 1.7670425e-19, w: 0.9999958}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine2_game_result_JNT
+      parentName: spine1_game_result_JNT
+      position: {x: -0.14883588, y: -1.4382192e-11, z: 9.519556e-16}
+      rotation: {x: 7.0351285e-20, y: 0.0013867365, z: 8.438561e-20, w: 0.99999905}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine3_game_result_JNT
+      parentName: spine2_game_result_JNT
+      position: {x: -0.14438643, y: -2.3741807e-11, z: -2.690189e-10}
+      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftShoulder_game_result_JNT
+      parentName: spine3_game_result_JNT
+      position: {x: -0.07595757, y: 0.0321211, z: -0.037604988}
+      rotation: {x: -1.388294e-26, y: 8.262938e-27, z: 0.10642656, w: 0.9943206}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftUpperArm_game_result_JNT
+      parentName: leftShoulder_game_result_JNT
+      position: {x: -0.093400225, y: 0.000000010796219, z: -3.5657699e-12}
+      rotation: {x: 0.9943206, y: -0.10642655, z: -6.516747e-18, w: 6.0884576e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftForeArm_game_result_JNT
+      parentName: leftUpperArm_game_result_JNT
+      position: {x: -0.23923258, y: 2.842171e-16, z: 1.5099033e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftHand_base_game_result_JNT
+      parentName: leftForeArm_game_result_JNT
+      position: {x: -0.24131629, y: 0, z: 1.5987211e-16}
+      rotation: {x: -0.010000239, y: -0.19657703, z: 0.04981226, w: 0.97917116}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftindex1_game_result_JNT
+      parentName: leftHand_base_game_result_JNT
+      position: {x: -0.11443569, y: -0.000000042089095, z: 0.000000023562514}
+      rotation: {x: 0.011346807, y: 0.1755628, z: -0.03800893, w: 0.9836688}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftInder2_game_result_JNT
+      parentName: leftindex1_game_result_JNT
+      position: {x: -0.027914023, y: 0.00000004358219, z: 7.356884e-10}
+      rotation: {x: 2.1862272e-33, y: -5.551115e-17, z: 3.9383568e-17, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftInder3_game_result_JNT
+      parentName: leftInder2_game_result_JNT
+      position: {x: -0.024684353, y: 0.00000003163859, z: -6.165105e-10}
+      rotation: {x: -8.6736174e-19, y: -2.7647155e-17, z: -2.5114527e-18, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftInder4_game_result_JNT
+      parentName: leftInder3_game_result_JNT
+      position: {x: -0.017465336, y: -0.00000007096786, z: 4.631987e-10}
+      rotation: {x: 1, y: -2.5114527e-18, z: 2.7647155e-17, w: 5.834392e-15}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: leftMiddle1_game_result_JNT
+      parentName: leftHand_base_game_result_JNT
+      position: {x: -0.10762313, y: -0.0006949404, z: 0.022913374}
+      rotation: {x: 0.011346717, y: 0.17556347, z: -0.038009763, w: 0.9836686}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftMiddle2_game_result_JNT
+      parentName: leftMiddle1_game_result_JNT
+      position: {x: -0.032101985, y: -0.00000005379347, z: -3.2409544e-10}
+      rotation: {x: -8.6736174e-19, y: 1.490778e-19, z: 1.31353634e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftMiddle3_game_result_JNT
+      parentName: leftMiddle2_game_result_JNT
+      position: {x: -0.025090598, y: 0.0000000021142974, z: 0.000000003339615}
+      rotation: {x: -8.6736174e-19, y: 1.490778e-19, z: 1.31353634e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftMiddle4_game_result_JNT
+      parentName: leftMiddle3_game_result_JNT
+      position: {x: -0.021458346, y: 0.000000061117376, z: 0.000000003593535}
+      rotation: {x: 1, y: 1.6605022e-17, z: -1.6263033e-19, w: 2.9478123e-15}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftPinky1_game_result_JNT
+      parentName: leftHand_base_game_result_JNT
+      position: {x: -0.088773094, y: 0.012774565, z: 0.057971973}
+      rotation: {x: 0.009527008, y: 0.17162642, z: -0.045658983, w: 0.9840574}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftPinky2_game_result_JNT
+      parentName: leftPinky1_game_result_JNT
+      position: {x: -0.019537723, y: -0.00000008925507, z: 2.8246583e-10}
+      rotation: {x: -8.6736174e-19, y: -3.469447e-18, z: 4.93312e-18, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftPinky3_game_result_JNT
+      parentName: leftPinky2_game_result_JNT
+      position: {x: -0.016330548, y: 0.00000007507702, z: 4.7730003e-10}
+      rotation: {x: -8.6736174e-19, y: -3.469447e-18, z: 4.93312e-18, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftPinky4_game_result_JNT
+      parentName: leftPinky3_game_result_JNT
+      position: {x: -0.011174259, y: 0.000000019604874, z: 0.000000003418131}
+      rotation: {x: 1, y: 4.93312e-18, z: 3.469447e-18, w: 1.3605953e-14}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: leftRing1_game_result_JNT
+      parentName: leftHand_base_game_result_JNT
+      position: {x: -0.09878308, y: 0.0054761497, z: 0.04220444}
+      rotation: {x: 0.011346807, y: 0.1755628, z: -0.03800893, w: 0.9836688}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftRing2_game_result_JNT
+      parentName: leftRing1_game_result_JNT
+      position: {x: -0.0250577, y: -0.0000000068121206, z: 0.0000000010588695}
+      rotation: {x: 1.0156422e-31, y: -5.551115e-17, z: 5.3261356e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftRing3_game_result_JNT
+      parentName: leftRing2_game_result_JNT
+      position: {x: -0.024684425, y: -0.000000080483304, z: 0.0000000014553714}
+      rotation: {x: -1.11017635e-35, y: -2.7592945e-17, z: -4.0234065e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftRing4_game_result_JNT
+      parentName: leftRing3_game_result_JNT
+      position: {x: -0.01791998, y: -0.000000030187703, z: 0.0000000042219557}
+      rotation: {x: 1, y: -4.0234065e-19, z: 2.7592945e-17, w: 5.0532154e-16}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: leftThumb_orbit_result_JNT
+      parentName: leftHand_base_game_result_JNT
+      position: {x: -0.07066402, y: 0.0057764743, z: -0.031795513}
+      rotation: {x: 3.469447e-18, y: -5.551115e-17, z: 8.673617e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftThumb1_game_result_JNT
+      parentName: leftThumb_orbit_result_JNT
+      position: {x: -0.00000001567575, y: -0.00000005620962, z: 0.000000008748232}
+      rotation: {x: -0.015398985, y: -0.20926706, z: -0.040251732, w: 0.9769084}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: leftThumb2_game_result_JNT
+      parentName: leftThumb1_game_result_JNT
+      position: {x: -0.028000925, y: 0.000000090083475, z: 0.0000000017100075}
+      rotation: {x: 0.00022673514, y: 0.005461678, z: 0.03973762, w: 0.9991952}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: leftThumb3_game_result_JNT
+      parentName: leftThumb2_game_result_JNT
+      position: {x: -0.02487898, y: -0.00000006610001, z: 0.000000023298664}
+      rotation: {x: 0.0028808, y: 0.03218347, z: -0.024019811, w: 0.99918914}
+      scale: {x: 1.0000005, y: 1, z: 1}
+    - name: leftThumb4_game_result_JNT
+      parentName: leftThumb3_game_result_JNT
+      position: {x: -0.015368271, y: 0.0000000883311, z: -0.000000013772293}
+      rotation: {x: 0.45546615, y: -0.09262189, z: 0.04680913, w: 0.88418365}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: neck_base_game_result_JNT
+      parentName: spine3_game_result_JNT
+      position: {x: -0.001369828, y: 0.056315288, z: -0.0022418117}
+      rotation: {x: -0.4632976, y: 0.5341866, z: -0.46329758, w: 0.5341866}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: neck_mid_game_result_JNT
+      parentName: neck_base_game_result_JNT
+      position: {x: -0.050539583, y: 0.0032389292, z: 2.6630866e-22}
+      rotation: {x: -7.930882e-34, y: 1.1778553e-18, z: 0.019235834, w: 0.999815}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_end_game_result_JNT
+      parentName: neck_mid_game_result_JNT
+      position: {x: -0.066128604, y: -0.0070418534, z: -0.0000000061432575}
+      rotation: {x: 0.45293635, y: -0.5429997, z: 0.45293635, w: 0.5429997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightShoulder_game_result_JNT
+      parentName: spine3_game_result_JNT
+      position: {x: 0.07595757, y: 0.032124918, z: -0.03760503}
+      rotation: {x: 0.9943206, y: -0.106426544, z: -6.516746e-18, w: 6.0884576e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightUpperArm_game_result_JNT
+      parentName: rightShoulder_game_result_JNT
+      position: {x: 0.093400925, y: 0.0000023369548, z: 3.5661073e-12}
+      rotation: {x: 0.9943206, y: -0.10642655, z: -0.0000000013734117, w: 0.000000012831492}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightForeArm_game_result_JNT
+      parentName: rightUpperArm_game_result_JNT
+      position: {x: 0.239232, y: -8.5265126e-16, z: 1.7763567e-16}
+      rotation: {x: -4.9630837e-24, y: -2.6293365e-25, z: -1.3877788e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightHand_base_game_result_JNT
+      parentName: rightForeArm_game_result_JNT
+      position: {x: 0.2413169, y: 2.842171e-16, z: 1.4210854e-16}
+      rotation: {x: -0.010000241, y: -0.19657703, z: 0.04981226, w: 0.97917116}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: rightindex1_game_result_JNT
+      parentName: rightHand_base_game_result_JNT
+      position: {x: 0.11443487, y: -0.0000028837233, z: 0.00000028381612}
+      rotation: {x: 0.0113458615, y: 0.17556717, z: -0.038014386, w: 0.98366785}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightInder2_game_result_JNT
+      parentName: rightindex1_game_result_JNT
+      position: {x: 0.02791397, y: 0, z: -7.5495166e-17}
+      rotation: {x: -1.0408341e-17, y: 1.6596214e-34, z: -1.594511e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightInder3_game_result_JNT
+      parentName: rightInder2_game_result_JNT
+      position: {x: 0.024684982, y: 2.842171e-16, z: 1.7763568e-17}
+      rotation: {x: -1.0408341e-17, y: 1.6596214e-34, z: -1.594511e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightInder4_game_result_JNT
+      parentName: rightInder3_game_result_JNT
+      position: {x: 0.01746498, y: 2.842171e-16, z: 1.7763568e-17}
+      rotation: {x: 1, y: -1.594511e-17, z: -9.763564e-34, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightMiddle1_game_result_JNT
+      parentName: rightHand_base_game_result_JNT
+      position: {x: 0.1076228, y: 0.0006919995, z: -0.022913344}
+      rotation: {x: 0.011345862, y: 0.17556791, z: -0.038015172, w: 0.9836677}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightMiddle2_game_result_JNT
+      parentName: rightMiddle1_game_result_JNT
+      position: {x: 0.03210205, y: 2.842171e-16, z: 5.3290704e-17}
+      rotation: {x: -6.938894e-18, y: -2.7755576e-17, z: -2.067322e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightMiddle3_game_result_JNT
+      parentName: rightMiddle2_game_result_JNT
+      position: {x: 0.02508995, y: 0, z: 7.9936054e-17}
+      rotation: {x: -6.938894e-18, y: -2.7755576e-17, z: -2.067322e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightMiddle4_game_result_JNT
+      parentName: rightMiddle3_game_result_JNT
+      position: {x: 0.021459045, y: 0, z: 7.105427e-17}
+      rotation: {x: 1, y: -2.067322e-18, z: 2.7755576e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightPinky1_game_result_JNT
+      parentName: rightHand_base_game_result_JNT
+      position: {x: 0.08877259, y: -0.012774642, z: -0.05797171}
+      rotation: {x: 0.009526497, y: 0.17163025, z: -0.04566269, w: 0.98405653}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: rightPinky2_game_result_JNT
+      parentName: rightPinky1_game_result_JNT
+      position: {x: 0.019538429, y: 1.4210854e-15, z: -0.00000004685466}
+      rotation: {x: -3.526841e-17, y: -5.551115e-17, z: 3.0526853e-16, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: rightPinky3_game_result_JNT
+      parentName: rightPinky2_game_result_JNT
+      position: {x: 0.016329972, y: -0.00000004684721, z: 0.00000004392865}
+      rotation: {x: -3.1225023e-17, y: -2.6020852e-18, z: 7.67073e-18, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: rightPinky4_game_result_JNT
+      parentName: rightPinky3_game_result_JNT
+      position: {x: 0.011174366, y: 0.00000003434862, z: -0.000000059372198}
+      rotation: {x: 1, y: 3.0526853e-16, z: 5.551115e-17, w: 2.8327693e-16}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: rightRing1_game_result_JNT
+      parentName: rightHand_base_game_result_JNT
+      position: {x: 0.09878311, y: -0.005472794, z: -0.042204298}
+      rotation: {x: 0.011345941, y: 0.17556638, z: -0.03801338, w: 0.98366797}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightRing2_game_result_JNT
+      parentName: rightRing1_game_result_JNT
+      position: {x: 0.025057983, y: 2.842171e-16, z: -1.687539e-16}
+      rotation: {x: -6.938894e-18, y: 6.2493177e-35, z: -9.006216e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightRing3_game_result_JNT
+      parentName: rightRing2_game_result_JNT
+      position: {x: 0.02468399, y: -2.842171e-16, z: -8.881784e-18}
+      rotation: {x: -6.938894e-18, y: 6.2493177e-35, z: -9.006216e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightRing4_game_result_JNT
+      parentName: rightRing3_game_result_JNT
+      position: {x: 0.017919999, y: 2.842171e-16, z: -8.881784e-18}
+      rotation: {x: 1, y: -9.006216e-18, z: -5.514717e-34, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightThumb_orbit_result_JNT
+      parentName: rightHand_base_game_result_JNT
+      position: {x: 0.07066357, y: -0.00578086, z: 0.031795546}
+      rotation: {x: -3.1225023e-17, y: 2.7755576e-17, z: -4.2500725e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightThumb1_game_result_JNT
+      parentName: rightThumb_orbit_result_JNT
+      position: {x: 0.000000029460633, y: -0.000000020338137, z: -0.000000012123448}
+      rotation: {x: -0.015365589, y: -0.20926021, z: -0.0403358, w: 0.9769069}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightThumb2_game_result_JNT
+      parentName: rightThumb1_game_result_JNT
+      position: {x: 0.028000401, y: 0.0000055774835, z: 0.00000015689604}
+      rotation: {x: 0.00022673138, y: 0.005484223, z: 0.03999192, w: 0.99918497}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: rightThumb3_game_result_JNT
+      parentName: rightThumb2_game_result_JNT
+      position: {x: 0.02487793, y: -0.000007111008, z: 0.00000018919636}
+      rotation: {x: 0.0028791437, y: 0.03223383, z: -0.02415271, w: 0.99918437}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: rightThumb4_game_result_JNT
+      parentName: rightThumb3_game_result_JNT
+      position: {x: 0.015368889, y: 0.0000021527626, z: -0.00000022609505}
+      rotation: {x: 0.45546615, y: -0.09262189, z: 0.04680913, w: 0.88418365}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

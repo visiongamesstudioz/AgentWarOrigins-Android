@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 2f5afbf0a2d8ba7429b5ab1b1894d2ad
+timeCreated: 1499667291
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: balk
+    100002: //RootNode
+    100004: bridge_1_side_pillars
+    100006: bridge_dias
+    100008: bridge_road
+    100010: ground_pillars1
+    100012: ground_pillars2
+    100014: ground_pillars3
+    100016: ground_pillars4
+    100018: Loft
+    100020: T_LineS
+    100022: T_LineS01
+    400000: balk
+    400002: //RootNode
+    400004: bridge_1_side_pillars
+    400006: bridge_dias
+    400008: bridge_road
+    400010: ground_pillars1
+    400012: ground_pillars2
+    400014: ground_pillars3
+    400016: ground_pillars4
+    400018: Loft
+    400020: T_LineS
+    400022: T_LineS01
+    2300000: balk
+    2300002: bridge_1_side_pillars
+    2300004: bridge_dias
+    2300006: bridge_road
+    2300008: ground_pillars1
+    2300010: ground_pillars2
+    2300012: ground_pillars3
+    2300014: ground_pillars4
+    2300016: Loft
+    2300018: T_LineS
+    2300020: T_LineS01
+    3300000: balk
+    3300002: bridge_1_side_pillars
+    3300004: bridge_dias
+    3300006: bridge_road
+    3300008: ground_pillars1
+    3300010: ground_pillars2
+    3300012: ground_pillars3
+    3300014: ground_pillars4
+    3300016: Loft
+    3300018: T_LineS
+    3300020: T_LineS01
+    4300000: bridge_road
+    4300002: balk
+    4300004: T_LineS
+    4300006: T_LineS01
+    4300008: Loft
+    4300010: ground_pillars1
+    4300012: ground_pillars4
+    4300014: ground_pillars3
+    4300016: ground_pillars2
+    4300018: bridge_dias
+    4300020: bridge_1_side_pillars
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

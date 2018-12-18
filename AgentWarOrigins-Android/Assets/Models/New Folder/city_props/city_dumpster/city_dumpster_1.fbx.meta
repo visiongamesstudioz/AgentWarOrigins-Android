@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 951ca83018d2dc543a1459ab78c8a23c
+timeCreated: 1497251615
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: cylinder_low
+    100004: dumpster_body
+    100006: dumpster_hooks_low
+    100008: dumpster_lid_low
+    100010: dumpster_lid_low1
+    100012: dumpster_wheels1_low
+    100014: dumpster_wheels2_low
+    100016: dumpster_wheels3_low
+    100018: dumpster_wheels_low
+    100020: side_stand_low
+    100022: side_stand_low1
+    400000: //RootNode
+    400002: cylinder_low
+    400004: dumpster_body
+    400006: dumpster_hooks_low
+    400008: dumpster_lid_low
+    400010: dumpster_lid_low1
+    400012: dumpster_wheels1_low
+    400014: dumpster_wheels2_low
+    400016: dumpster_wheels3_low
+    400018: dumpster_wheels_low
+    400020: side_stand_low
+    400022: side_stand_low1
+    2300000: cylinder_low
+    2300002: dumpster_body
+    2300004: dumpster_hooks_low
+    2300006: dumpster_lid_low
+    2300008: dumpster_lid_low1
+    2300010: dumpster_wheels1_low
+    2300012: dumpster_wheels2_low
+    2300014: dumpster_wheels3_low
+    2300016: dumpster_wheels_low
+    2300018: side_stand_low
+    2300020: side_stand_low1
+    3300000: cylinder_low
+    3300002: dumpster_body
+    3300004: dumpster_hooks_low
+    3300006: dumpster_lid_low
+    3300008: dumpster_lid_low1
+    3300010: dumpster_wheels1_low
+    3300012: dumpster_wheels2_low
+    3300014: dumpster_wheels3_low
+    3300016: dumpster_wheels_low
+    3300018: side_stand_low
+    3300020: side_stand_low1
+    4300000: dumpster_lid_low
+    4300002: dumpster_lid_low1
+    4300004: dumpster_hooks_low
+    4300006: dumpster_wheels_low
+    4300008: dumpster_wheels1_low
+    4300010: dumpster_wheels2_low
+    4300012: dumpster_wheels3_low
+    4300014: side_stand_low
+    4300016: cylinder_low
+    4300018: side_stand_low1
+    4300020: dumpster_body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
