@@ -1,0 +1,1043 @@
+fileFormatVersion: 2
+guid: 3d2ab35c1b7674c438c7303e0b11bba0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: bench
+    100002: bench (1)
+    100004: bench (2)
+    100006: body
+    100008: body 1
+    100010: body 2
+    100012: bridge_4
+    100014: Building_Green
+    100016: Building_Green_LOD0
+    100018: Building_Green_LOD1
+    100020: Buildings
+    100022: city_dumpster
+    100024: city_road_type_4
+    100026: //RootNode
+    100028: Construction_Sign
+    100030: front_left
+    100032: front_left 1
+    100034: front_left 2
+    100036: front_right
+    100038: front_right 1
+    100040: front_right 2
+    100042: Lighting
+    100044: Lighting 1
+    100046: mesh
+    100048: mesh 1
+    100050: mesh 2
+    100052: mesh 3
+    100054: mesh 4
+    100056: mesh 5
+    100058: rear_left
+    100060: rear_left 1
+    100062: rear_left 2
+    100064: rear_right
+    100066: rear_right 1
+    100068: rear_right 2
+    100070: Reflection Probe
+    100072: Road sign pole
+    100074: safety_guard_rail
+    100076: safety_guard_rail (1)
+    100078: safety_guard_rail (10)
+    100080: safety_guard_rail (11)
+    100082: safety_guard_rail (12)
+    100084: safety_guard_rail (13)
+    100086: safety_guard_rail (14)
+    100088: safety_guard_rail (15)
+    100090: safety_guard_rail (16)
+    100092: safety_guard_rail (17)
+    100094: safety_guard_rail (18)
+    100096: safety_guard_rail (19)
+    100098: safety_guard_rail (2)
+    100100: safety_guard_rail (20)
+    100102: safety_guard_rail (21)
+    100104: safety_guard_rail (22)
+    100106: safety_guard_rail (23)
+    100108: safety_guard_rail (24)
+    100110: safety_guard_rail (25)
+    100112: safety_guard_rail (26)
+    100114: safety_guard_rail (27)
+    100116: safety_guard_rail (28)
+    100118: safety_guard_rail (29)
+    100120: safety_guard_rail (3)
+    100122: safety_guard_rail (30)
+    100124: safety_guard_rail (31)
+    100126: safety_guard_rail (32)
+    100128: safety_guard_rail (33)
+    100130: safety_guard_rail (34)
+    100132: safety_guard_rail (35)
+    100134: safety_guard_rail (36)
+    100136: safety_guard_rail (37)
+    100138: safety_guard_rail (38)
+    100140: safety_guard_rail (39)
+    100142: safety_guard_rail (4)
+    100144: safety_guard_rail (40)
+    100146: safety_guard_rail (41)
+    100148: safety_guard_rail (42)
+    100150: safety_guard_rail (43)
+    100152: safety_guard_rail (5)
+    100154: safety_guard_rail (6)
+    100156: safety_guard_rail (7)
+    100158: safety_guard_rail (8)
+    100160: safety_guard_rail (9)
+    100162: schoolbus
+    100164: schoolbus (1)
+    100166: schoolbus (2)
+    100168: StaticObjects
+    100170: statue_man_holding_hammer_LOD0
+    100172: statue_man_holding_hammer_LOD0 1
+    100174: statue_man_holding_hammer_LOD1
+    100176: statue_man_holding_hammer_LOD1 1
+    100178: statue_man_holding_hammer_LOD2
+    100180: statue_man_holding_hammer_LOD2 1
+    100182: Statue_man_with_hammer
+    100184: Statue_man_with_hammer 1
+    100186: stone_park
+    100188: stone_park1
+    100190: StoneFence_Post
+    100192: StoneFence_Post (1)
+    100194: StoneFence_Post (1) 1
+    100196: StoneFence_Post (4)
+    100198: StoneFence_Post (4) 1
+    100200: StoneFence_Post (5)
+    100202: StoneFence_Post (5) 1
+    100204: StoneFence_Post 1
+    100206: StoneFence_Post_LOD0
+    100208: StoneFence_Post_LOD0 1
+    100210: StoneFence_Post_LOD0 2
+    100212: StoneFence_Post_LOD0 3
+    100214: StoneFence_Post_LOD0 4
+    100216: StoneFence_Post_LOD0 5
+    100218: StoneFence_Post_LOD0 6
+    100220: StoneFence_Post_LOD0 7
+    100222: StoneFence_Post_LOD1
+    100224: StoneFence_Post_LOD1 1
+    100226: StoneFence_Post_LOD1 2
+    100228: StoneFence_Post_LOD1 3
+    100230: StoneFence_Post_LOD1 4
+    100232: StoneFence_Post_LOD1 5
+    100234: StoneFence_Post_LOD1 6
+    100236: StoneFence_Post_LOD1 7
+    100238: StoneFence_Post_LOD2
+    100240: StoneFence_Post_LOD2 1
+    100242: StoneFence_Post_LOD2 2
+    100244: StoneFence_Post_LOD2 3
+    100246: StoneFence_Post_LOD2 4
+    100248: StoneFence_Post_LOD2 5
+    100250: StoneFence_Post_LOD2 6
+    100252: StoneFence_Post_LOD2 7
+    100254: StoneFence_Wall
+    100256: StoneFence_Wall (1)
+    100258: StoneFence_Wall (1) 1
+    100260: StoneFence_Wall (10)
+    100262: StoneFence_Wall (10) 1
+    100264: StoneFence_Wall (2)
+    100266: StoneFence_Wall (2) 1
+    100268: StoneFence_Wall (3)
+    100270: StoneFence_Wall (3) 1
+    100272: StoneFence_Wall (4)
+    100274: StoneFence_Wall (4) 1
+    100276: StoneFence_Wall (8)
+    100278: StoneFence_Wall (8) 1
+    100280: StoneFence_Wall (9)
+    100282: StoneFence_Wall (9) 1
+    100284: StoneFence_Wall 1
+    100286: StoneFence_Wall_LOD0
+    100288: StoneFence_Wall_LOD0 1
+    100290: StoneFence_Wall_LOD0 10
+    100292: StoneFence_Wall_LOD0 11
+    100294: StoneFence_Wall_LOD0 12
+    100296: StoneFence_Wall_LOD0 13
+    100298: StoneFence_Wall_LOD0 14
+    100300: StoneFence_Wall_LOD0 15
+    100302: StoneFence_Wall_LOD0 2
+    100304: StoneFence_Wall_LOD0 3
+    100306: StoneFence_Wall_LOD0 4
+    100308: StoneFence_Wall_LOD0 5
+    100310: StoneFence_Wall_LOD0 6
+    100312: StoneFence_Wall_LOD0 7
+    100314: StoneFence_Wall_LOD0 8
+    100316: StoneFence_Wall_LOD0 9
+    100318: StoneFence_Wall_LOD1
+    100320: StoneFence_Wall_LOD1 1
+    100322: StoneFence_Wall_LOD1 10
+    100324: StoneFence_Wall_LOD1 11
+    100326: StoneFence_Wall_LOD1 12
+    100328: StoneFence_Wall_LOD1 13
+    100330: StoneFence_Wall_LOD1 14
+    100332: StoneFence_Wall_LOD1 15
+    100334: StoneFence_Wall_LOD1 2
+    100336: StoneFence_Wall_LOD1 3
+    100338: StoneFence_Wall_LOD1 4
+    100340: StoneFence_Wall_LOD1 5
+    100342: StoneFence_Wall_LOD1 6
+    100344: StoneFence_Wall_LOD1 7
+    100346: StoneFence_Wall_LOD1 8
+    100348: StoneFence_Wall_LOD1 9
+    100350: StoneFence_Wall_LOD2
+    100352: StoneFence_Wall_LOD2 1
+    100354: StoneFence_Wall_LOD2 10
+    100356: StoneFence_Wall_LOD2 11
+    100358: StoneFence_Wall_LOD2 12
+    100360: StoneFence_Wall_LOD2 13
+    100362: StoneFence_Wall_LOD2 14
+    100364: StoneFence_Wall_LOD2 15
+    100366: StoneFence_Wall_LOD2 2
+    100368: StoneFence_Wall_LOD2 3
+    100370: StoneFence_Wall_LOD2 4
+    100372: StoneFence_Wall_LOD2 5
+    100374: StoneFence_Wall_LOD2 6
+    100376: StoneFence_Wall_LOD2 7
+    100378: StoneFence_Wall_LOD2 8
+    100380: StoneFence_Wall_LOD2 9
+    100382: street_light
+    100384: street_light (1)
+    100386: street_light (2)
+    100388: street_light (3)
+    100390: subway_entrance
+    100392: 'bench '
+    100394: bench  1
+    100396: 'schoolbus '
+    100398: 'street_light '
+    100400: street_light  1
+    100402: street_light  2
+    100404: :stonepark
+    100406: schoolbuses
+    100408: CityScene5:bench
+    100410: 'CityScene5:bench '
+    100412: CityScene5:bench  1
+    100414: CityScene5:body
+    100416: CityScene5:body 1
+    100418: CityScene5:bridge_4
+    100420: CityScene5:Building_Green
+    100422: CityScene5:Building_Green_LOD0
+    100424: CityScene5:Building_Green_LOD1
+    100426: CityScene5:Buildings
+    100428: CityScene5:city_dumpster
+    100430: CityScene5:city_road_type_4
+    100432: CityScene5:Construction_Sign
+    100434: CityScene5:front_left
+    100436: CityScene5:front_left 1
+    100438: CityScene5:front_right
+    100440: CityScene5:front_right 1
+    100442: CityScene5:Lighting
+    100444: CityScene5:Lighting 1
+    100446: CityScene5:mesh43
+    100448: CityScene5:rear_left
+    100450: CityScene5:rear_left 1
+    100452: CityScene5:rear_right
+    100454: CityScene5:rear_right 1
+    100456: CityScene5:Reflection Probe
+    100458: CityScene5:Road sign pole
+    100460: CityScene5:safety_guard_rail
+    100462: CityScene5:schoolbus
+    100464: 'CityScene5:schoolbus '
+    100466: CityScene5:schoolbuses
+    100468: CityScene5:StaticObjects
+    100470: CityScene5:statue_man_holding_hammer_LOD0
+    100472: CityScene5:statue_man_holding_hammer_LOD0 1
+    100474: CityScene5:statue_man_holding_hammer_LOD1
+    100476: CityScene5:statue_man_holding_hammer_LOD1 1
+    100478: CityScene5:statue_man_holding_hammer_LOD2
+    100480: CityScene5:statue_man_holding_hammer_LOD2 1
+    100482: CityScene5:Statue_man_with_hammer
+    100484: CityScene5:Statue_man_with_hammer 1
+    100486: CityScene5:street_light
+    100488: 'CityScene5:street_light '
+    100490: CityScene5:street_light  1
+    100492: CityScene5:street_light  2
+    100494: CityScene5:subway_entrance
+    100496: stonepark
+    100498: pPlane1
+    400000: bench
+    400002: bench (1)
+    400004: bench (2)
+    400006: body
+    400008: body 1
+    400010: body 2
+    400012: bridge_4
+    400014: Building_Green
+    400016: Building_Green_LOD0
+    400018: Building_Green_LOD1
+    400020: Buildings
+    400022: city_dumpster
+    400024: city_road_type_4
+    400026: //RootNode
+    400028: Construction_Sign
+    400030: front_left
+    400032: front_left 1
+    400034: front_left 2
+    400036: front_right
+    400038: front_right 1
+    400040: front_right 2
+    400042: Lighting
+    400044: Lighting 1
+    400046: mesh
+    400048: mesh 1
+    400050: mesh 2
+    400052: mesh 3
+    400054: mesh 4
+    400056: mesh 5
+    400058: rear_left
+    400060: rear_left 1
+    400062: rear_left 2
+    400064: rear_right
+    400066: rear_right 1
+    400068: rear_right 2
+    400070: Reflection Probe
+    400072: Road sign pole
+    400074: safety_guard_rail
+    400076: safety_guard_rail (1)
+    400078: safety_guard_rail (10)
+    400080: safety_guard_rail (11)
+    400082: safety_guard_rail (12)
+    400084: safety_guard_rail (13)
+    400086: safety_guard_rail (14)
+    400088: safety_guard_rail (15)
+    400090: safety_guard_rail (16)
+    400092: safety_guard_rail (17)
+    400094: safety_guard_rail (18)
+    400096: safety_guard_rail (19)
+    400098: safety_guard_rail (2)
+    400100: safety_guard_rail (20)
+    400102: safety_guard_rail (21)
+    400104: safety_guard_rail (22)
+    400106: safety_guard_rail (23)
+    400108: safety_guard_rail (24)
+    400110: safety_guard_rail (25)
+    400112: safety_guard_rail (26)
+    400114: safety_guard_rail (27)
+    400116: safety_guard_rail (28)
+    400118: safety_guard_rail (29)
+    400120: safety_guard_rail (3)
+    400122: safety_guard_rail (30)
+    400124: safety_guard_rail (31)
+    400126: safety_guard_rail (32)
+    400128: safety_guard_rail (33)
+    400130: safety_guard_rail (34)
+    400132: safety_guard_rail (35)
+    400134: safety_guard_rail (36)
+    400136: safety_guard_rail (37)
+    400138: safety_guard_rail (38)
+    400140: safety_guard_rail (39)
+    400142: safety_guard_rail (4)
+    400144: safety_guard_rail (40)
+    400146: safety_guard_rail (41)
+    400148: safety_guard_rail (42)
+    400150: safety_guard_rail (43)
+    400152: safety_guard_rail (5)
+    400154: safety_guard_rail (6)
+    400156: safety_guard_rail (7)
+    400158: safety_guard_rail (8)
+    400160: safety_guard_rail (9)
+    400162: schoolbus
+    400164: schoolbus (1)
+    400166: schoolbus (2)
+    400168: StaticObjects
+    400170: statue_man_holding_hammer_LOD0
+    400172: statue_man_holding_hammer_LOD0 1
+    400174: statue_man_holding_hammer_LOD1
+    400176: statue_man_holding_hammer_LOD1 1
+    400178: statue_man_holding_hammer_LOD2
+    400180: statue_man_holding_hammer_LOD2 1
+    400182: Statue_man_with_hammer
+    400184: Statue_man_with_hammer 1
+    400186: stone_park
+    400188: stone_park1
+    400190: StoneFence_Post
+    400192: StoneFence_Post (1)
+    400194: StoneFence_Post (1) 1
+    400196: StoneFence_Post (4)
+    400198: StoneFence_Post (4) 1
+    400200: StoneFence_Post (5)
+    400202: StoneFence_Post (5) 1
+    400204: StoneFence_Post 1
+    400206: StoneFence_Post_LOD0
+    400208: StoneFence_Post_LOD0 1
+    400210: StoneFence_Post_LOD0 2
+    400212: StoneFence_Post_LOD0 3
+    400214: StoneFence_Post_LOD0 4
+    400216: StoneFence_Post_LOD0 5
+    400218: StoneFence_Post_LOD0 6
+    400220: StoneFence_Post_LOD0 7
+    400222: StoneFence_Post_LOD1
+    400224: StoneFence_Post_LOD1 1
+    400226: StoneFence_Post_LOD1 2
+    400228: StoneFence_Post_LOD1 3
+    400230: StoneFence_Post_LOD1 4
+    400232: StoneFence_Post_LOD1 5
+    400234: StoneFence_Post_LOD1 6
+    400236: StoneFence_Post_LOD1 7
+    400238: StoneFence_Post_LOD2
+    400240: StoneFence_Post_LOD2 1
+    400242: StoneFence_Post_LOD2 2
+    400244: StoneFence_Post_LOD2 3
+    400246: StoneFence_Post_LOD2 4
+    400248: StoneFence_Post_LOD2 5
+    400250: StoneFence_Post_LOD2 6
+    400252: StoneFence_Post_LOD2 7
+    400254: StoneFence_Wall
+    400256: StoneFence_Wall (1)
+    400258: StoneFence_Wall (1) 1
+    400260: StoneFence_Wall (10)
+    400262: StoneFence_Wall (10) 1
+    400264: StoneFence_Wall (2)
+    400266: StoneFence_Wall (2) 1
+    400268: StoneFence_Wall (3)
+    400270: StoneFence_Wall (3) 1
+    400272: StoneFence_Wall (4)
+    400274: StoneFence_Wall (4) 1
+    400276: StoneFence_Wall (8)
+    400278: StoneFence_Wall (8) 1
+    400280: StoneFence_Wall (9)
+    400282: StoneFence_Wall (9) 1
+    400284: StoneFence_Wall 1
+    400286: StoneFence_Wall_LOD0
+    400288: StoneFence_Wall_LOD0 1
+    400290: StoneFence_Wall_LOD0 10
+    400292: StoneFence_Wall_LOD0 11
+    400294: StoneFence_Wall_LOD0 12
+    400296: StoneFence_Wall_LOD0 13
+    400298: StoneFence_Wall_LOD0 14
+    400300: StoneFence_Wall_LOD0 15
+    400302: StoneFence_Wall_LOD0 2
+    400304: StoneFence_Wall_LOD0 3
+    400306: StoneFence_Wall_LOD0 4
+    400308: StoneFence_Wall_LOD0 5
+    400310: StoneFence_Wall_LOD0 6
+    400312: StoneFence_Wall_LOD0 7
+    400314: StoneFence_Wall_LOD0 8
+    400316: StoneFence_Wall_LOD0 9
+    400318: StoneFence_Wall_LOD1
+    400320: StoneFence_Wall_LOD1 1
+    400322: StoneFence_Wall_LOD1 10
+    400324: StoneFence_Wall_LOD1 11
+    400326: StoneFence_Wall_LOD1 12
+    400328: StoneFence_Wall_LOD1 13
+    400330: StoneFence_Wall_LOD1 14
+    400332: StoneFence_Wall_LOD1 15
+    400334: StoneFence_Wall_LOD1 2
+    400336: StoneFence_Wall_LOD1 3
+    400338: StoneFence_Wall_LOD1 4
+    400340: StoneFence_Wall_LOD1 5
+    400342: StoneFence_Wall_LOD1 6
+    400344: StoneFence_Wall_LOD1 7
+    400346: StoneFence_Wall_LOD1 8
+    400348: StoneFence_Wall_LOD1 9
+    400350: StoneFence_Wall_LOD2
+    400352: StoneFence_Wall_LOD2 1
+    400354: StoneFence_Wall_LOD2 10
+    400356: StoneFence_Wall_LOD2 11
+    400358: StoneFence_Wall_LOD2 12
+    400360: StoneFence_Wall_LOD2 13
+    400362: StoneFence_Wall_LOD2 14
+    400364: StoneFence_Wall_LOD2 15
+    400366: StoneFence_Wall_LOD2 2
+    400368: StoneFence_Wall_LOD2 3
+    400370: StoneFence_Wall_LOD2 4
+    400372: StoneFence_Wall_LOD2 5
+    400374: StoneFence_Wall_LOD2 6
+    400376: StoneFence_Wall_LOD2 7
+    400378: StoneFence_Wall_LOD2 8
+    400380: StoneFence_Wall_LOD2 9
+    400382: street_light
+    400384: street_light (1)
+    400386: street_light (2)
+    400388: street_light (3)
+    400390: subway_entrance
+    400392: 'bench '
+    400394: bench  1
+    400396: 'schoolbus '
+    400398: 'street_light '
+    400400: street_light  1
+    400402: street_light  2
+    400404: :stonepark
+    400406: schoolbuses
+    400408: CityScene5:bench
+    400410: 'CityScene5:bench '
+    400412: CityScene5:bench  1
+    400414: CityScene5:body
+    400416: CityScene5:body 1
+    400418: CityScene5:bridge_4
+    400420: CityScene5:Building_Green
+    400422: CityScene5:Building_Green_LOD0
+    400424: CityScene5:Building_Green_LOD1
+    400426: CityScene5:Buildings
+    400428: CityScene5:city_dumpster
+    400430: CityScene5:city_road_type_4
+    400432: CityScene5:Construction_Sign
+    400434: CityScene5:front_left
+    400436: CityScene5:front_left 1
+    400438: CityScene5:front_right
+    400440: CityScene5:front_right 1
+    400442: CityScene5:Lighting
+    400444: CityScene5:Lighting 1
+    400446: CityScene5:mesh43
+    400448: CityScene5:rear_left
+    400450: CityScene5:rear_left 1
+    400452: CityScene5:rear_right
+    400454: CityScene5:rear_right 1
+    400456: CityScene5:Reflection Probe
+    400458: CityScene5:Road sign pole
+    400460: CityScene5:safety_guard_rail
+    400462: CityScene5:schoolbus
+    400464: 'CityScene5:schoolbus '
+    400466: CityScene5:schoolbuses
+    400468: CityScene5:StaticObjects
+    400470: CityScene5:statue_man_holding_hammer_LOD0
+    400472: CityScene5:statue_man_holding_hammer_LOD0 1
+    400474: CityScene5:statue_man_holding_hammer_LOD1
+    400476: CityScene5:statue_man_holding_hammer_LOD1 1
+    400478: CityScene5:statue_man_holding_hammer_LOD2
+    400480: CityScene5:statue_man_holding_hammer_LOD2 1
+    400482: CityScene5:Statue_man_with_hammer
+    400484: CityScene5:Statue_man_with_hammer 1
+    400486: CityScene5:street_light
+    400488: 'CityScene5:street_light '
+    400490: CityScene5:street_light  1
+    400492: CityScene5:street_light  2
+    400494: CityScene5:subway_entrance
+    400496: stonepark
+    400498: pPlane1
+    2100000: M_Sign_Atlas_2
+    2100002: M_Sign_Atlas_4
+    2100004: bus_stop_opque
+    2100006: city_road_type_4-mat0
+    2100008: No Name
+    2100010: building
+    2100012: bridge4
+    2100014: Statue
+    2100016: safety_guard_rail1
+    2100018: StoneFence02
+    2100020: StoneFence01
+    2100022: car_schoolbus
+    2100024: wheel_schoolbus
+    2100026: CityScene5_safety_guard_rail1
+    2100028: CityScene5_car_schoolbus
+    2100030: CityScene5_wheel_schoolbus
+    2100032: CityScene5_M_Sign_Atlas_2
+    2100034: CityScene5_M_Sign_Atlas_4
+    2100036: CityScene5_building
+    2100038: CityScene5_bus_stop_opque
+    2100040: CityScene5_bridge4
+    2100042: CityScene5_city_road_type_4-mat0
+    2100044: CityScene5_Statue
+    2300000: bench
+    2300002: bench (1)
+    2300004: bench (2)
+    2300006: body
+    2300008: body 1
+    2300010: body 2
+    2300012: bridge_4
+    2300014: Building_Green_LOD0
+    2300016: Building_Green_LOD1
+    2300018: Construction_Sign
+    2300020: front_left
+    2300022: front_left 1
+    2300024: front_left 2
+    2300026: front_right
+    2300028: front_right 1
+    2300030: front_right 2
+    2300032: mesh
+    2300034: mesh 1
+    2300036: mesh 2
+    2300038: mesh 3
+    2300040: mesh 4
+    2300042: mesh 5
+    2300044: rear_left
+    2300046: rear_left 1
+    2300048: rear_left 2
+    2300050: rear_right
+    2300052: rear_right 1
+    2300054: rear_right 2
+    2300056: Road sign pole
+    2300058: safety_guard_rail
+    2300060: safety_guard_rail (1)
+    2300062: safety_guard_rail (10)
+    2300064: safety_guard_rail (11)
+    2300066: safety_guard_rail (12)
+    2300068: safety_guard_rail (13)
+    2300070: safety_guard_rail (14)
+    2300072: safety_guard_rail (15)
+    2300074: safety_guard_rail (16)
+    2300076: safety_guard_rail (17)
+    2300078: safety_guard_rail (18)
+    2300080: safety_guard_rail (19)
+    2300082: safety_guard_rail (2)
+    2300084: safety_guard_rail (20)
+    2300086: safety_guard_rail (21)
+    2300088: safety_guard_rail (22)
+    2300090: safety_guard_rail (23)
+    2300092: safety_guard_rail (24)
+    2300094: safety_guard_rail (25)
+    2300096: safety_guard_rail (26)
+    2300098: safety_guard_rail (27)
+    2300100: safety_guard_rail (28)
+    2300102: safety_guard_rail (29)
+    2300104: safety_guard_rail (3)
+    2300106: safety_guard_rail (30)
+    2300108: safety_guard_rail (31)
+    2300110: safety_guard_rail (32)
+    2300112: safety_guard_rail (33)
+    2300114: safety_guard_rail (34)
+    2300116: safety_guard_rail (35)
+    2300118: safety_guard_rail (36)
+    2300120: safety_guard_rail (37)
+    2300122: safety_guard_rail (38)
+    2300124: safety_guard_rail (39)
+    2300126: safety_guard_rail (4)
+    2300128: safety_guard_rail (40)
+    2300130: safety_guard_rail (41)
+    2300132: safety_guard_rail (42)
+    2300134: safety_guard_rail (43)
+    2300136: safety_guard_rail (5)
+    2300138: safety_guard_rail (6)
+    2300140: safety_guard_rail (7)
+    2300142: safety_guard_rail (8)
+    2300144: safety_guard_rail (9)
+    2300146: statue_man_holding_hammer_LOD0
+    2300148: statue_man_holding_hammer_LOD0 1
+    2300150: statue_man_holding_hammer_LOD1
+    2300152: statue_man_holding_hammer_LOD1 1
+    2300154: statue_man_holding_hammer_LOD2
+    2300156: statue_man_holding_hammer_LOD2 1
+    2300158: StoneFence_Post_LOD0
+    2300160: StoneFence_Post_LOD0 1
+    2300162: StoneFence_Post_LOD0 2
+    2300164: StoneFence_Post_LOD0 3
+    2300166: StoneFence_Post_LOD0 4
+    2300168: StoneFence_Post_LOD0 5
+    2300170: StoneFence_Post_LOD0 6
+    2300172: StoneFence_Post_LOD0 7
+    2300174: StoneFence_Post_LOD1
+    2300176: StoneFence_Post_LOD1 1
+    2300178: StoneFence_Post_LOD1 2
+    2300180: StoneFence_Post_LOD1 3
+    2300182: StoneFence_Post_LOD1 4
+    2300184: StoneFence_Post_LOD1 5
+    2300186: StoneFence_Post_LOD1 6
+    2300188: StoneFence_Post_LOD1 7
+    2300190: StoneFence_Post_LOD2
+    2300192: StoneFence_Post_LOD2 1
+    2300194: StoneFence_Post_LOD2 2
+    2300196: StoneFence_Post_LOD2 3
+    2300198: StoneFence_Post_LOD2 4
+    2300200: StoneFence_Post_LOD2 5
+    2300202: StoneFence_Post_LOD2 6
+    2300204: StoneFence_Post_LOD2 7
+    2300206: StoneFence_Wall_LOD0
+    2300208: StoneFence_Wall_LOD0 1
+    2300210: StoneFence_Wall_LOD0 10
+    2300212: StoneFence_Wall_LOD0 11
+    2300214: StoneFence_Wall_LOD0 12
+    2300216: StoneFence_Wall_LOD0 13
+    2300218: StoneFence_Wall_LOD0 14
+    2300220: StoneFence_Wall_LOD0 15
+    2300222: StoneFence_Wall_LOD0 2
+    2300224: StoneFence_Wall_LOD0 3
+    2300226: StoneFence_Wall_LOD0 4
+    2300228: StoneFence_Wall_LOD0 5
+    2300230: StoneFence_Wall_LOD0 6
+    2300232: StoneFence_Wall_LOD0 7
+    2300234: StoneFence_Wall_LOD0 8
+    2300236: StoneFence_Wall_LOD0 9
+    2300238: StoneFence_Wall_LOD1
+    2300240: StoneFence_Wall_LOD1 1
+    2300242: StoneFence_Wall_LOD1 10
+    2300244: StoneFence_Wall_LOD1 11
+    2300246: StoneFence_Wall_LOD1 12
+    2300248: StoneFence_Wall_LOD1 13
+    2300250: StoneFence_Wall_LOD1 14
+    2300252: StoneFence_Wall_LOD1 15
+    2300254: StoneFence_Wall_LOD1 2
+    2300256: StoneFence_Wall_LOD1 3
+    2300258: StoneFence_Wall_LOD1 4
+    2300260: StoneFence_Wall_LOD1 5
+    2300262: StoneFence_Wall_LOD1 6
+    2300264: StoneFence_Wall_LOD1 7
+    2300266: StoneFence_Wall_LOD1 8
+    2300268: StoneFence_Wall_LOD1 9
+    2300270: StoneFence_Wall_LOD2
+    2300272: StoneFence_Wall_LOD2 1
+    2300274: StoneFence_Wall_LOD2 10
+    2300276: StoneFence_Wall_LOD2 11
+    2300278: StoneFence_Wall_LOD2 12
+    2300280: StoneFence_Wall_LOD2 13
+    2300282: StoneFence_Wall_LOD2 14
+    2300284: StoneFence_Wall_LOD2 15
+    2300286: StoneFence_Wall_LOD2 2
+    2300288: StoneFence_Wall_LOD2 3
+    2300290: StoneFence_Wall_LOD2 4
+    2300292: StoneFence_Wall_LOD2 5
+    2300294: StoneFence_Wall_LOD2 6
+    2300296: StoneFence_Wall_LOD2 7
+    2300298: StoneFence_Wall_LOD2 8
+    2300300: StoneFence_Wall_LOD2 9
+    2300302: 'bench '
+    2300304: bench  1
+    2300306: schoolbuses
+    2300308: CityScene5:bench
+    2300310: 'CityScene5:bench '
+    2300312: CityScene5:bench  1
+    2300314: CityScene5:bridge_4
+    2300316: CityScene5:Building_Green_LOD0
+    2300318: CityScene5:Building_Green_LOD1
+    2300320: CityScene5:Construction_Sign
+    2300322: CityScene5:mesh43
+    2300324: CityScene5:Road sign pole
+    2300326: CityScene5:safety_guard_rail
+    2300328: CityScene5:schoolbuses
+    2300330: CityScene5:statue_man_holding_hammer_LOD0
+    2300332: CityScene5:statue_man_holding_hammer_LOD0 1
+    2300334: CityScene5:statue_man_holding_hammer_LOD1
+    2300336: CityScene5:statue_man_holding_hammer_LOD1 1
+    2300338: CityScene5:statue_man_holding_hammer_LOD2
+    2300340: CityScene5:statue_man_holding_hammer_LOD2 1
+    2300342: pPlane1
+    3300000: bench
+    3300002: bench (1)
+    3300004: bench (2)
+    3300006: body
+    3300008: body 1
+    3300010: body 2
+    3300012: bridge_4
+    3300014: Building_Green_LOD0
+    3300016: Building_Green_LOD1
+    3300018: Construction_Sign
+    3300020: front_left
+    3300022: front_left 1
+    3300024: front_left 2
+    3300026: front_right
+    3300028: front_right 1
+    3300030: front_right 2
+    3300032: mesh
+    3300034: mesh 1
+    3300036: mesh 2
+    3300038: mesh 3
+    3300040: mesh 4
+    3300042: mesh 5
+    3300044: rear_left
+    3300046: rear_left 1
+    3300048: rear_left 2
+    3300050: rear_right
+    3300052: rear_right 1
+    3300054: rear_right 2
+    3300056: Road sign pole
+    3300058: safety_guard_rail
+    3300060: safety_guard_rail (1)
+    3300062: safety_guard_rail (10)
+    3300064: safety_guard_rail (11)
+    3300066: safety_guard_rail (12)
+    3300068: safety_guard_rail (13)
+    3300070: safety_guard_rail (14)
+    3300072: safety_guard_rail (15)
+    3300074: safety_guard_rail (16)
+    3300076: safety_guard_rail (17)
+    3300078: safety_guard_rail (18)
+    3300080: safety_guard_rail (19)
+    3300082: safety_guard_rail (2)
+    3300084: safety_guard_rail (20)
+    3300086: safety_guard_rail (21)
+    3300088: safety_guard_rail (22)
+    3300090: safety_guard_rail (23)
+    3300092: safety_guard_rail (24)
+    3300094: safety_guard_rail (25)
+    3300096: safety_guard_rail (26)
+    3300098: safety_guard_rail (27)
+    3300100: safety_guard_rail (28)
+    3300102: safety_guard_rail (29)
+    3300104: safety_guard_rail (3)
+    3300106: safety_guard_rail (30)
+    3300108: safety_guard_rail (31)
+    3300110: safety_guard_rail (32)
+    3300112: safety_guard_rail (33)
+    3300114: safety_guard_rail (34)
+    3300116: safety_guard_rail (35)
+    3300118: safety_guard_rail (36)
+    3300120: safety_guard_rail (37)
+    3300122: safety_guard_rail (38)
+    3300124: safety_guard_rail (39)
+    3300126: safety_guard_rail (4)
+    3300128: safety_guard_rail (40)
+    3300130: safety_guard_rail (41)
+    3300132: safety_guard_rail (42)
+    3300134: safety_guard_rail (43)
+    3300136: safety_guard_rail (5)
+    3300138: safety_guard_rail (6)
+    3300140: safety_guard_rail (7)
+    3300142: safety_guard_rail (8)
+    3300144: safety_guard_rail (9)
+    3300146: statue_man_holding_hammer_LOD0
+    3300148: statue_man_holding_hammer_LOD0 1
+    3300150: statue_man_holding_hammer_LOD1
+    3300152: statue_man_holding_hammer_LOD1 1
+    3300154: statue_man_holding_hammer_LOD2
+    3300156: statue_man_holding_hammer_LOD2 1
+    3300158: StoneFence_Post_LOD0
+    3300160: StoneFence_Post_LOD0 1
+    3300162: StoneFence_Post_LOD0 2
+    3300164: StoneFence_Post_LOD0 3
+    3300166: StoneFence_Post_LOD0 4
+    3300168: StoneFence_Post_LOD0 5
+    3300170: StoneFence_Post_LOD0 6
+    3300172: StoneFence_Post_LOD0 7
+    3300174: StoneFence_Post_LOD1
+    3300176: StoneFence_Post_LOD1 1
+    3300178: StoneFence_Post_LOD1 2
+    3300180: StoneFence_Post_LOD1 3
+    3300182: StoneFence_Post_LOD1 4
+    3300184: StoneFence_Post_LOD1 5
+    3300186: StoneFence_Post_LOD1 6
+    3300188: StoneFence_Post_LOD1 7
+    3300190: StoneFence_Post_LOD2
+    3300192: StoneFence_Post_LOD2 1
+    3300194: StoneFence_Post_LOD2 2
+    3300196: StoneFence_Post_LOD2 3
+    3300198: StoneFence_Post_LOD2 4
+    3300200: StoneFence_Post_LOD2 5
+    3300202: StoneFence_Post_LOD2 6
+    3300204: StoneFence_Post_LOD2 7
+    3300206: StoneFence_Wall_LOD0
+    3300208: StoneFence_Wall_LOD0 1
+    3300210: StoneFence_Wall_LOD0 10
+    3300212: StoneFence_Wall_LOD0 11
+    3300214: StoneFence_Wall_LOD0 12
+    3300216: StoneFence_Wall_LOD0 13
+    3300218: StoneFence_Wall_LOD0 14
+    3300220: StoneFence_Wall_LOD0 15
+    3300222: StoneFence_Wall_LOD0 2
+    3300224: StoneFence_Wall_LOD0 3
+    3300226: StoneFence_Wall_LOD0 4
+    3300228: StoneFence_Wall_LOD0 5
+    3300230: StoneFence_Wall_LOD0 6
+    3300232: StoneFence_Wall_LOD0 7
+    3300234: StoneFence_Wall_LOD0 8
+    3300236: StoneFence_Wall_LOD0 9
+    3300238: StoneFence_Wall_LOD1
+    3300240: StoneFence_Wall_LOD1 1
+    3300242: StoneFence_Wall_LOD1 10
+    3300244: StoneFence_Wall_LOD1 11
+    3300246: StoneFence_Wall_LOD1 12
+    3300248: StoneFence_Wall_LOD1 13
+    3300250: StoneFence_Wall_LOD1 14
+    3300252: StoneFence_Wall_LOD1 15
+    3300254: StoneFence_Wall_LOD1 2
+    3300256: StoneFence_Wall_LOD1 3
+    3300258: StoneFence_Wall_LOD1 4
+    3300260: StoneFence_Wall_LOD1 5
+    3300262: StoneFence_Wall_LOD1 6
+    3300264: StoneFence_Wall_LOD1 7
+    3300266: StoneFence_Wall_LOD1 8
+    3300268: StoneFence_Wall_LOD1 9
+    3300270: StoneFence_Wall_LOD2
+    3300272: StoneFence_Wall_LOD2 1
+    3300274: StoneFence_Wall_LOD2 10
+    3300276: StoneFence_Wall_LOD2 11
+    3300278: StoneFence_Wall_LOD2 12
+    3300280: StoneFence_Wall_LOD2 13
+    3300282: StoneFence_Wall_LOD2 14
+    3300284: StoneFence_Wall_LOD2 15
+    3300286: StoneFence_Wall_LOD2 2
+    3300288: StoneFence_Wall_LOD2 3
+    3300290: StoneFence_Wall_LOD2 4
+    3300292: StoneFence_Wall_LOD2 5
+    3300294: StoneFence_Wall_LOD2 6
+    3300296: StoneFence_Wall_LOD2 7
+    3300298: StoneFence_Wall_LOD2 8
+    3300300: StoneFence_Wall_LOD2 9
+    3300302: 'bench '
+    3300304: bench  1
+    3300306: schoolbuses
+    3300308: CityScene5:bench
+    3300310: 'CityScene5:bench '
+    3300312: CityScene5:bench  1
+    3300314: CityScene5:bridge_4
+    3300316: CityScene5:Building_Green_LOD0
+    3300318: CityScene5:Building_Green_LOD1
+    3300320: CityScene5:Construction_Sign
+    3300322: CityScene5:mesh43
+    3300324: CityScene5:Road sign pole
+    3300326: CityScene5:safety_guard_rail
+    3300328: CityScene5:schoolbuses
+    3300330: CityScene5:statue_man_holding_hammer_LOD0
+    3300332: CityScene5:statue_man_holding_hammer_LOD0 1
+    3300334: CityScene5:statue_man_holding_hammer_LOD1
+    3300336: CityScene5:statue_man_holding_hammer_LOD1 1
+    3300338: CityScene5:statue_man_holding_hammer_LOD2
+    3300340: CityScene5:statue_man_holding_hammer_LOD2 1
+    3300342: pPlane1
+    4300000: Road sign pole
+    4300002: Construction_Sign
+    4300004: bench
+    4300006: mesh
+    4300008: Building_Green_LOD0
+    4300010: Building_Green_LOD1
+    4300012: bridge_4
+    4300014: bench (1)
+    4300016: bench (2)
+    4300018: statue_man_holding_hammer_LOD0
+    4300020: statue_man_holding_hammer_LOD1
+    4300022: statue_man_holding_hammer_LOD2
+    4300024: safety_guard_rail
+    4300026: safety_guard_rail (1)
+    4300028: safety_guard_rail (2)
+    4300030: safety_guard_rail (3)
+    4300032: safety_guard_rail (8)
+    4300034: safety_guard_rail (9)
+    4300036: safety_guard_rail (10)
+    4300038: safety_guard_rail (11)
+    4300040: safety_guard_rail (14)
+    4300042: safety_guard_rail (15)
+    4300044: safety_guard_rail (16)
+    4300046: safety_guard_rail (17)
+    4300048: safety_guard_rail (18)
+    4300050: safety_guard_rail (19)
+    4300052: safety_guard_rail (20)
+    4300054: safety_guard_rail (21)
+    4300056: safety_guard_rail (22)
+    4300058: safety_guard_rail (23)
+    4300060: safety_guard_rail (24)
+    4300062: safety_guard_rail (25)
+    4300064: safety_guard_rail (26)
+    4300066: safety_guard_rail (27)
+    4300068: safety_guard_rail (28)
+    4300070: safety_guard_rail (29)
+    4300072: safety_guard_rail (30)
+    4300074: safety_guard_rail (31)
+    4300076: safety_guard_rail (32)
+    4300078: safety_guard_rail (33)
+    4300080: safety_guard_rail (34)
+    4300082: safety_guard_rail (35)
+    4300084: safety_guard_rail (36)
+    4300086: safety_guard_rail (37)
+    4300088: safety_guard_rail (12)
+    4300090: safety_guard_rail (4)
+    4300092: safety_guard_rail (13)
+    4300094: safety_guard_rail (38)
+    4300096: safety_guard_rail (5)
+    4300098: safety_guard_rail (39)
+    4300100: safety_guard_rail (6)
+    4300102: safety_guard_rail (7)
+    4300104: safety_guard_rail (40)
+    4300106: safety_guard_rail (41)
+    4300108: safety_guard_rail (42)
+    4300110: safety_guard_rail (43)
+    4300112: StoneFence_Post_LOD0
+    4300114: StoneFence_Post_LOD1
+    4300116: StoneFence_Post_LOD2
+    4300118: StoneFence_Wall_LOD0
+    4300120: StoneFence_Wall_LOD1
+    4300122: StoneFence_Wall_LOD2
+    4300124: body
+    4300126: front_left
+    4300128: front_right
+    4300130: rear_left
+    4300132: rear_right
+    4300134: 'bench '
+    4300136: 'bench '
+    4300138: schoolbuses
+    4300140: CityScene5:safety_guard_rail
+    4300142: CityScene5:schoolbuses
+    4300144: CityScene5:Road sign pole
+    4300146: CityScene5:Construction_Sign
+    4300148: CityScene5:Building_Green_LOD0
+    4300150: CityScene5:Building_Green_LOD1
+    4300152: CityScene5:bench
+    4300154: 'CityScene5:bench '
+    4300156: 'CityScene5:bench '
+    4300158: CityScene5:bridge_4
+    4300160: CityScene5:mesh43
+    4300162: CityScene5:statue_man_holding_hammer_LOD0
+    4300164: CityScene5:statue_man_holding_hammer_LOD1
+    4300166: CityScene5:statue_man_holding_hammer_LOD2
+    4300168: pPlane1
+    20500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
