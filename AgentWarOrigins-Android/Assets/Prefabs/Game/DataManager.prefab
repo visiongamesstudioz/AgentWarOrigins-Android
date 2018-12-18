@@ -1,0 +1,952 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1013075237397030}
+  m_IsPrefabAsset: 1
+--- !u!1 &1013075237397030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4599272250529354}
+  - component: {fileID: 114896643761727182}
+  - component: {fileID: 114313745346401852}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4599272250529354
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013075237397030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114313745346401852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013075237397030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446676cb0d88fab41952835245acdb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114896643761727182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013075237397030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e49de1eab69c948b0c8ca0735d7494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players:
+  - {fileID: 114735675529262840, guid: 349ffbc89718da34f87728b05e6d8055, type: 2}
+  - {fileID: 114169811869266212, guid: 5fea5162844489b4f81747d302eb2084, type: 2}
+  - {fileID: 114935767138586446, guid: 7f82bd98a5bface4aa77a85b5c7f3d86, type: 2}
+  Weapons:
+  - {fileID: 11400000, guid: ce63e1e3968e0944e962c5ed6ce1be9c, type: 2}
+  - {fileID: 11400000, guid: b121ab153a961024590a5909c00db964, type: 2}
+  - {fileID: 11400000, guid: 39d9fd652d9367543aa7e0c899b2b803, type: 2}
+  - {fileID: 11400000, guid: ee804445e031a074886b0b1481714b29, type: 2}
+  - {fileID: 11400000, guid: 03d250dbacd12c84fb27f1ddb1408072, type: 2}
+  Missions:
+  - MissionId: 1
+    MissionTitle: NEWBIE RUNNER
+    MisionDescription: Run for 250m in a single run
+    IsMissionForOneRun: 1
+    MissionType: 11
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 250
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 2
+    MissionTitle: FIRST DEATH
+    MisionDescription: Die for the first time
+    IsMissionForOneRun: 0
+    MissionType: 10
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300014, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 3
+    MissionTitle: 5K RUN
+    MisionDescription: Run for 5000m in total
+    IsMissionForOneRun: 0
+    MissionType: 11
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 5000
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 2
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 4
+    MissionTitle: BASIC JUMPER
+    MisionDescription: Escape from 20 Obstacles in a single run
+    IsMissionForOneRun: 1
+    MissionType: 8
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 20
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300010, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 5
+    MissionTitle: KILLER
+    MisionDescription: Kill 5 Enemies in a single run
+    IsMissionForOneRun: 1
+    MissionType: 7
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 5
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 10
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300012, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 6
+    MissionTitle: IT's NOT JUST ANOTHER SKIN
+    MisionDescription: Unlock L-GUARD II Skin
+    IsMissionForOneRun: 1
+    MissionType: 0
+    PlayerId: 1
+    SkinId: 1
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 25
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300004, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 7
+    MissionTitle: BEGIN BLASTER
+    MisionDescription: Explode a enemy vehicle in a single run
+    IsMissionForOneRun: 1
+    MissionType: 12
+    PlayerId: 1
+    SkinId: 1
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 8
+    MissionTitle: Drone Chaser
+    MisionDescription: Destroy 10 enemy drones in total
+    IsMissionForOneRun: 0
+    MissionType: 13
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 10
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 9
+    MissionTitle: '2K RUN '
+    MisionDescription: Run for 2000m in a single run
+    IsMissionForOneRun: 1
+    MissionType: 11
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 2000
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 64
+    XpEarned: 25
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300084, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 10
+    MissionTitle: SCU BLUEPRINT COLLECTOR
+    MisionDescription: 'Collect 4 SCU weapon blueprints '
+    IsMissionForOneRun: 0
+    MissionType: 6
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 2
+    NoOfBluePrintsCollected: 4
+    RewardType: 5
+    RewardAmountorObjectId: 5
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 25
+    MissionSprite: {fileID: 21300006, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 11
+    MissionTitle: TOKEN COLLECTOR
+    MisionDescription: Collect 100 Tokens in a single run
+    IsMissionForOneRun: 1
+    MissionType: 15
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 100
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 0
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 25
+    MissionSprite: {fileID: 21300000, guid: 18dbca529dd1aab4cad2bc5073e2397c, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 12
+    MissionTitle: BLASTER
+    MisionDescription: Explode 50 Enemy Vehicles in total
+    IsMissionForOneRun: 0
+    MissionType: 12
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 50
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 15
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 13
+    MissionTitle: REGENERATION STAR
+    MisionDescription: Unlock jia default skin
+    IsMissionForOneRun: 0
+    MissionType: 2
+    PlayerId: 2
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 15
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300004, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 14
+    MissionTitle: SR-45 UPGRADE
+    MisionDescription: Complete 3 SR-45 Upgrades
+    IsMissionForOneRun: 0
+    MissionType: 5
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 3
+    AmountOrObjectIdToComplete: 1
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 15
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300006, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 15
+    MissionTitle: ASSASIN
+    MisionDescription: Kill 75 enemies in total
+    IsMissionForOneRun: 0
+    MissionType: 7
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 75
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 8
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300012, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 16
+    MissionTitle: 
+    MisionDescription: 
+    IsMissionForOneRun: 1
+    MissionType: 0
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 75
+    NoOfBluePrintsCollected: 0
+    RewardType: 0
+    RewardAmountorObjectId: 8
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300012, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 17
+    MissionTitle: REVIVER
+    MisionDescription: Die for 3 times in a single run
+    IsMissionForOneRun: 1
+    MissionType: 10
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 3
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 8
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300014, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 18
+    MissionTitle: 
+    MisionDescription: 
+    IsMissionForOneRun: 1
+    MissionType: 0
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 8
+    NoOfBluePrintsCollected: 8
+    RewardType: 5
+    RewardAmountorObjectId: 16
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300006, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 19
+    MissionTitle: 100K RUN
+    MisionDescription: 'Run for a total of 100000m '
+    IsMissionForOneRun: 0
+    MissionType: 11
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 100000
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 120
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 20
+    MissionTitle: EXPLODER
+    MisionDescription: Explode 10 enemy vehicles in one run
+    IsMissionForOneRun: 1
+    MissionType: 12
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 10
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 120
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 21
+    MissionTitle: DODGER
+    MisionDescription: Escape from 250 obstacles in total
+    IsMissionForOneRun: 0
+    MissionType: 8
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 250
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 120
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300010, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 22
+    MissionTitle: DRONE ATTACKER
+    MisionDescription: Destroy 100 Enemy Drones in total
+    IsMissionForOneRun: 0
+    MissionType: 13
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 100
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 120
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 23
+    MissionTitle: DESTROYER
+    MisionDescription: Kill 40 enemies in a single run
+    IsMissionForOneRun: 1
+    MissionType: 7
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 40
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 16
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300012, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 24
+    MissionTitle: SLAYER
+    MisionDescription: Kill 75 enemies in a single run
+    IsMissionForOneRun: 1
+    MissionType: 7
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 75
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 16
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300012, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 25
+    MissionTitle: MARATHON
+    MisionDescription: Run for 10000m in a sinle run
+    IsMissionForOneRun: 1
+    MissionType: 11
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 10000
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 26
+    MissionTitle: MARATHON
+    MisionDescription: Run for 10000m in a sinle run
+    IsMissionForOneRun: 1
+    MissionType: 0
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 10000
+    NoOfBluePrintsCollected: 0
+    RewardType: 4
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 50
+    MissionSprite: {fileID: 21300002, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300088, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 27
+    MissionTitle: LAUNCHER COLLECTOR
+    MisionDescription: Collect 10 launcher weapon blueprints
+    IsMissionForOneRun: 1
+    MissionType: 6
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 5
+    NoOfBluePrintsCollected: 10
+    RewardType: 5
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 75
+    MissionSprite: {fileID: 21300006, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 28
+    MissionTitle: ESCAPER
+    MisionDescription: Dodge 1000 obstacles in total
+    IsMissionForOneRun: 0
+    MissionType: 8
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1000
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 75
+    MissionSprite: {fileID: 21300010, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 29
+    MissionTitle: ESCAPER
+    MisionDescription: Dodge 1000 obstacles in total
+    IsMissionForOneRun: 0
+    MissionType: 0
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 1000
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 75
+    MissionSprite: {fileID: 21300010, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - MissionId: 30
+    MissionTitle: EXPLODER
+    MisionDescription: Explode 2500 Vehicles in total
+    IsMissionForOneRun: 0
+    MissionType: 12
+    PlayerId: 0
+    SkinId: 0
+    NoOfUpgrades: 0
+    AmountOrObjectIdToComplete: 2500
+    NoOfBluePrintsCollected: 0
+    RewardType: 5
+    RewardAmountorObjectId: 40
+    IsSkippable: 1
+    SkipType: 1
+    SkippableAmount: 192
+    XpEarned: 75
+    MissionSprite: {fileID: 21300000, guid: 70cf65f1fa3ff3c42b34206ae338ff2d, type: 3}
+    RewardSprite: {fileID: 21300090, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  MaxLevels: 50
+  Levels:
+  - LevelNumber: 1
+    XpRequiredToReachNextLevel: 100
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 2
+    XpRequiredToReachNextLevel: 200
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 3
+    XpRequiredToReachNextLevel: 300
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 4
+    XpRequiredToReachNextLevel: 400
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+    - RewardType: 8
+      RewardAmountOrId: 2
+      RewardSprite: {fileID: 21300000, guid: 2adf8b2d5d6108d4cb183d5d12893b52, type: 3}
+  - LevelNumber: 5
+    XpRequiredToReachNextLevel: 500
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 6
+    XpRequiredToReachNextLevel: 600
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 7
+    XpRequiredToReachNextLevel: 700
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 8
+    XpRequiredToReachNextLevel: 800
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 9
+    XpRequiredToReachNextLevel: 900
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 10
+    XpRequiredToReachNextLevel: 1000
+    RewardsList:
+    - RewardType: 5
+      RewardAmountOrId: 5
+      RewardSprite: {fileID: 21300074, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 11
+    XpRequiredToReachNextLevel: 1100
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 12
+    XpRequiredToReachNextLevel: 1200
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+    - RewardType: 8
+      RewardAmountOrId: 3
+      RewardSprite: {fileID: 21300000, guid: 9b47e06e73467024287f6a6e13b60910, type: 3}
+  - LevelNumber: 13
+    XpRequiredToReachNextLevel: 1300
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 14
+    XpRequiredToReachNextLevel: 1400
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 15
+    XpRequiredToReachNextLevel: 1500
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 16
+    XpRequiredToReachNextLevel: 1600
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 17
+    XpRequiredToReachNextLevel: 1700
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 18
+    XpRequiredToReachNextLevel: 1800
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 19
+    XpRequiredToReachNextLevel: 1900
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 20
+    XpRequiredToReachNextLevel: 2000
+    RewardsList:
+    - RewardType: 5
+      RewardAmountOrId: 10
+      RewardSprite: {fileID: 21300074, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+    - RewardType: 1
+      RewardAmountOrId: 4
+      RewardSprite: {fileID: 21300058, guid: 69c6f4cecd87c9041bf999aff89a19ca, type: 3}
+  - LevelNumber: 21
+    XpRequiredToReachNextLevel: 2100
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 22
+    XpRequiredToReachNextLevel: 2200
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 23
+    XpRequiredToReachNextLevel: 2300
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 24
+    XpRequiredToReachNextLevel: 2400
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 25
+    XpRequiredToReachNextLevel: 2500
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 26
+    XpRequiredToReachNextLevel: 2600
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 27
+    XpRequiredToReachNextLevel: 2700
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 28
+    XpRequiredToReachNextLevel: 2800
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+    - RewardType: 1
+      RewardAmountOrId: 5
+      RewardSprite: {fileID: 21300060, guid: 69c6f4cecd87c9041bf999aff89a19ca, type: 3}
+  - LevelNumber: 29
+    XpRequiredToReachNextLevel: 2900
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 30
+    XpRequiredToReachNextLevel: 3000
+    RewardsList:
+    - RewardType: 5
+      RewardAmountOrId: 15
+      RewardSprite: {fileID: 21300074, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 31
+    XpRequiredToReachNextLevel: 3100
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 32
+    XpRequiredToReachNextLevel: 3200
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 33
+    XpRequiredToReachNextLevel: 3300
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 34
+    XpRequiredToReachNextLevel: 3400
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 35
+    XpRequiredToReachNextLevel: 3500
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 36
+    XpRequiredToReachNextLevel: 3600
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 37
+    XpRequiredToReachNextLevel: 3700
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 38
+    XpRequiredToReachNextLevel: 3800
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 39
+    XpRequiredToReachNextLevel: 3900
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 40
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 40
+    XpRequiredToReachNextLevel: 4000
+    RewardsList:
+    - RewardType: 5
+      RewardAmountOrId: 20
+      RewardSprite: {fileID: 21300074, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 41
+    XpRequiredToReachNextLevel: 4100
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 42
+    XpRequiredToReachNextLevel: 4200
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 43
+    XpRequiredToReachNextLevel: 4300
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 44
+    XpRequiredToReachNextLevel: 4400
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 45
+    XpRequiredToReachNextLevel: 4500
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 46
+    XpRequiredToReachNextLevel: 4600
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 47
+    XpRequiredToReachNextLevel: 4700
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 48
+    XpRequiredToReachNextLevel: 4800
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 49
+    XpRequiredToReachNextLevel: 4900
+    RewardsList:
+    - RewardType: 4
+      RewardAmountOrId: 50
+      RewardSprite: {fileID: 21300076, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  - LevelNumber: 50
+    XpRequiredToReachNextLevel: 5000
+    RewardsList:
+    - RewardType: 5
+      RewardAmountOrId: 30
+      RewardSprite: {fileID: 21300074, guid: 739ba630e03f9614694d54ea41e4f467, type: 3}
+  BluePrintItems:
+  - ItemType: 1
+    ItemId: 2
+    PlayerId: 0
+    Coins: 0
+    Diamonds: 0
+    BluePrintImage: {fileID: 21300062, guid: 69c6f4cecd87c9041bf999aff89a19ca, type: 3}
+    DropChance: 50
+  - ItemType: 1
+    ItemId: 5
+    PlayerId: 0
+    Coins: 0
+    Diamonds: 0
+    BluePrintImage: {fileID: 21300064, guid: 69c6f4cecd87c9041bf999aff89a19ca, type: 3}
+    DropChance: 40
+  - ItemType: 3
+    ItemId: 0
+    PlayerId: 0
+    Coins: 0
+    Diamonds: 10
+    BluePrintImage: {fileID: 21300022, guid: 0a2df97c18828de4e847039b95e16ea2, type: 3}
+    DropChance: 10
