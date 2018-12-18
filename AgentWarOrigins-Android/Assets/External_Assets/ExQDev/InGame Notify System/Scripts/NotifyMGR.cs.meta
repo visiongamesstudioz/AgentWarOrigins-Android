@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dc55216ae65939f409396a519cac986d
+labels:
+- ExQDev
+- InGameNotifySystem
+timeCreated: 1477837125
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
