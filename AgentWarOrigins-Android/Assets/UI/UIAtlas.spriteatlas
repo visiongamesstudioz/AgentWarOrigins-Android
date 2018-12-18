@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 9fe3a803ec385ba41be1843c8238aaad, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 46b99e718228825498416681782f62b8, type: 3}
+  - {fileID: 21300000, guid: 18dbca529dd1aab4cad2bc5073e2397c, type: 3}
+  - {fileID: 21300000, guid: 3bb151249f10c734dada07b2511bee0b, type: 3}
+  - {fileID: 21300002, guid: a5a780e4a881ea44f88afed421a63c3a, type: 3}
+  - {fileID: 21300000, guid: a52ab43660e45b443a1a3fe15c20a5aa, type: 3}
+  - {fileID: 21300000, guid: 938b33a670160674ca1b711aa960ca35, type: 3}
+  - {fileID: 21300002, guid: 997c5c17c1c4b8e45b6a1c47799ddeb0, type: 3}
+  - {fileID: 21300000, guid: ed64b6a95245aec46bc5184869bbbae6, type: 3}
+  - {fileID: 21300000, guid: 254fc3d91b401a4499e60c2254295cd0, type: 3}
+  - {fileID: 21300002, guid: 236d996a6f89832458bce35d9d4a268b, type: 3}
+  - {fileID: 21300002, guid: 8640ef3b950dc01419a5369463f74721, type: 3}
+  - {fileID: 21300002, guid: 5362fbfb8a7d67b499bebb4e286cea71, type: 3}
+  - {fileID: 21300000, guid: b1f8607cbf39a7547bac588f805ad4a9, type: 3}
+  - {fileID: 21300000, guid: 352f8bfc35929964c997ebf53801ad86, type: 3}
+  - {fileID: 21300000, guid: db2a8e0d4486d3d4db24651a8770c6f2, type: 3}
+  - {fileID: 21300000, guid: 6da8a28d96fb6be4cb8ce20c7849a535, type: 3}
+  - {fileID: 21300002, guid: 691c72ed2864a3f42a2479bbe70525cc, type: 3}
+  - {fileID: 21300000, guid: 52cf54de2cd9c374589eb66fd882f4b4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - safe of diamonds
+  - token_0
+  - BlueButton13
+  - GUIPanel_0
+  - White_lock.svg
+  - up_arrow
+  - GUIButtonPressed_0
+  - white-plus-hi
+  - locker of diamonds_0
+  - GUISliderBG_0
+  - GUISliderFill_0
+  - GUIButtonHighlighted_0
+  - safe of coins
+  - BlueButton27
+  - shoot_icon
+  - Button1
+  - GUIButtonDefault_0
+  - locker of coins
+  m_Tag: UIAtlas
+  m_IsVariant: 0
