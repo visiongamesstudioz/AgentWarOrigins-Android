@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
     public class NetworkConnection
     {
 
@@ -17,4 +16,8 @@ using System.Collections;
             }
             return isNetworkConnected;
         }
+
+
     }
+
+

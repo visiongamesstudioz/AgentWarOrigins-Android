@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 4049002145833500}
   m_Layer: 13
   m_Name: mixamorig:Neck
-  m_TagString: Untagged
+  m_TagString: Neck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2510,9 +2510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a788fe35c3cb647b21527973da913d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: 39d9fd652d9367543aa7e0c899b2b803, type: 2}
+  Weapon: {fileID: 11400000, guid: 2e27306fc8ada4741bb56eb33ebffec9, type: 2}
   m_FirePoint: {fileID: 4777162520044680}
   m_ParticlePosition: {fileID: 0}
+  ZoomToWeaponCamera: {fileID: 0}
+  DefaultCamTransform: {x: 0, y: 0, z: 0}
   m_ShellParent: {fileID: 0}
   m_ShellLocation: {fileID: 0}
   m_ShellForce: {x: 0, y: 0, z: 0}

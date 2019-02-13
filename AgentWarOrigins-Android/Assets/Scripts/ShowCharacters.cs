@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -43,6 +45,11 @@ public class ShowCharacters : MonoBehaviour
         foreach (var player in DataManager.Instance.Players)
         {
             Player instance = Instantiate(player) as Player;
+            Animator animator = instance.GetComponent<Animator>();
+            if (animator.runtimeAnimatorController == null)
+            {
+                animator.runtimeAnimatorController = player.PlayerAnimatorController;
+            }
             instance.transform.position = FirstAgentShowPosition + new Vector3(DistanceBetweenShowAgents * i, 0, 0);
             InputControl inputControl = instance.GetComponent<InputControl>();
             Destroy(inputControl);
@@ -154,6 +161,23 @@ public class ShowCharacters : MonoBehaviour
                         SelectCharacterPanel.GetComponentInChildren<Text>().text = "Select";
 
                         m_ShowOutfits.ShowPlayerOutfits();
+
+                        //track appsflyerrich event
+                        Dictionary<string,string> events=new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE,"agent");
+                        events.Add(AFInAppEvents.CONTENT_ID,player.PlayerID.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, player.PlayerName);
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.BOUGHT_AGENT,events);
+
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, player.PlayerName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Coins)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,player.PlayerCost),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "agent"),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
                     }
                   
                     break;
@@ -187,7 +211,24 @@ public class ShowCharacters : MonoBehaviour
                         SelectCharacterPanel.gameObject.SetActive(true);
                         SelectCharacterPanel.GetComponentInChildren<Text>().text = "Select";
                         m_ShowOutfits.ShowPlayerOutfits();
+                        //track appsflyerrich event
+                        Dictionary<string, string> events = new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE, "agent");
+                        events.Add(AFInAppEvents.CONTENT_ID, player.PlayerID.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, player.PlayerName);
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.BOUGHT_AGENT, events);
 
+                        //log firebase events
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, player.PlayerName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,player.PlayerCost),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "agent"),
+                        };
+
+                       FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency,virtualcurrencyparameters);
+                       
                     }
                     break;
             }

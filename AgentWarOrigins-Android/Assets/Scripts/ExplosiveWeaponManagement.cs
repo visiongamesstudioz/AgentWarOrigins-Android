@@ -30,7 +30,7 @@ public class ExplosiveWeaponManagement : WeaponManagement
         //Debug.Log("no of shots fired" + m_NoofShotsFired);
         //Debug.Log("m_CurrentReloadAmmoAvailable" + m_CurrentReloadAmmoAvailable);
         //Debug.Log("current ammo available" + m_CurrentAmmoAvailable);
-        var direction = FireDirection(position);
+        var direction = FireDirectionSpread(position);
         //PlayWeaponRecoilAnimation();
         PlayMuzzleFlash();
         PlayFireParticles();
@@ -40,11 +40,10 @@ public class ExplosiveWeaponManagement : WeaponManagement
             m_audioSource.pitch = Random.Range(0.5f, 1.5f);
             AudioManager.Instance.PlaySound(m_audioSource, m_ShootaudioClip, m_FireSoundDelay);
         }
-        RaycastHit hit;
 #if UNITY_EDITOR
 
         //   Debug.Log("direction" + direction);
-        Debug.DrawRay(m_FirePoint.position, direction * 100, Color.white, 10f);
+        Debug.DrawRay(m_FirePoint.position, direction, Color.white, 10f);
 #endif
         killMissions.Clear();
         deathMissions.Clear();
@@ -60,97 +59,103 @@ public class ExplosiveWeaponManagement : WeaponManagement
             }
         }
 
-        if (Physics.Raycast(m_FirePoint.position, direction, out hit, m_WeaponRange, m_LayerMask))
-        {
+        RaycastHit[] raycastHits=null;
+        raycastHits=Physics.RaycastAll(m_FirePoint.position, direction, m_WeaponRange, m_LayerMask);
+       
             //Debug.Log(hit.collider.name + "from weapon script");
 
-
+        foreach (RaycastHit hit in raycastHits)
+        {
             if (hit.collider)
             {
-
-                if (!hit.collider.CompareTag("Player"))
-                {
+                Debug.Log(hit.collider.name);
+              
                     //play explosion 
                     if (ExplosionParticles)
                     {
                         ExplosionParticles.gameObject.transform.position = hit.point;
                         ExplosionParticles.Play(true);
+
+                        if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Ground"))
+                        {
+
                         //  ParticleSystem explosion = Instantiate(ExplosionParticles, hit.point, Quaternion.identity) as ParticleSystem;
                         ExplosiveForce explosionForce = ExplosionParticles.GetComponent<ExplosiveForce>();
-                            List<Rigidbody> explodedEnemies =
-                        explosionForce.Explode(LayerMask.NameToLayer("Enemy"));
-                    foreach (var explodedEnemy in explodedEnemies)
-                    {
-
-                        Health healthCom = explodedEnemy.gameObject.GetComponent<Health>();
-                        EnemyAI enemyAi = healthCom.gameObject.GetComponent<EnemyAI>();
-                        if (healthCom && !enemyAi.isDieSet)
+                        List<Rigidbody> explodedEnemies =
+                    explosionForce.Explode(LayerMask.NameToLayer("Enemy"));
+                        foreach (var explodedEnemy in explodedEnemies)
                         {
-                            float proximity = (hit.point - explodedEnemy.transform.position).magnitude;
-                            float effect = 1 - (proximity / explosionForce.ExplosionRadius);
-                            if (healthCom.GetCurrentHealth() > 0)
-                            {
-                                healthCom.TakeDamage(m_HitscanDamageAmount * effect);
 
-                            }
-                            if (healthCom.GetCurrentHealth() <= 0)
+                            Health healthCom = explodedEnemy.gameObject.GetComponent<Health>();
+                            EnemyAI enemyAi = healthCom.gameObject.GetComponent<EnemyAI>();
+                            if (healthCom && !enemyAi.isDieSet)
                             {
-                                healthCom.PlayDeathEffects();
-                                GameManager.noOfEnemiesOnScreen--;
-                                PlayerData.PlayerProfile.PlayerXp += 25; //xp for kill
-                                PlayerData.PlayerProfile.CurrentLevelXp += 25;
-                                PlayerData.CurrentGameStats.CurrentXpEarned += 25;
-
-                                if (PlayerData.PlayerProfile.CurrentLevelXp >=
-                                    DataManager.Instance.GetLevel(PlayerData.PlayerProfile.CurrentLevel)
-                                        .XpRequiredToReachNextLevel)
+                                float proximity = (hit.point - explodedEnemy.transform.position).magnitude;
+                                float effect = 1 - (proximity / explosionForce.ExplosionRadius);
+                                if (healthCom.GetCurrentHealth() > 0)
                                 {
-                                    PlayerData.PlayerProfile.CurrentLevelXp -=
+                                    healthCom.TakeDamage(m_HitscanDamageAmount * effect);
+
+                                }
+                                if (healthCom.GetCurrentHealth() <= 0)
+                                {
+                                    healthCom.PlayDeathEffects();
+                                    GameManager.noOfEnemiesOnScreen--;
+                                    PlayerData.PlayerProfile.PlayerXp += 25; //xp for kill
+                                    PlayerData.PlayerProfile.CurrentLevelXp += 25;
+                                    PlayerData.CurrentGameStats.CurrentXpEarned += 25;
+
+                                    if (PlayerData.PlayerProfile.CurrentLevelXp >=
                                         DataManager.Instance.GetLevel(PlayerData.PlayerProfile.CurrentLevel)
-                                            .XpRequiredToReachNextLevel;
-                                    PlayerData.PlayerProfile.CurrentLevel++;
-                                }
-                            //    GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-                                UiManager.Instance.ShowXPText(m_player.transform.position,25,XPType.KilledEnemy);
-                                PlayerData.PlayerProfile.NoofEnemieskilled += 1;
-                     
-                                PlayerData.CurrentGameStats.CurrentKills++;
-                                if (killMissions.Count > 0)
-                                {
-
-                                    foreach (Mission mission in killMissions)
+                                            .XpRequiredToReachNextLevel)
                                     {
-                                        if (!mission.IsMissionForOneRun)
-                                        {
-                                            if (PlayerData
-                                                .PlayerProfile.NoofEnemieskilled == mission.AmountOrObjectIdToComplete)
-                                            {
-
-                                                EventManager.TriggerEvent(mission.MissionTitle);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            //check for current game stats
-                                            if (PlayerData.CurrentGameStats.CurrentKills == mission.AmountOrObjectIdToComplete)
-                                            {
-                                                EventManager.TriggerEvent(mission.MissionTitle);
-                                            }
-
-                                        }
-
+                                        PlayerData.PlayerProfile.CurrentLevelXp -=
+                                            DataManager.Instance.GetLevel(PlayerData.PlayerProfile.CurrentLevel)
+                                                .XpRequiredToReachNextLevel;
+                                        PlayerData.PlayerProfile.CurrentLevel++;
                                     }
+                                    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                                    UiManager.Instance.ShowXPText(m_player.transform.position, 25, XPType.KilledEnemy);
+                                    PlayerData.PlayerProfile.NoofEnemieskilled += 1;
+
+                                    PlayerData.CurrentGameStats.CurrentKills++;
+                                    UiManager.Instance.UpdateCurrentKills(PlayerData.CurrentGameStats.CurrentKills);
+                                    if (killMissions.Count > 0)
+                                    {
+
+                                        foreach (Mission mission in killMissions)
+                                        {
+                                            if (!mission.IsMissionForOneRun)
+                                            {
+                                                if (PlayerData
+                                                    .PlayerProfile.NoofEnemieskilled == mission.AmountOrObjectIdToComplete)
+                                                {
+
+                                                    EventManager.TriggerEvent(mission.MissionTitle);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                //check for current game stats
+                                                if (PlayerData.CurrentGameStats.CurrentKills == mission.AmountOrObjectIdToComplete)
+                                                {
+                                                    EventManager.TriggerEvent(mission.MissionTitle);
+                                                }
+
+                                            }
+
+                                        }
+                                    }
+                                    enemyAi.isDieSet = true;
                                 }
-                                enemyAi.isDieSet = true;
+
                             }
 
                         }
+                    }
 
-                    }
-                    }
-      
-                
+
                 }
                 if (hit.collider.CompareTag("EnemyDrone"))
                 {
@@ -198,7 +203,7 @@ public class ExplosiveWeaponManagement : WeaponManagement
                                             EventManager.TriggerEvent(mission.MissionTitle);
                                     }
                         }
-               
+
                         //drone misions
                         //   if()
                     }
@@ -215,6 +220,8 @@ public class ExplosiveWeaponManagement : WeaponManagement
 
             }
         }
+         
+        
         return true;
     }
     

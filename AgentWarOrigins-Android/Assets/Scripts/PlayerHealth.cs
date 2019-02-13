@@ -279,7 +279,7 @@ namespace EndlessRunner
                 {
                     //play hit sound
 
-                    PlayStumbleAnimation();
+                   // PlayStumbleAnimation();
                     AudioManager.Instance.PlaySound(m_audioSource,
                     m_Player.HitAudioClips[Random.Range(0, m_Player.HitAudioClips.Length)]);
                 }
@@ -303,7 +303,7 @@ namespace EndlessRunner
                 else
                 {
                     //play hit sound
-                    PlayHitAnimation();
+              //      PlayHitAnimation();
                     AudioManager.Instance.PlaySound(m_audioSource,
                         m_Player.HitAudioClips[Random.Range(0, m_Player.HitAudioClips.Length)]);
                 }
@@ -334,11 +334,7 @@ namespace EndlessRunner
 
         }
 
-        public void PlayHitAnimation()
-        {
 
-            m_PlayerAnimation.Hit();
-        }
         public void PlayStumbleAnimation()
         {
             m_PlayerAnimation.Stumble();

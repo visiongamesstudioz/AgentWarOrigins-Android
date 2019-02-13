@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 namespace EndlessRunner
@@ -35,7 +36,7 @@ namespace EndlessRunner
         public static int noOfEnemiesOnScreen;
         private float remainingRevives;
         private float ReviveEnergyAmountFactor;
-        private Camera m_MainCamera;
+        public Camera m_MainCamera;
         private AudioSource m_audioSource;
 
 
@@ -129,7 +130,7 @@ namespace EndlessRunner
                     if (m_InfiniteObjectGenerator)
                     {
                         m_InfiniteObjectGenerator.DistanceBetweenCollidables.x =
-                            Mathf.Clamp(m_InfiniteObjectGenerator.DistanceBetweenCollidables.x -= 5, 50, 75);
+                            Mathf.Clamp(m_InfiniteObjectGenerator.DistanceBetweenCollidables.x -= 5, 30, 75);
                     }
                 }
             }
@@ -166,8 +167,11 @@ namespace EndlessRunner
             //show pause button
             //    m_InfiniteObjectGenerator.SpawnObjectRun(true);
             UiManager.Instance.ShowPauseButton();
+            UiManager.Instance.ShowCurrentStatsInPauseCanvas();
+
             UiManager.Instance.DisableSceneCanavas();
             //start game music
+
             AudioManager.Instance.PlaySound(m_audioSource,
                 m_IsGameActive ? GamePlayAudioClip : MenuAudioClip);
 
@@ -407,9 +411,14 @@ namespace EndlessRunner
         {
             m_SceneName = scene.name;
             m_audioSource = GetComponent<AudioSource>();
+
             if (scene.name == "Home") //should change
             {
-                InitializeSelectedCharacter();
+                if (GameManager.m_InstantiatedPlayer == null)
+                {
+                    InitializeSelectedCharacter();
+                }
+                
 
                 if (m_InstantiatedPlayer)
                 {
@@ -417,15 +426,42 @@ namespace EndlessRunner
                     m_PlayerControl = m_InstantiatedPlayer.GetComponent<PlayerControl>();
                     m_PlayerRigidbody = m_InstantiatedPlayer.GetComponent<Rigidbody>();
                 }
+
                 //create pools
                 UiManager.Instance.CreateUiPools();
-                //enable main camera
-                m_MainCamera = Camera.main;
-                if (m_MainCamera)
+                //set timeline controllers
+                if (!Util.IsTutorialComplete())
                 {
+                    if (m_InstantiatedPlayer)
+                    {
+                        m_PlayerRigidbody.isKinematic = false;
+                        m_InstantiatedPlayer.transform.localPosition = new Vector3(65.7f, 0, 0);
+                    }
+
+                    GameObject timelineControllergo = GameObject.Find("TimelineController");
+                    TimelineController timelineController = timelineControllergo.GetComponent<TimelineController>();
+                    timelineController.SetVirtualCameraFollowObject(m_InstantiatedPlayer.transform);
+                    GameObject playerNeck = Util.FindGameObjectWithTag(m_InstantiatedPlayer, "Neck");
+                    timelineController.SetLookUpCameraObject(playerNeck.transform);
+                    DynamicTimeliineBinding dynamicTimelineBinding = timelineControllergo.GetComponent<DynamicTimeliineBinding>();
+                    dynamicTimelineBinding.SetPlayer(m_InstantiatedPlayer);
+                    dynamicTimelineBinding.ApplyOffsets();
+                    timelineController.PlayCutScene();
+                }
+
+                //enable main camera
+
+               // m_MainCamera = Camera.main;
+                if (m_MainCamera && Util.IsTutorialComplete())
+                {
+
+                    m_MainCamera.gameObject.SetActive(true);
+
                     m_MainCamera.GetComponent<IntroSceneCameraMovement>().enabled = true;
+                    m_MainCamera.transform.localEulerAngles = new Vector3(0, -90, 0);
 
                 }
+               
             }
             else if (scene.name == "missions")
             {
@@ -445,8 +481,12 @@ namespace EndlessRunner
 
 
             //change music based on scene
-            AudioManager.Instance.PlaySound(m_audioSource,
-                m_IsGameActive ? GamePlayAudioClip : MenuAudioClip);
+            if (Util.IsTutorialComplete())
+            {
+                AudioManager.Instance.PlaySound(m_audioSource,
+                    m_IsGameActive ? GamePlayAudioClip : MenuAudioClip);
+            }
+ 
             //destroy banner ad
    //         AdmobAdManager.Instance.DestroyBannerAd();
         }

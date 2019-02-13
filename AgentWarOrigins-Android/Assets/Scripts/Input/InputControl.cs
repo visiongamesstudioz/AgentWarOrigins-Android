@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace EndlessRunner
@@ -21,11 +23,9 @@ namespace EndlessRunner
         public float movementSpeed = 10f;
         public bool autoRun = true;
         private bool isStarted;
-        private PlayerControl playerControl;
         // if true the player is not bound to slot positions
         public bool freeHorizontalMovement = false;
         private CameraVerticalMovementController m_cameraVerticalMovementController;
-
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_BLACKBERRY || UNITY_WP8
         // move horizontally with a swipe (true) or the accelerometer (false)
         public bool swipeToMoveHorizontally = true;
@@ -39,6 +39,7 @@ namespace EndlessRunner
         // The accelerometer value in between these two values equals the middle slot.
         private Vector2 touchStartPosition;
         private bool acceptInput; // ensure that only one action is performed per touch gesture
+        
 #endif
 #if UNITY_EDITOR || !(UNITY_IPHONE || UNITY_ANDROID || UNITY_BLACKBERRY || UNITY_WP8)
         public bool sameKeyForTurnHorizontalMovement = false;
@@ -55,6 +56,7 @@ namespace EndlessRunner
 #endif
         public bool MoveLeft { get; set; }
         public bool MoveRight { get; set; }
+        private Camera activeCamera;
         private void Awake()
         {
             playerShoot = GetComponent<PlayerShoot>();
@@ -63,12 +65,14 @@ namespace EndlessRunner
         private void Start()
         {
             //get player control Instance
-            playerControl = PlayerControl.Instance;
             // get the transform of the main camera
             if (Camera.main != null)
             {
                 m_Cam = Camera.main.transform;
-                m_Cam.transform.localEulerAngles = new Vector3(0,-90, 0);
+                if (Util.IsTutorialComplete())
+                {
+                    m_Cam.transform.localEulerAngles = new Vector3(0, -90, 0);
+                }
                 m_cameraVerticalMovementController = m_Cam.GetComponent<CameraVerticalMovementController>();
             }
 
@@ -88,7 +92,9 @@ namespace EndlessRunner
             {
                 m_cameraVerticalMovementController.ResetCameraRotation();
                 m_cameraVerticalMovementController.enabled = false;
-                if (!m_Jump)
+            }
+
+            if (!m_Jump)
                 {
                     m_Jump = Input.GetKeyDown(KeyCode.UpArrow);
                 }
@@ -107,126 +113,118 @@ namespace EndlessRunner
                     MoveRight = true;
                     MoveLeft = false;
                 }
-                
-            }
+            
             if (playerShoot.enabled)
             {
                 m_cameraVerticalMovementController.enabled = true;
 
                 if (Input.GetMouseButton(0))
                 {
-                    
+                    if (!IsPointerOverUIObject())
+                    {
                         playerShoot.Shoot(Input.mousePosition);
+                    }                  
                 }
+                
             }
 
-
-
 #elif UNITY_ANDROID || UNITY_IOS
-
-
-         if (Input.touchCount > 0)
+      
+               
+            if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
                 if (!playerShoot.enabled)
                 {
-
                     m_cameraVerticalMovementController.ResetCameraRotation();
-
                     m_cameraVerticalMovementController.enabled = false;
-
-                    if (touch.phase == TouchPhase.Began)
+                }
+                else
+                {
+                    m_cameraVerticalMovementController.enabled = true;
+                }
+                if (touch.phase == TouchPhase.Began)
+                {
+                    touchStartPosition = touch.position;
+                    // Get movement of the finger since last frame
+                    if (playerShoot.enabled)
                     {
-                        touchStartPosition = touch.position;
-                        // Get movement of the finger since last frame
-                        Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+                        if (!IsPointerOverUIObject())
+                        {
+                            playerShoot.Shoot(Input.mousePosition);
+                        }
+
                     }
-                    else if (touch.phase == TouchPhase.Moved && acceptInput)
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+                }
+                else if (touch.phase == TouchPhase.Moved && acceptInput)
+                {
+                    if (!IsPointerOverUIObject())
                     {
                         Vector2 diff = touch.position - touchStartPosition;
                         if (diff.x == 0f)
                             diff.x = 1f; // avoid divide by zero
                         float verticalPercent = Mathf.Abs(diff.y / diff.x);
 
-                        if (verticalPercent > swipeSensitivty && Mathf.Abs(diff.y) > swipeDistance.y)
+                        if (touchStartPosition.x > Screen.width / 2)
                         {
-                            if (diff.y > 0)
-                            {
-                                 m_Jump = true;
-                                acceptInput = false;
-                                PlayerData.PlayerProfile.NofJumps++;
-                            }
-                            else if (diff.y < 0)
-                            {
-                                m_Slide = true;
-                                PlayerData.PlayerProfile.NoofSlides++;
 
-                                acceptInput = false;
-                            }
-                            touchStartPosition = touch.position;
-                        }
-                        else if (verticalPercent < (1 / swipeSensitivty) && Mathf.Abs(diff.x) > swipeDistance.x)
-                        {
-                            // turn if above a turn, otherwise move horizontally
-                            if (swipeToMoveHorizontally)
+                            if (verticalPercent > swipeSensitivty && Mathf.Abs(diff.y) > swipeDistance.y)
                             {
-                                if (diff.x > 0)
+                                if (diff.y > 0)
                                 {
-                                    MoveRight = true;
-                                    MoveLeft = false;
+                                    m_Jump = true;
+                                    acceptInput = false;
+                                    PlayerData.PlayerProfile.NofJumps++;
                                 }
-                                else
+                                else if (diff.y < 0)
                                 {
-                                    MoveLeft = true;
-                                    MoveRight = false;
+                                    m_Slide = true;
+                                    PlayerData.PlayerProfile.NoofSlides++;
+
+                                    acceptInput = false;
                                 }
-                                //    playerControl.ChangeSlots(diff.x > 0 ? true : false);
+                                touchStartPosition = touch.position;
+                            }
+                            else if (verticalPercent < (1 / swipeSensitivty) && Mathf.Abs(diff.x) > swipeDistance.x)
+                            {
+                                // turn if above a turn, otherwise move horizontally
+                                if (swipeToMoveHorizontally)
+                                {
+                                    if (diff.x > 0)
+                                    {
+                                        MoveRight = true;
+                                        MoveLeft = false;
+                                    }
+                                    else
+                                    {
+                                        MoveLeft = true;
+                                        MoveRight = false;
+                                    }
+                                    //    playerControl.ChangeSlots(diff.x > 0 ? true : false);
+                                }
                             }
                         }
+
+
+
                         acceptInput = false;
                     }
-                    else if (touch.phase == TouchPhase.Stationary)
-                    {
-                        acceptInput = true;
-                    }
-                    else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-                    {
-                        acceptInput = true;
-                    }
+
                 }
-                else if (playerShoot.enabled)
+                else if (touch.phase == TouchPhase.Stationary)
                 {
-                    if (touch.phase == TouchPhase.Began)
-                    {
-                        touchStartPosition = touch.position;
-                        playerShoot.Shoot(touchStartPosition);
-                        Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-
-                    }
-
-                    else if (touch.phase == TouchPhase.Moved )
-                    {
-                        Vector2 diff = touch.position - touchStartPosition;
-                        if (diff.x == 0f)
-                            diff.x = 1f; // avoid divide by zero
-                        float verticalPercent = Mathf.Abs(diff.y / diff.x);
-
-                        if (verticalPercent > swipeSensitivty && Mathf.Abs(diff.y) > swipeDistanceForVerticalMovement.y)
-                        {
-                            m_cameraVerticalMovementController.enabled = true;
-
-                            touchStartPosition = touch.position;
-                        }
-                        else
-                        {
-                            m_cameraVerticalMovementController.enabled = false;
-
-                            playerShoot.Shoot(touchStartPosition);
-
-                        }
-                    }
+                    acceptInput = true;
+                }
+                else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
+                    acceptInput = true;
                 }
             }
+
+          
 #endif
         }
 
@@ -251,7 +249,7 @@ namespace EndlessRunner
                 //m_Move = v*Vector3.forward + h*Vector3.right;
                 m_Move = movementSpeed * Vector3.right;
             }
-          
+
 
 
 #elif UNITY_ANDROID || UNITY_IOS
@@ -265,28 +263,74 @@ namespace EndlessRunner
 #endif
 
             // pass all parameters to the character control script
-            if (GameManager.Instance.IsGameActive())
+            if (GameManager.Instance)
             {
-                if (!playerShoot.enabled)
+                if (GameManager.Instance.IsGameActive() || !Util.IsTutorialComplete())
                 {
-                    m_Character.Move(m_Move, m_Jump, m_Slide, MoveLeft, MoveRight, animationSpeed);
-                    m_Jump = false;
-                    m_Slide = false;
-                    MoveLeft = false;
-                    MoveRight = false;
+                    HandleMovement();
                 }
-                else
-                {
-                    m_Character.Move(m_Move, false, false, false, false, animationSpeed);
-
-                }
-
             }
+            //tutorail
+
+            
         }
 
         public void JumpPressed()
         {
             m_Jump = true;
         }
+
+        private bool IsPointerOverUIObject()
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+       
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+            foreach (var result in results.ToArray())
+            {
+                if (result.gameObject.name == "TapToShoot")
+                {
+                    results.Remove(result);
+                }
+            }
+            return results.Count > 0;
+        }
+
+        private void HandleMovement()
+        {
+            if (playerShoot.enabled)
+            {
+                activeCamera = UiManager.Instance.GetActiveCamera();
+                if (activeCamera == null)
+                {
+                    activeCamera = Camera.main;
+                }
+                if (activeCamera.CompareTag("MainCamera"))
+                {
+                    m_Character.Move(m_Move, m_Jump, m_Slide, MoveLeft, MoveRight, animationSpeed);
+
+                }
+                else
+                {
+                    m_Character.Move(m_Move, false, false, MoveLeft, MoveRight, animationSpeed);
+
+                }
+            }
+            else
+            {
+
+                m_Character.Move(m_Move, m_Jump, m_Slide, MoveLeft, MoveRight, animationSpeed);
+            }
+            m_Jump = false;
+            m_Slide = false;
+            MoveLeft = false;
+            MoveRight = false;
+        }
+
+
+
     }
+    
 }

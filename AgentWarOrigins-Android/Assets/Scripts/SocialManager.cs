@@ -286,7 +286,7 @@ public class SocialManager : MonoBehaviour
 
     public void SignInGooglePlayServices()
     {
-        if (CheckNetworkConnection.IsNetworkAvailable())
+        if (NetworkConnection.isNetworkAvailable())
         {
             if (!Social.localUser.authenticated)
             {
@@ -375,13 +375,3 @@ public class SocialManager : MonoBehaviour
     }
 }
 
-public static class CheckNetworkConnection
-{
-    public static bool IsNetworkAvailable()
-    {
-        if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork
-            || Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork)
-            return true;
-        return false;
-    }
-}

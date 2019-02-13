@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -56,13 +57,25 @@ public class BluePrintGiftBox : MonoBehaviour
             return;
         }
         else
-        {
-            //
+        {           
             noofDiamondsAvailable -= GiftBoxCost;
             PlayerData.PlayerProfile.NoofDiamondsAvailable = noofDiamondsAvailable;
             UiManager.Instance.UpdateUi();
             PlayerData.SavePlayerData();
             OpenGiftBox();
+            //track blueprintbox event
+            AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.BOUGHT_BLUEPRINTCRATE);
+
+            Parameter[] virtualcurrencyparameters =
+            {
+                new Parameter(FirebaseAnalytics.ParameterItemName, "blueprints"),
+                new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                new Parameter(FirebaseAnalytics.ParameterValue,GiftBoxCost),
+                new Parameter(FirebaseAnalytics.ParameterContentType, "blueprintbox"),
+            };
+
+            FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
+
         }
     }
     public void OpenGiftBox()

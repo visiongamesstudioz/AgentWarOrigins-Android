@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using EndlessRunner;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
@@ -14,12 +15,12 @@ public class HealthBar : MonoBehaviour
     public Transform objectToFollow;
     private DepthUIScript depthUIScript;
     private GameObject player;
-    private Camera mainCamera;
+    private Camera activeCamera;
     private void Start()
     {
         targetCanvas = GameObject.Find("HealthBarCanvas").GetComponent<RectTransform>();
         player = GameObject.FindGameObjectWithTag("Player");
-        mainCamera = Camera.main;
+        activeCamera = Camera.main;
         SetHealthBarData();
         
         targetCanvas.GetComponent<ScreenSpaceCanvasScript>().AddToCanvas(healthBar.GetComponent<DepthUIScript>());
@@ -47,21 +48,30 @@ public class HealthBar : MonoBehaviour
     #region PRIVATE_METHODS
     private void RepositionHealthBar()
     {
-        if (mainCamera)
+        if (UiManager.Instance)
         {
-            Vector3 ViewportPosition = mainCamera.WorldToViewportPoint(objectToFollow.position);
+            activeCamera = UiManager.Instance.GetActiveCamera();
+        }
+        
+        if (activeCamera == null)
+        {
+            activeCamera=Camera.main;
+        }
+        if (activeCamera)
+        {
+            Vector3 ViewportPosition = activeCamera.WorldToViewportPoint(objectToFollow.position);
             Vector3 WorldObject_ScreenPosition = new Vector3(
             ((ViewportPosition.x * targetCanvas.sizeDelta.x) - (targetCanvas.sizeDelta.x * 0.5f)),
             ((ViewportPosition.y * targetCanvas.sizeDelta.y) - (targetCanvas.sizeDelta.y * 0.5f)), ViewportPosition.z);
             //now you can set the position of the ui element
             healthBar.anchoredPosition = WorldObject_ScreenPosition;
 
-            float distance = (WorldObject_ScreenPosition -mainCamera.transform.position).magnitude;
+            float distance = (WorldObject_ScreenPosition -activeCamera.transform.position).magnitude;
             depthUIScript.depth = -distance;
 
             bool isinFront = Util.IsObjectInFront(player, EnemyGameObject);
             float distanceToPlayer = Vector3.Distance(player.transform.position, EnemyGameObject.transform.position);
-            if (isinFront && distanceToPlayer < 200)
+            if (isinFront && distanceToPlayer < 200 && EnemyGameObject.activeSelf)
             {
                 healthBarSlider.enabled = true;
             }

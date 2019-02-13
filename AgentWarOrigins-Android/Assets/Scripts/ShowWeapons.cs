@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -138,14 +140,15 @@ public class ShowWeapons : MonoBehaviour
 	        foreach (var mission in collectBluePrintsMissions)
 	        {
                 int key = mission.AmountOrObjectIdToComplete;
-	            int noOfBluePrintsCollected = noOfBluePrintsUnlockedPerWeapon[key];
-	            if (mission.NoOfBluePrintsCollected == noOfBluePrintsCollected)
-                {
-                    EventManager.TriggerEvent(mission.MissionTitle);
+	            if (noOfBluePrintsUnlockedPerWeapon.ContainsKey(key))
+	            {
+	                int noOfBluePrintsCollected = noOfBluePrintsUnlockedPerWeapon[key];
+	                if (mission.NoOfBluePrintsCollected == noOfBluePrintsCollected)
+	                {
+	                    EventManager.TriggerEvent(mission.MissionTitle);
 
+	                }
                 }
-
-
             }
 	    }
     }
@@ -383,6 +386,17 @@ public class ShowWeapons : MonoBehaviour
                     {
 
                         nofCoinsAvaliable -= weapon.UpgradeCosts[noofUpgradesompleted];
+
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, weapon.WeaponName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Coins)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,weapon.UpgradeCosts[noofUpgradesompleted]),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "upgrade_weapon"),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
+
                         noofUpgradesompleted = upgradedWeaponDictionary[weapon.WeaponId] += 1;
                         PlayerData.PlayerProfile.NoofCoinsAvailable = nofCoinsAvaliable;
                         PlayerData.PlayerProfile.NoOfupgradesPerWeaponCompleted = upgradedWeaponDictionary;
@@ -406,6 +420,15 @@ public class ShowWeapons : MonoBehaviour
                                 }
                             }
                         }
+                        Dictionary<string, string> events = new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE, "upgrade_weapon");
+                        events.Add(AFInAppEvents.CONTENT_ID, weapon.WeaponId.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, weapon.WeaponName);
+                        events.Add(AFInAppEvents.NO_OF_UPGRADES,noofUpgradesompleted.ToString());
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.UPGRADED_WEAPON, events);
+
+
+                      
                     }
                     break;
                 case LockType.Diamonds:
@@ -425,6 +448,18 @@ public class ShowWeapons : MonoBehaviour
                     else
                     {
                         noofDiamondsAvailable -= weapon.UpgradeCosts[noofUpgradesompleted];
+
+                        //log firebase events
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, weapon.WeaponName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,weapon.UpgradeCosts[noofUpgradesompleted]),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "upgrade_weapon")
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
+
                         noofUpgradesompleted = upgradedWeaponDictionary[weapon.WeaponId] += 1;
                         PlayerData.PlayerProfile.NoofDiamondsAvailable = noofDiamondsAvailable;
                         PlayerData.PlayerProfile.NoOfupgradesPerWeaponCompleted = upgradedWeaponDictionary;
@@ -448,6 +483,12 @@ public class ShowWeapons : MonoBehaviour
                                 }
                             }
                         }
+                        Dictionary<string, string> events = new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE, "upgrade_weapon");
+                        events.Add(AFInAppEvents.CONTENT_ID, weapon.WeaponId.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, weapon.WeaponName);
+                        events.Add(AFInAppEvents.NO_OF_UPGRADES, noofUpgradesompleted.ToString());
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.UPGRADED_WEAPON, events);
                     }
                     break;
             }
@@ -611,6 +652,22 @@ public class ShowWeapons : MonoBehaviour
                                 }
                             }
                         }
+                        //track appsflyerrich event
+                        Dictionary<string, string> events = new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE, "weapon");
+                        events.Add(AFInAppEvents.CONTENT_ID, weapon.WeaponId.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, weapon.WeaponName);
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.BOUGHT_WEAPON, events);
+
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, weapon.WeaponName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Coins)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,weapon.WeaponCost),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "weapon"),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
 
                     }      
                     break;
@@ -659,6 +716,23 @@ public class ShowWeapons : MonoBehaviour
                                 }
                             }
                         }
+                        ////track appsflyerrich event
+                        Dictionary<string, string> events = new Dictionary<string, string>();
+                        events.Add(AFInAppEvents.CONTENT_TYPE, "weapon");
+                        events.Add(AFInAppEvents.CONTENT_ID, weapon.WeaponId.ToString());
+                        events.Add(AFInAppEvents.CONTENT_TITLE, weapon.WeaponName);
+                        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.BOUGHT_WEAPON, events);
+
+
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterItemName, weapon.WeaponName),
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,weapon.WeaponCost),
+                            new Parameter(FirebaseAnalytics.ParameterContentType, "weapon"),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventSpendVirtualCurrency, virtualcurrencyparameters);
                     }
                     break;
             }

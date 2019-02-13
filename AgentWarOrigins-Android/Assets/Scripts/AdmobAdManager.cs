@@ -1,14 +1,19 @@
 ﻿using System;
+using EndlessRunner;
+using Firebase.Analytics;
 using GoogleMobileAds.Api;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AdmobAdManager : MonoBehaviour
 {
     public static AdmobAdManager Instance;
 
+    public static VideoType VideoType;
+
     private BannerView bannerView;
     private InterstitialAd interstitial;
-    private RewardBasedVideoAd rewardBasedVideo;
+    private static RewardBasedVideoAd rewardBasedVideo;
     private float deltaTime = 0.0f;
     private static string outputMessage = string.Empty;
 
@@ -57,6 +62,7 @@ public class AdmobAdManager : MonoBehaviour
 
         //request interstial ad
         RequestInterstitial();
+        RequestRewardBasedVideo();
     }
 
     // Returns an ad request with custom ad targeting.
@@ -133,12 +139,18 @@ public class AdmobAdManager : MonoBehaviour
         interstitial.LoadAd(CreateAdRequest());
     }
 
+    public void SetVideoType(int videoType)
+    {
+        VideoType = (VideoType)videoType;
+    }
+
+
     public void RequestRewardBasedVideo()
     {
 #if UNITY_EDITOR
         var adUnitId = "unused";
 #elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        string adUnitId = "ca-app-pub-2778622632232885/6237017741";
 #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -173,31 +185,35 @@ public class AdmobAdManager : MonoBehaviour
             print("Reward based video ad is not ready yet");
     }
 
+    public bool isRewardedVideoReady()
+    {
+        return rewardBasedVideo!=null && rewardBasedVideo.IsLoaded();
+    }
     #region Banner callback handlers
 
     public void HandleAdLoaded(object sender, EventArgs args)
     {
-        print("HandleAdLoaded event received");
+   //     print("HandleAdLoaded event received");
     }
 
     public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        print("HandleFailedToReceiveAd event received with message: " + args.Message);
+    //    print("HandleFailedToReceiveAd event received with message: " + args.Message);
     }
 
     public void HandleAdOpened(object sender, EventArgs args)
     {
-        print("HandleAdOpened event received");
+   //     print("HandleAdOpened event received");
     }
 
     public void HandleAdClosed(object sender, EventArgs args)
     {
-        print("HandleAdClosed event received");
+    //    print("HandleAdClosed event received");
     }
 
     public void HandleAdLeftApplication(object sender, EventArgs args)
     {
-        print("HandleAdLeftApplication event received");
+   //     print("HandleAdLeftApplication event received");
     }
 
     #endregion
@@ -238,36 +254,93 @@ public class AdmobAdManager : MonoBehaviour
 
     public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
     {
-        print("HandleRewardBasedVideoLoaded event received");
+   //     print("HandleRewardBasedVideoLoaded event received");
     }
 
     public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        print(
-            "HandleRewardBasedVideoFailedToLoad event received with message: " + args.Message);
+  //      print(
+ //           "HandleRewardBasedVideoFailedToLoad event received with message: " + args.Message);
     }
 
     public void HandleRewardBasedVideoOpened(object sender, EventArgs args)
     {
-        print("HandleRewardBasedVideoOpened event received");
+  //      print("HandleRewardBasedVideoOpened event received");
     }
 
     public void HandleRewardBasedVideoStarted(object sender, EventArgs args)
     {
-        print("HandleRewardBasedVideoStarted event received");
+ //       print("HandleRewardBasedVideoStarted event received");
     }
 
     public void HandleRewardBasedVideoClosed(object sender, EventArgs args)
     {
-        print("HandleRewardBasedVideoClosed event received");
+ //       print("HandleRewardBasedVideoClosed event received");
+        RequestRewardBasedVideo();
     }
 
     public void HandleRewardBasedVideoRewarded(object sender, GoogleMobileAds.Api.Reward args)
     {
         var type = args.Type;
         var amount = args.Amount;
-        print(
-            "HandleRewardBasedVideoRewarded event received for " + amount + " " + type);
+    //    print(
+     //       "HandleRewardBasedVideoRewarded event received for " + amount + " " + type);
+
+
+        switch (VideoType)
+        {
+            //double current xp earned;
+            case VideoType.DoubleTokens:
+                AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.CLICK_DOUBLETOKENS);
+                FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.CLICK_DOUBLETOKENS);
+                Parameter[] virtualcurrencyparameters =
+                {
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, "Tokens"),
+                            new Parameter(FirebaseAnalytics.ParameterValue,PlayerData.CurrentGameStats.TokensCollected),
+                        };
+
+                FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventEarnVirtualCurrency, virtualcurrencyparameters);
+                PlayerData.PlayerProfile.NoofTokensAvailable += (int)PlayerData.CurrentGameStats.TokensCollected;
+                PlayerData.CurrentGameStats.TokensCollected *= 2;
+
+                GameObject showCurrentStats = GameObject.Find("CurrentGameStats");
+                if (showCurrentStats != null)
+                {
+                    GameObject currenttokensCollected = Util.FindGameObjectWithName(showCurrentStats, "tokensCollectedValue");
+                    currenttokensCollected.GetComponentInChildren<Text>().text =
+                        PlayerData.CurrentGameStats.TokensCollected.ToString();
+                }
+
+
+                UiManager.Instance.UpdateUi();
+                break;
+            case VideoType.ResumeVideo:
+                AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.INAPP_WATCH_VIDEO);
+                FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.INAPP_WATCH_VIDEO);
+                GameManager.Instance.ResumeFromDeath(true);
+
+                break;
+            case VideoType.AddDiamonds:
+                //award reward tio player
+
+                PlayerData.PlayerProfile.NoofDiamondsAvailable += 1;
+                Parameter[] currencyparameters =
+                {
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,1),
+                        };
+
+                FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventEarnVirtualCurrency, currencyparameters);
+                if (UiManager.Instance)
+                    UiManager.Instance.UpdateDiamonds(PlayerData.PlayerProfile.NoofDiamondsAvailable);
+                break;
+        }
+
+        //reset video type to none
+        VideoType = VideoType.None;
+        //save player data
+        PlayerData.SavePlayerData();
+
     }
 
     public void HandleRewardBasedVideoLeftApplication(object sender, EventArgs args)

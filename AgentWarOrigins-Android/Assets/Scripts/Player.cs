@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public string PlayerName;
     public string PlayerDescription;
     public int PlayerCost;
+    public RuntimeAnimatorController PlayerAnimatorController;
     public int LevelRequiredToUnlock;
     public AudioClip[] JumpAudioClips;
     public AudioClip[] SlideAudioClips;

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EndlessRunner;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TapToShoot : MonoBehaviour {
 
-    public Camera TutorialCamera;
     public RectTransform targetCanvas;
     private Transform ObjectToFollow;
     private DepthUIScript depthUIScript;
@@ -30,16 +30,22 @@ public class TapToShoot : MonoBehaviour {
 
     private void RepositionTapToShootIcon()
     {
+        Camera activeCamera= UiManager.Instance.GetActiveCamera();
+        if (activeCamera == null)
+        {
+            activeCamera=Camera.main;
+        }
         if (ObjectToFollow)
         {
-            Vector3 ViewportPosition = TutorialCamera.WorldToViewportPoint(ObjectToFollow.position);
+
+            Vector3 ViewportPosition = activeCamera.WorldToViewportPoint(ObjectToFollow.position);
             Vector3 WorldObject_ScreenPosition = new Vector3(
                 ((ViewportPosition.x * targetCanvas.sizeDelta.x) - (targetCanvas.sizeDelta.x * 0.5f)),
                 ((ViewportPosition.y * targetCanvas.sizeDelta.y) - (targetCanvas.sizeDelta.y * 0.5f)), ViewportPosition.z);
             //now you can set the position of the ui element
             TapToShootIcon.rectTransform.anchoredPosition = WorldObject_ScreenPosition;
 
-            float distance = (WorldObject_ScreenPosition - TutorialCamera.transform.position).magnitude;
+            float distance = (WorldObject_ScreenPosition - activeCamera.transform.position).magnitude;
             depthUIScript.depth = -distance;
         }
 

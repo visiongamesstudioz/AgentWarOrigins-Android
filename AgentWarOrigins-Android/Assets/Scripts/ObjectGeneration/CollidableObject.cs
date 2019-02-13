@@ -134,6 +134,7 @@ namespace EndlessRunner
                         PlayerData.PlayerProfile.NoofTokensAvailable += 1;
 
                         PlayerData.CurrentGameStats.TokensCollected++;
+                        UiManager.Instance.UpdateTokensCollected(PlayerData.CurrentGameStats.TokensCollected);
                         if (m_collectTokensMissions.Count > 0)
                         {
                             foreach (Mission mission in m_collectTokensMissions)

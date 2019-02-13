@@ -13,6 +13,7 @@ public enum TriggerEnum
     SwipeLeft,
     SwipeRight,
     Tap,
-    swipeUpAndTap,
+    swipeUpJoyStick,
+    AimDownSights,
     None
 }

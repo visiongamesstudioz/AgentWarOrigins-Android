@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 114406608555640972}
   - component: {fileID: 114903914478527088}
   - component: {fileID: 114260168942420896}
-  - component: {fileID: 65542107887539798}
+  - component: {fileID: 65599293570039562}
   m_Layer: 12
   m_Name: CityScene3WithEnemies
   m_TagString: Untagged
@@ -4801,7 +4801,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 160.00351, y: 0.12023905, z: 179.99942}
   m_Center: {x: -4.9982567, y: -0.020117862, z: -4.99971}
---- !u!65 &65542107887539798
+--- !u!65 &65599293570039562
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4811,8 +4811,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 147.14331, y: 40.103783, z: 124.56807}
-  m_Center: {x: 67.850586, y: 19.662437, z: -2.3043747}
+  m_Size: {x: 215.22566, y: 73.729996, z: 128.79346}
+  m_Center: {x: 41.387215, y: 35.29, z: 0.027999878}
 --- !u!82 &82096960219498402
 AudioSource:
   m_ObjectHideFlags: 1

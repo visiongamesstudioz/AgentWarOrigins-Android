@@ -184,7 +184,7 @@ public class TutorialInput : MonoBehaviour {
     {
         if (!playerShoot.enabled)
         {
-            m_playerControl.Move(20*Vector3.right, m_Jump, m_Slide, m_MoveLeft, m_MoveRight,1);
+            m_playerControl.Move(40*Vector3.right, m_Jump, m_Slide, m_MoveLeft, m_MoveRight,1);
             m_Jump = false;
             m_Slide = false;
             m_MoveLeft = false;
@@ -192,7 +192,7 @@ public class TutorialInput : MonoBehaviour {
         }
         else
         {
-            m_playerControl.Move(20 * Vector3.right, false, false, false, false, 1);
+            m_playerControl.Move(40 * Vector3.right, false, false, false, false, 1);
 
         }
 

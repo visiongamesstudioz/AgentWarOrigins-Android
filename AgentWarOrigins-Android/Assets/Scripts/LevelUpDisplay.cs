@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -113,6 +114,13 @@ public class LevelUpDisplay : MonoBehaviour {
                     }
                   
                 }));
+
+            //log firebase level up event
+            Parameter[] levelUpParameter =
+            {
+                new Parameter(FirebaseAnalytics.ParameterLevel, GameManager.LevelStarted)
+            };
+            FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelUp,levelUpParameter);
 
         }
         PlayerData.SavePlayerData();

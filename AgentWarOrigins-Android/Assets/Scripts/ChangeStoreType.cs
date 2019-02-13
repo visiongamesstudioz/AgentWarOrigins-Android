@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class ChangeStoreType : MonoBehaviour
 {
     public RectTransform[] Panels;
+    public GameObject NetworkError;
 
+    private WaitForSeconds waitForSeconds=new WaitForSeconds(3);
     void Awake()
     {
         int storeType= PlayerData.CurrentGameStats.CurrentStoreTypeClicked;
+
         switch (storeType)
         {
             case 1:
@@ -23,6 +26,12 @@ public class ChangeStoreType : MonoBehaviour
                 break;
         }
 
+
+        if (!NetworkConnection.isNetworkAvailable())
+        {
+            NetworkError.SetActive(true);
+        }
+
         PlayerData.CurrentGameStats.CurrentStoreTypeClicked = 0;  //reset store type
     }
     public void ChangeStore(int storeId)
@@ -32,5 +41,24 @@ public class ChangeStoreType : MonoBehaviour
             Panels[i].gameObject.SetActive(i == storeId);
         }
     }
- 
+
+    public void OnRetryClicked()
+    {
+
+        StartCoroutine(RefreshNetworkConnection());
+    }
+
+    IEnumerator RefreshNetworkConnection()
+    {
+        NetworkError.SetActive(false);
+        yield return waitForSeconds;
+        if (NetworkConnection.isNetworkAvailable())
+        {
+            NetworkError.SetActive(false);
+        }
+        else
+        {
+            NetworkError.SetActive(true);
+        }
+    }
 }

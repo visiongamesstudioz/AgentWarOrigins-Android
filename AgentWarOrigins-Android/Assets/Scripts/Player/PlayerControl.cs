@@ -79,6 +79,9 @@ namespace EndlessRunner
         private Vector3 m_tutorialMovementSpeed;
         private SceneObject sceneObject;
         private CameraVerticalMovementController tutorialPlayerCameraVerticalMovementController;
+        private Image taptoshooticon;
+        TapToShoot tapToShootcomp;
+
         private void Awake()
         {
             Instance = this;
@@ -150,7 +153,6 @@ namespace EndlessRunner
             previousZPos = -100f;
 
             mainCamera = Camera.main;
-
         }
 
         private void Update()
@@ -163,6 +165,18 @@ namespace EndlessRunner
             if (mainCamera == null)
             {
                 mainCamera = Camera.main;
+                if (mainCamera)
+                {
+                    if (camController == null)
+                    {
+                        camController = mainCamera.GetComponent<CameraController>();
+                    }
+                    if (m_cameraVerticalMovementController == null)
+                    {
+                        m_cameraVerticalMovementController = mainCamera.GetComponent<CameraVerticalMovementController>();
+                    }
+                }
+             
             }
             if (playerHealth.IsDead)
             {
@@ -202,6 +216,124 @@ namespace EndlessRunner
                 }
             }
             m_PreviousPosition = transform.position;
+
+
+        }
+
+        private void FixedUpdate()
+        {
+           
+
+            if (playerShoot.CurrentWeapon)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, playerShoot.CurrentWeapon.Weapon.WeaponRange, SphereCastLayerMask);
+                int closestIndex = -1;
+                float distanceToClosestEnemy = float.MaxValue;
+                m_aliveEnemies.Clear();
+                foreach (var col in colliders)
+                {
+                    if (col.GetComponent<Health>().GetCurrentHealth() > 0)
+                    {
+                        m_aliveEnemies.Add(col);
+                    }
+                }
+
+                closestIndex = Util.FindClosestGameObjectIndexInFront(gameObject, m_aliveEnemies);
+                if (closestIndex == -1)
+                {
+                    if (m_InputControl)
+                    {
+                        m_InputControl.movementSpeed = 40;
+
+                    }
+
+                    m_MoveSpeedMultiplier = m_PreviousSpeedMultiplier;
+                    distanceToClosestEnemy = float.MaxValue;
+
+                }
+                else
+                {
+                    distanceToClosestEnemy = Vector3.Distance(transform.position,
+                        colliders[closestIndex].transform.position);
+
+                }
+
+                if (mainCamera && camController)
+                {
+                    if (distanceToClosestEnemy < playerShoot.CurrentWeapon.Weapon.WeaponRange)
+                    {
+                        //  Debug.Log("ontrigger stay clled");
+                        //change camera field of view so enemies are clearly seen
+                        mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.EnemySceneFOV,
+                            camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+                        camController.SetEnemyDistanceFromTarget();
+                        playerShoot.enabled = true;
+                        if (m_InputControl)
+                        {
+                            m_InputControl.movementSpeed = 20;
+                        }
+
+
+                        m_MoveSpeedMultiplier = 0.2f;
+                    }
+                    else
+                    {
+                        //change camera field of view to default
+
+                        mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV,
+                            camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+                        camController.SetNormalDistanceFromTarget();
+                        if (m_InputControl)
+                        {
+                            m_InputControl.movementSpeed = 40;
+                        }
+
+
+                        m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1);
+                        playerShoot.enabled = false;
+                    }
+
+                    //if (sceneObject != null)
+                    //{
+                    //    if (sceneObject.hasDrones)
+                    //    {
+                    //        m_cameraVerticalMovementController.minimumVert = -30;
+                    //    }
+                    //    else
+                    //    {
+                    //        m_cameraVerticalMovementController.minimumVert = 0;
+                    //    }
+                    //}
+                }
+                if (!Util.IsTutorialComplete())
+                {
+                    GameObject enemyNeck = null;
+                    if (taptoshooticon == null)
+                    {
+                        taptoshooticon = UiManager.Instance.ShowTapToShoot();
+                        tapToShootcomp = taptoshooticon.GetComponentInChildren<TapToShoot>();
+                    }
+                    
+                    if (closestIndex == -1)
+                    {
+                        taptoshooticon.enabled = false;
+                        return;
+                    }
+
+                    if (colliders[closestIndex].CompareTag("Enemy"))
+                    {
+                        enemyNeck = Util.FindGameObjectWithTag(colliders[closestIndex].gameObject, "Neck");
+                    }
+                    else if (colliders[closestIndex].CompareTag("EnemyDrone"))
+                    {
+                        enemyNeck = colliders[closestIndex].gameObject;
+                    }
+
+                    tapToShootcomp.SetObjectToFollow(enemyNeck);
+
+                }
+            }
+
         }
 
         public void Move(Vector3 move, bool jump, bool slide, bool walkLeft, bool walkRight, float animationSpeed)
@@ -338,18 +470,18 @@ namespace EndlessRunner
             {
 
                 playerShoot.enabled = true;
-                //move to center
-                switch (currentSlotPosition)
-                {
-                    case Slots.Left:
-                        //  playerAnimation.StrafeMovement(true);
-                        HandleLeftOrRightMovement(true);
-                        break;
-                    case Slots.Right:
-                        //   playerAnimation.StrafeMovement(false);
-                        HandleLeftOrRightMovement(false);
-                        break;
-                }
+                ////move to center
+                //switch (currentSlotPosition)
+                //{
+                //    case Slots.Left:
+                //        //  playerAnimation.StrafeMovement(true);
+                //        HandleLeftOrRightMovement(true);
+                //        break;
+                //    case Slots.Right:
+                //        //   playerAnimation.StrafeMovement(false);
+                //        HandleLeftOrRightMovement(false);
+                //        break;
+                //}
                 if (m_InputControl)
                 {
                     m_InputControl.movementSpeed = 20;
@@ -367,27 +499,41 @@ namespace EndlessRunner
                 {
                     case TriggerEnum.SwipeUp:
                         //show swipe up image
+                        UiManager.Instance.ShowTapToShoot();
+                        UiManager.Instance.ShowTapOnEnemiesText("Swipe Up On Right Side to jump");
                         UiManager.Instance.ShowSwipeUp();
                         break;
                     case TriggerEnum.SwipeDown:
+
+                        UiManager.Instance.ShowTapToShoot();
+                        UiManager.Instance.ShowTapOnEnemiesText("Swipe down On Right Side to Slide");
                         UiManager.Instance.ShowSwipeDown();
 
                         break;
                     case TriggerEnum.SwipeLeft:
+                        UiManager.Instance.ShowTapToShoot();
+                        UiManager.Instance.ShowTapOnEnemiesText("Swipe left On Right Side to move Left");
                         UiManager.Instance.ShowSwipeLeft();
 
                         break;
                     case TriggerEnum.SwipeRight:
+                        UiManager.Instance.ShowTapToShoot();
+                        UiManager.Instance.ShowTapOnEnemiesText("Swipe left On Right Side to move Left");
                         UiManager.Instance.ShowSwipeRight();
                         break;
                     case TriggerEnum.Tap:
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Tap on enemies to shoot");
+                        UiManager.Instance.ShowTapOnEnemiesText("Tap on enemies to shoot ");
                         break;
-                    case TriggerEnum.swipeUpAndTap:
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe up and tap to aim enemy drones");
-                        UiManager.Instance.ShowSwipeUp();
+                    case TriggerEnum.swipeUpJoyStick:
+                        UiManager.Instance.ShowTapOnEnemiesText("Swipe up the joy stick to aim higher");
+                        UiManager.Instance.EnableJoyStickAnimator();
                         UiManager.Instance.ShowTapToShoot();
+                        break;
+                    case TriggerEnum.AimDownSights:
+                        UiManager.Instance.ShowTapToShoot();
+                        UiManager.Instance.ShowTapOnEnemiesText("Tap on scope to aim enemy closer" );
+
                         break;
                 }
 
@@ -434,113 +580,142 @@ namespace EndlessRunner
                 {
                     sceneObject = other.GetComponent<SceneObject>();
                 }
-                //clear alive enemy list
-                m_aliveEnemies.Clear();
-                Collider[] colliders = Physics.OverlapSphere(transform.position,300, SphereCastLayerMask);
-                foreach (var col in colliders)
-                {
-                    if (col.GetComponent<Health>().GetCurrentHealth() > 0)
-                    {
-                        m_aliveEnemies.Add(col);
-                    }
-                }
+                ////clear alive enemy list
+                //m_aliveEnemies.Clear();
+                //Collider[] colliders = Physics.OverlapSphere(transform.position,300, SphereCastLayerMask);
+                //foreach (var col in colliders)
+                //{
+                //    if (col.GetComponent<Health>().GetCurrentHealth() > 0)
+                //    {
+                //        m_aliveEnemies.Add(col);
+                //    }
+                //}
 
-                int closestIndex = Util.FindClosestGameObjectIndexInFront(gameObject, m_aliveEnemies);
-                float distanceToClosestEnemy;
-                if (closestIndex == -1)
-                {
-                    if (m_InputControl)
-                    {
-                        m_InputControl.movementSpeed = 40;
+                //int closestIndex = Util.FindClosestGameObjectIndexInFront(gameObject, m_aliveEnemies);
+                //float distanceToClosestEnemy;
+                //if (closestIndex == -1)
+                //{
+                //    if (m_InputControl)
+                //    {
+                //        m_InputControl.movementSpeed = 40;
 
-                    }
+                //    }
 
-                    m_MoveSpeedMultiplier = m_PreviousSpeedMultiplier;
-                    distanceToClosestEnemy = float.MaxValue;
+                //    m_MoveSpeedMultiplier = m_PreviousSpeedMultiplier;
+                //    distanceToClosestEnemy = float.MaxValue;
 
-                }
-                else
-                {
-                    distanceToClosestEnemy = Vector3.Distance(transform.position,
-                    colliders[closestIndex].transform.position);
+                //}
+                //else
+                //{
+                //    distanceToClosestEnemy = Vector3.Distance(transform.position,
+                //    colliders[closestIndex].transform.position);
 
-                }
+                //}
 
-                if (mainCamera && camController)
-                {
-//#if UNITY_EDITOR || UNITY_STANDALONE
+//                if (mainCamera && camController)
+//                {
+////#if UNITY_EDITOR || UNITY_STANDALONE
 
-//                    m_cameraVerticalMovementController.enabled = true;
+////                    m_cameraVerticalMovementController.enabled = true;
 
-//#endif
-                    if (sceneObject.hasDrones)
-                    {
+////#endif
+//                    if (sceneObject.hasDrones)
+//                    {
 
-                       m_cameraVerticalMovementController.minimumVert = -30;
-                        if (distanceToClosestEnemy < 200)
-                        {
-                            //  Debug.Log("ontrigger stay clled");
-                            //change camera field of view so enemies are clearly seen
-                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
-                            camController.SetEnemyDistanceFromTarget();
-                            playerShoot.enabled = true;
-                            m_InputControl.movementSpeed = 20;
+//                       m_cameraVerticalMovementController.minimumVert = -30;
+//                        if (distanceToClosestEnemy < 200)
+//                        {
+//                            //  Debug.Log("ontrigger stay clled");
+//                            //change camera field of view so enemies are clearly seen
+//                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+//                            camController.SetEnemyDistanceFromTarget();
+//                            playerShoot.enabled = true;
+//                            m_InputControl.movementSpeed = 20;
 
-                            m_MoveSpeedMultiplier = 0.2f;
-                        }
-                        else
-                        {
-                            //change camera field of view to default
+//                            m_MoveSpeedMultiplier = 0.2f;
+//                        }
+//                        else
+//                        {
+//                            //change camera field of view to default
 
-                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
-                            camController.SetNormalDistanceFromTarget();
-                            m_InputControl.movementSpeed = 40;
+//                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+//                            camController.SetNormalDistanceFromTarget();
+//                            m_InputControl.movementSpeed = 40;
 
-                            m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1);
-                            playerShoot.enabled = false;
+//                            m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1);
+//                            playerShoot.enabled = false;
+//                        }
+//                    }
+//                    else
+//                    {
+//                        m_cameraVerticalMovementController.minimumVert = 0;
 
-                        }
-                    }
-                    else
-                    {
-                        m_cameraVerticalMovementController.minimumVert = 0;
+//                        //  Debug.Log("distanceto closeset enemy" + distanceToClosestEnemy);
+//                        if (distanceToClosestEnemy < playerShoot.CurrentWeapon.Weapon.WeaponRange)
+//                        {
+//                            //  Debug.Log("ontrigger stay clled");
+//                            //change camera field of view so enemies are clearly seen
+//                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.EnemySceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+//                            camController.SetEnemyDistanceFromTarget();
+//                            playerShoot.enabled = true;
+//                            m_InputControl.movementSpeed = 20;
 
-                        //  Debug.Log("distanceto closeset enemy" + distanceToClosestEnemy);
-                        if (distanceToClosestEnemy < playerShoot.CurrentWeapon.Weapon.WeaponRange)
-                        {
-                            //  Debug.Log("ontrigger stay clled");
-                            //change camera field of view so enemies are clearly seen
-                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.EnemySceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
-                            camController.SetEnemyDistanceFromTarget();
-                            playerShoot.enabled = true;
-                            m_InputControl.movementSpeed = 20;
+//                            m_MoveSpeedMultiplier = 0.2f;
+//                        }
+//                        else
+//                        {
+//                            //change camera field of view to default
+//                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
+//                            camController.SetNormalDistanceFromTarget();
+//                            m_InputControl.movementSpeed = 40;
 
-                            m_MoveSpeedMultiplier = 0.2f;
-                        }
-                        else
-                        {
-                            //change camera field of view to default
-                            mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, camController.NormalSceneFOV, camController.SceneFOVInterPolationSpeed * Time.deltaTime);
-                            camController.SetNormalDistanceFromTarget();
-                            m_InputControl.movementSpeed = 40;
+//                            m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1); 
 
-                            m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1); 
+//                            playerShoot.enabled = false;
 
-                            playerShoot.enabled = false;
-
-                        }
-                    }
+//                        }
+//                    }
  
-                }
+//                }
 
                 //check if tutorial is complete and show 
                 if (!Util.IsTutorialComplete())
                 {
-                    if (tutorialPlayerCameraVerticalMovementController == null)
+                    ////clear alive enemy list
+                    m_aliveEnemies.Clear();
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, 300, SphereCastLayerMask);
+                    foreach (var col in colliders)
                     {
-                        tutorialPlayerCameraVerticalMovementController = GetComponentInChildren<CameraVerticalMovementController>();
+                        if (col.GetComponent<Health>().GetCurrentHealth() > 0)
+                        {
+                            m_aliveEnemies.Add(col);
+                        }
                     }
-                    m_MoveSpeedMultiplier = 0.2f;
+                    int closestIndex = Util.FindClosestGameObjectIndexInFront(gameObject, m_aliveEnemies);
+                    float distanceToClosestEnemy;
+                    if (closestIndex == -1)
+                    {
+                        if (m_InputControl)
+                        {
+                            m_InputControl.movementSpeed = 40;
+
+                        }
+
+                        m_MoveSpeedMultiplier = m_PreviousSpeedMultiplier;
+                        distanceToClosestEnemy = float.MaxValue;
+
+                    }
+                    else
+                    {
+                        distanceToClosestEnemy = Vector3.Distance(transform.position,
+                        colliders[closestIndex].transform.position);
+
+                    }
+                    //if (tutorialPlayerCameraVerticalMovementController == null)
+                    //{
+                    //    tutorialPlayerCameraVerticalMovementController = GetComponentInChildren<CameraVerticalMovementController>();
+                    //}
+                    //m_MoveSpeedMultiplier = 0.2f;
                     GameObject enemyNeck=null;
                     Image taptoshooticon= UiManager.Instance.ShowTapToShoot();
                     TapToShoot tapToShootcomp = taptoshooticon.GetComponentInChildren<TapToShoot>();
@@ -641,6 +816,7 @@ namespace EndlessRunner
             {
                 m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1);
             }
+            UiManager.Instance.DisableJoyStickAnimator();
         }
 
         private void LateUpdate()
@@ -706,6 +882,42 @@ namespace EndlessRunner
                 {
 
                     playerAnimation.StrafeMovement(false);
+                    Camera activeCam= UiManager.Instance.GetActiveCamera();
+                    if (activeCam == null)
+                    {
+                        activeCam=Camera.main;
+                    }
+
+                    if (!activeCam.CompareTag("MainCamera"))
+                    {
+                        int weaponId = playerShoot.CurrentWeapon.Weapon.WeaponId;
+                        Animator animator = activeCam.GetComponent<Animator>();
+                        if (animator)
+                        {
+                            switch (weaponId)
+                            {
+                                case 1:
+                                    animator.SetTrigger("SR45Zoom");
+                                    break;
+                                case 2:
+                                    animator.SetTrigger("SCUZoom");
+                                    break;
+                                case 3:
+                                    animator.SetTrigger("SMGZoom");
+                                    break;
+                                case 4:
+                                    animator.SetTrigger("FWZoom");
+                                    break;
+                                case 5:
+                                    animator.SetTrigger("LauncherZoom");
+                                    break;
+                                case 6:
+
+                                    break;
+                            }
+                        }
+
+                    }
 
                 }
                 m_moveLeft = false;
@@ -716,6 +928,40 @@ namespace EndlessRunner
                 {
 
                     playerAnimation.StrafeMovement(true);
+                    Camera activeCam = UiManager.Instance.GetActiveCamera();
+                    if (activeCam == null)
+                    {
+                        activeCam=Camera.main;
+                    }
+                    if (!activeCam.CompareTag("MainCamera"))
+                    {
+                        int weaponId = playerShoot.CurrentWeapon.Weapon.WeaponId;
+                        Animator animator = activeCam.GetComponent<Animator>();
+                        if (animator)
+                        {
+                            switch (weaponId)
+                            {
+                                case 1:
+                                    animator.SetTrigger("SR45Zoom");
+                                    break;
+                                case 2:
+                                    animator.SetTrigger("SCUZoom");
+                                    break;
+                                case 3:
+                                    animator.SetTrigger("SMGZoom");
+                                    break;
+                                case 4:
+                                    animator.SetTrigger("FWZoom");
+                                    break;
+                                case 5:
+                                    animator.SetTrigger("LauncherZoom");
+                                    break;
+                                case 6:
+                                    break;
+                            }
+                        }
+                  
+                    }
 
                 }
                 m_move_Right = false;
@@ -939,24 +1185,24 @@ namespace EndlessRunner
             //change here
             if (targetSlot == Slots.Right)
             {
-                targetPos = new Vector3(transform.position.x + m_forwardmovement / 2, transform.position.y,
+                targetPos = new Vector3(transform.position.x + m_forwardmovement / 8, transform.position.y,
                     Mathf.Max((int) Slots.Left * slotDistance, transform.position.z - horizontalAmount));
             }
             else if(targetSlot==Slots.Left)
             {
-                targetPos = new Vector3(transform.position.x + m_forwardmovement / 2, transform.position.y,
+                targetPos = new Vector3(transform.position.x + m_forwardmovement / 8, transform.position.y,
                     Mathf.Min((int) Slots.Right * slotDistance, transform.position.z - horizontalAmount));
             }
             else if(targetSlot==Slots.Center)
             {
                 if (currentSlot == Slots.Left)
                 {
-                    targetPos = new Vector3(transform.position.x + m_forwardmovement / 2, transform.position.y,
+                    targetPos = new Vector3(transform.position.x + m_forwardmovement / 8, transform.position.y,
                         Mathf.Max(0, transform.position.z - horizontalAmount));
                 } 
                 else if(currentSlot==Slots.Right)
                 {
-                    targetPos = new Vector3(transform.position.x + m_forwardmovement / 2, transform.position.y,
+                    targetPos = new Vector3(transform.position.x + m_forwardmovement / 8, transform.position.y,
                         Mathf.Min(0, transform.position.z - horizontalAmount));
                 }
             }
@@ -1013,6 +1259,7 @@ namespace EndlessRunner
         {
             // we implement this function to override the default root motion.
             // this allows us to modify the positional speed before it's applied.
+
             if (m_IsGrounded && Time.deltaTime > 0)
             {
                 var v = m_Animator.deltaPosition * m_MoveSpeedMultiplier / Time.deltaTime;
@@ -1021,6 +1268,9 @@ namespace EndlessRunner
                 v.y = m_Rigidbody.velocity.y;
                 m_Rigidbody.velocity = v;
             }
+
+
+
         }
     }
 }

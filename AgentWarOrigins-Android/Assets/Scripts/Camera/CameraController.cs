@@ -24,10 +24,9 @@ namespace EndlessRunner
             if (target != null)
             {
                 transform.position = target.transform.position - m_DistanceFromTarget;
-
                 offset = transform.position - target.transform.position;
             }
-       
+           
         }
 
         // Update is called once per frame
@@ -50,13 +49,6 @@ namespace EndlessRunner
             transform.position = desiredPosition;
 
         }
-
-
-
-        //public void SetDistanceFromTarget(float distanceToTargetX)
-        //{
-        //    m_DistanceFromTarget = new Vector3(distanceToTargetX, m_DistanceFromTarget.y, m_DistanceFromTarget.z);
-        //}
 
         public void SetNormalDistanceFromTarget()
         {

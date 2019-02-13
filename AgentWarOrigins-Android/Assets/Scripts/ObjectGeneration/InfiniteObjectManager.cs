@@ -480,6 +480,7 @@ namespace EndlessRunner
                         //    Debug.Log( objectType + " of " + localIndex + "at " + distance + " cannot be spawned");
                         continue;
                     }
+
                     probabilityAdjustment = appearanceRules[objectIndex].ProbabilityAdjustment(distance);
                 }
              
@@ -504,8 +505,16 @@ namespace EndlessRunner
             float randomValue = Random.value;
             float prevObjProbability = 0;
             float objProbability = 0;
+            SceneObject topScene=null;
+            SceneObject secondTopSceneObject=null;
             // with the total probability we can determine a platform
             // minor optimization: don't check the last platform. If we get that far into the loop then regardless we are selecting that platform
+            if (infiniteObjectHistory.GetSceneStackCount() >= 2)
+            {
+                topScene = infiniteObjectHistory.PeekTopSceneFromStack();
+                secondTopSceneObject = infiniteObjectHistory.PeekTopSceneFromStack();
+            }
+
             for (int localIndex = 0; localIndex < objects.Length - 1; ++localIndex)
             {
                 objectIndex = LocalIndexToObjectIndex(localIndex, objectType);
@@ -513,10 +522,30 @@ namespace EndlessRunner
                 {
                     continue;
                 }
-
+               // SceneObject topInfiniteObject = (SceneObject)infiniteObjectHistory.GetTopInfiniteObject(ObjectLocation.Center, true);
+       
                 objProbability = probabilityCache[objectIndex];
+                //override probabilty
+
                 if (objProbability == float.MaxValue || randomValue <= (prevObjProbability + objProbability) / totalProbability)
                 {
+                    if (objectType == ObjectType.Scene)
+                    {
+                        if (topScene != null && secondTopSceneObject != null)
+                        {
+                            if (!topScene.CanSpawnEnemies && !secondTopSceneObject.CanSpawnEnemies)
+                            {
+                                SceneObject temp = objects[objectIndex] as SceneObject;
+                                if (!temp.CanSpawnEnemies)
+                                {
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+  
+             
+
                     return localIndex;
                 }
                 prevObjProbability += objProbability;

@@ -25,21 +25,26 @@ public class CalculateDistanceTravelled : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.IsGameActive())
+        if (GameManager.Instance)
         {
-            previousDistanceTravelled = distanceTravelled;
-            distanceTravelled += Vector3.Distance(transform.position, lastPosition);
-            lastPosition = transform.position;
-            PlayerData.CurrentGameStats.CurrentDistanceTravelled = Mathf.Floor(distanceTravelled);
-            PlayerData.PlayerProfile.TotalDistanceTravelled += (distanceTravelled - previousDistanceTravelled);
-            m_CurrentPassedTimeToCheckMissions -= Time.deltaTime;
-            if (m_CurrentPassedTimeToCheckMissions < 0)
+            if (GameManager.Instance.IsGameActive())
             {
-                CheckForTravelDistanceMissions();
-                m_CurrentPassedTimeToCheckMissions = m_MissionCheckTimer;
+                previousDistanceTravelled = distanceTravelled;
+                distanceTravelled += Vector3.Distance(transform.position, lastPosition);
+                lastPosition = transform.position;
+                PlayerData.CurrentGameStats.CurrentDistanceTravelled = Mathf.Floor(distanceTravelled);
+                UiManager.Instance.UpdateDistanceTravelled(PlayerData.CurrentGameStats.CurrentDistanceTravelled);
+                PlayerData.PlayerProfile.TotalDistanceTravelled += (distanceTravelled - previousDistanceTravelled);
+                m_CurrentPassedTimeToCheckMissions -= Time.deltaTime;
+                if (m_CurrentPassedTimeToCheckMissions < 0)
+                {
+                    CheckForTravelDistanceMissions();
+                    m_CurrentPassedTimeToCheckMissions = m_MissionCheckTimer;
+                }
             }
+
         }
-    
+
     }
 
     private void CheckForTravelDistanceMissions()

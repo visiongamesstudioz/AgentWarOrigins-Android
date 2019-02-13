@@ -18,6 +18,8 @@ namespace EndlessRunner
         [Tooltip("The random spread of the bullets once they are fired")] protected float
             m_Spread = 0.01f;
 
+        public Camera ZoomToWeaponCamera;
+        public Vector3 DefaultCamTransform;
         [Tooltip("WeaponManagement type")] protected WeaponType m_WeaponType;
 
         [Tooltip(
@@ -273,7 +275,7 @@ namespace EndlessRunner
             //Debug.Log("no of shots fired" + m_NoofShotsFired);
             //Debug.Log("m_CurrentReloadAmmoAvailable" + m_CurrentReloadAmmoAvailable);
             //Debug.Log("current ammo available" + m_CurrentAmmoAvailable);
-            var direction = FireDirection(position);
+            var direction = FireDirectionSpread(position);
          //   PlayWeaponRecoilAnimation();
             PlayMuzzleFlash();
             PlayFireParticles();
@@ -318,14 +320,16 @@ namespace EndlessRunner
             {
                 if (hit.collider)
                 {
-                    if (m_ImapctParticles)
-                    {
-                        m_ImapctParticles = Instantiate(m_ImapctParticles, hit.point, new Quaternion(-90, 0, 0, 0));
-
-                    }
+                
                     Health health = null;
+                    ParticleSystem impactParticles;
                     if (hit.collider.CompareTag("Enemy"))
                     {
+                        if (m_ImapctParticles)
+                        {
+                            impactParticles = Instantiate(m_ImapctParticles, hit.point, new Quaternion(-90, 0, 0, 0));
+           
+                        }
                         health = hit.collider.GetComponent<Health>();
                         EnemyAI enemyAi = hit.collider.GetComponent<EnemyAI>();
                         if (!enemyAi.isDieSet)
@@ -364,6 +368,7 @@ namespace EndlessRunner
 
                                         PlayerData.PlayerProfile.NoofEnemieskilled++;
                                         PlayerData.CurrentGameStats.CurrentKills++;
+                                        UiManager.Instance.UpdateCurrentKills(PlayerData.CurrentGameStats.CurrentKills);
 
                                         if (killMissions.Count > 0)
                                             foreach (var mission in killMissions)
@@ -387,6 +392,10 @@ namespace EndlessRunner
 
                                     }
                                 }
+                                else
+                                {
+                                    
+                                }
                                 
                    
                             }
@@ -407,6 +416,12 @@ namespace EndlessRunner
                     else if (hit.collider.CompareTag("EnemyDrone"))
                     {
                         health = hit.collider.GetComponent<Health>();
+
+                        if (m_ImapctParticles)
+                        {
+                            impactParticles = Instantiate(m_ImapctParticles, hit.point, new Quaternion(-90, 0, 0, 0));
+
+                        }
                         if (health != null)
                         {
                             float currentHealth = health.GetCurrentHealth();
@@ -494,6 +509,13 @@ namespace EndlessRunner
             }
             return axis;
         }
+
+        protected Vector3 FireDirectionSpread(Vector3 position)
+        {
+            Vector3 shootDirection = position + new Vector3(Random.Range(-m_Spread, m_Spread), Random.Range(-m_Spread, m_Spread), Random.Range(-m_Spread, m_Spread));
+            return shootDirection;
+        }
+
 
         public bool IsReloading()
         {

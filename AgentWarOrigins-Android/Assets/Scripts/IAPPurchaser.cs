@@ -530,13 +530,18 @@ public class IAPPurchaser : MonoBehaviour, IStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        //get stats of player
 
         // A consumable product has been purchased by this user.
+        //track inapp purchase
+        AppsFlyerStartUp.Instance.TrackInAppPurchase(args.purchasedProduct);
 
+        //get stats of player       
         if (string.Equals(args.purchasedProduct.definition.id, kPocketOfCoinsProductIDConsumable,
             StringComparison.Ordinal))
+        {          
             RewardPlayer(0);
+        }
+            
         if (string.Equals(args.purchasedProduct.definition.id, kHandfulOfCoinsIDConsumable, StringComparison.Ordinal))
             RewardPlayer(1);
         if (string.Equals(args.purchasedProduct.definition.id, kBagOfCoinsIDConsumable, StringComparison.Ordinal))

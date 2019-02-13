@@ -3429,7 +3429,7 @@ GameObject:
   - component: {fileID: 114563726651355386}
   - component: {fileID: 114827642159037524}
   - component: {fileID: 114475528608915678}
-  - component: {fileID: 65727917639151536}
+  - component: {fileID: 65360733241368222}
   m_Layer: 12
   m_Name: CityScene5WithEnemies
   m_TagString: Untagged
@@ -13015,6 +13015,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.52028954, y: 2.3631134, z: 3}
   m_Center: {x: 0, y: 1.1815567, z: 0}
+--- !u!65 &65360733241368222
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973875679524486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 215.22566, y: 73.729996, z: 128.79346}
+  m_Center: {x: 41.387215, y: 35.29, z: 0.027999878}
 --- !u!65 &65428036544869364
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13183,18 +13195,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48451224, y: 2.3631134, z: 3}
   m_Center: {x: 0, y: 1.1815567, z: 0}
---- !u!65 &65727917639151536
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1973875679524486}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 76.10014, y: 24.095524, z: 74.36766}
-  m_Center: {x: 124.94004, y: 11.547762, z: -10.213707}
 --- !u!65 &65731994964271796
 BoxCollider:
   m_ObjectHideFlags: 1

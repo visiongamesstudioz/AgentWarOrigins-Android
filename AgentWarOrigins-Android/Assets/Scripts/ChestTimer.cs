@@ -27,7 +27,7 @@ public class ChestTimer : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(LastChestOpenedTimeKey))
             LastChestOpenedTime = ulong.Parse(PlayerPrefs.GetString(LastChestOpenedTimeKey));
-        if (CheckNetworkConnection.IsNetworkAvailable())
+        if (NetworkConnection.isNetworkAvailable())
         {
             if (Util.IsSystemTimeSyncingWithNetworkServer)
             {

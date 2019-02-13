@@ -43,7 +43,7 @@ namespace EndlessRunner
         public bool CanSpawnEnemies;
         public int m_NoOfEnemies;
         public bool hasDrones;
-        public List<SpawnType> SpawnPoints;
+        public List<SpawnPoint> SpawnPoints;
         public List<WayPoint> WayPoints;
         //// the list of control points if the platform is a curve
         //[HideInInspector]
@@ -66,6 +66,19 @@ namespace EndlessRunner
         {
             get { return sceneLocalIndex; }
             set { sceneLocalIndex = value; }
+        }
+
+        public List<Enemy> AssignedEnemies
+        {
+            get
+            {
+                return assignedEnemies;
+            }
+
+            set
+            {
+                assignedEnemies = value;
+            }
         }
 
         public override void Init()
@@ -240,13 +253,17 @@ namespace EndlessRunner
             {
                 var targetPosition =
                     GameManager.m_InstantiatedPlayer.GetComponent<PlayerControl>().GetPlayerCurrentPosition();
-                if ((transform.position - targetPosition).x <
-                    Camera.main.farClipPlane && (transform.position - targetPosition).x + GetCurrentSceneLength() > -10f)
+                if (Camera.main)
                 {
-                    //check if first child is not active
-                    if (!childRenderers[0].enabled)
-                        Activate();
+                    if ((transform.position - targetPosition).x <
+                        Camera.main.farClipPlane && (transform.position - targetPosition).x + GetCurrentSceneLength() > -10f)
+                    {
+                        //check if first child is not active
+                        if (!childRenderers[0].enabled)
+                            Activate();
+                    }
                 }
+          
                 else
                 {
                     //check if first child is not active
@@ -429,7 +446,7 @@ namespace EndlessRunner
 }
 
 [Serializable]
-public class SpawnType
+public class SpawnPoint
 {
     public Transform SpawnPointTransform;
     public bool IsOnGameObject;

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -122,10 +124,20 @@ public class VungleAds : MonoBehaviour
 
             if (args.IsCompletedView)
             {
+               
                 switch (VideoType)
                 {
                     //double current xp earned;
                     case VideoType.DoubleTokens:
+                        AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.CLICK_DOUBLETOKENS);
+                        FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.CLICK_DOUBLETOKENS);
+                        Parameter[] virtualcurrencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, "Tokens"),
+                            new Parameter(FirebaseAnalytics.ParameterValue,PlayerData.CurrentGameStats.TokensCollected),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventEarnVirtualCurrency, virtualcurrencyparameters);
                         PlayerData.PlayerProfile.NoofTokensAvailable += (int)PlayerData.CurrentGameStats.TokensCollected;
                         PlayerData.CurrentGameStats.TokensCollected *= 2;
                 
@@ -141,11 +153,22 @@ public class VungleAds : MonoBehaviour
                         UiManager.Instance.UpdateUi();
                         break;
                     case VideoType.ResumeVideo:
+                        AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.INAPP_WATCH_VIDEO);
+                        FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.INAPP_WATCH_VIDEO);
                         GameManager.Instance.ResumeFromDeath(true);
+
                         break;
                     case VideoType.AddDiamonds:
                         //award reward tio player
+             
                         PlayerData.PlayerProfile.NoofDiamondsAvailable += 1;
+                        Parameter[] currencyparameters =
+                        {
+                            new Parameter(FirebaseAnalytics.ParameterVirtualCurrencyName, Enum.GetName(typeof(LockType),LockType.Diamonds)),
+                            new Parameter(FirebaseAnalytics.ParameterValue,1),
+                        };
+
+                        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventEarnVirtualCurrency, currencyparameters);
                         if (UiManager.Instance)
                             UiManager.Instance.UpdateDiamonds(PlayerData.PlayerProfile.NoofDiamondsAvailable);
                         break;

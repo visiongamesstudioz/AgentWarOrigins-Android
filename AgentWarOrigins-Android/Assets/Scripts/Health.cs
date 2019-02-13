@@ -112,7 +112,11 @@ namespace EndlessRunner
         {
             TakeDamage(m_CurrentHealth, m_DamageMultiplier);
         }
+        public void PlayHitAnimation()
+        {
 
+            m_Animation.Hit();
+        }
 
         public virtual void PlayDeathEffects()
         {

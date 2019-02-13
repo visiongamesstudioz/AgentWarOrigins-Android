@@ -41,15 +41,21 @@ public class FPSAndScreenResolution : MonoBehaviour
             //resolutionPercentage = 80;
             if (autoQuality < 1)
             {
-                resolutionPercentage = 80;
+                resolutionPercentage = 60;
                 PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
+            }
+            else if(autoQuality==1)
+            {
+                resolutionPercentage = 80;
+
+                PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
+
             }
             else
             {
                 resolutionPercentage = 100;
 
                 PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
-
             }
         }
         PlayerPrefs.Save();

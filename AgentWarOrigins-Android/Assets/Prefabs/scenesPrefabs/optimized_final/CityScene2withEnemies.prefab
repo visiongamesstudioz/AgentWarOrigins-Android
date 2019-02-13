@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 114100060897940442}
   - component: {fileID: 114850876610524488}
   - component: {fileID: 114921566822120832}
-  - component: {fileID: 65346708647373770}
+  - component: {fileID: 65388381337712868}
   m_Layer: 12
   m_Name: CityScene2withEnemies
   m_TagString: Untagged
@@ -11514,7 +11514,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30660844, y: 0.7567184, z: 1.5776285}
   m_Center: {x: 1.056898, y: 1.4262515, z: -0.32438952}
---- !u!65 &65346708647373770
+--- !u!65 &65388381337712868
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11524,8 +11524,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 147.76898, y: 55.23345, z: 140.81805}
-  m_Center: {x: 65.00467, y: 27.116726, z: -5.996994}
+  m_Size: {x: 215.22566, y: 73.729996, z: 128.79346}
+  m_Center: {x: 41.387215, y: 35.29, z: 0.027999878}
 --- !u!65 &65398025364730250
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -12341,7 +12341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occurProbabilities:
     values:
-    - startDistance: 3500
+    - startDistance: 2000
       startValue: 1
       endDistance: 0
       endValue: 1

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EndlessRunner;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,9 +9,7 @@ public class EnemyManager : MonoBehaviour
     public List<Enemy> EnemyList;
     public Transform EnemyParentTransform;
     private readonly Dictionary<int, Queue<GameObject>> poolDictionary = new Dictionary<int, Queue<GameObject>>();
-
-    public static EnemyManager Instance;
-
+    private List<WayPoint> m_AssignedWaypoints = new List<WayPoint>();
     private void Awake()
     {
         //if (Instance == null)
@@ -80,13 +79,6 @@ public class EnemyManager : MonoBehaviour
     {
         var temp = Random.Range(0, EnemyList.Count);
 
-        //do
-        //{
-        //    temp = Random.Range(0, EnemyList.Count);
-
-        //} while (EnemyList[temp].Level!=level);
-
-
         Enemy enemy;
         var randomEnemy = EnemyList[temp].EnemyPrefab;
         var prefabId = randomEnemy.GetInstanceID();
@@ -104,6 +96,94 @@ public class EnemyManager : MonoBehaviour
         poolDictionary[prefabId].Enqueue(newGameObject);
         enemy = new Enemy(newGameObject, EnemyList[temp].NoofLevels, EnemyList[temp].NoOfWayPoints,EnemyList[temp].HealthIncreasePercentageWithLevel,prefabId);
         return enemy;
+    }
+
+    public void SpawnRandomEnemy(SceneObject sceneObject, int spawnPointIndex)
+    {
+        SpawnPoint spawnPoint = sceneObject.SpawnPoints[spawnPointIndex];
+            //should change according to position should spawn stronger enemies at large distance
+            Enemy enemy = GetRandomEnemyFromPool();
+            sceneObject.AssignedEnemies.Add(enemy);
+            EnemyAI enemyAi = enemy.EnemyPrefab.GetComponent<EnemyAI>();
+            Health enemyHealth = enemy.EnemyPrefab.GetComponent<Health>();
+            int level = (int)(sceneObject.transform.position.x / 1000);
+            //assign enemy health based on distance
+            level = Mathf.Clamp(level, 1, enemy.NoofLevels);
+            if (level > 1)
+            {
+                enemyHealth.MaxHealth = enemyHealth.DefaultLevelHealth +
+                                        level * enemy.HealthIncreasePercentageWithLevel *
+                                        enemyHealth.DefaultLevelHealth / 100;
+            }
+
+            enemy.EnemyPrefab.transform.localEulerAngles = new Vector3(0, -90, 0);
+            enemy.EnemyPrefab.transform.position = spawnPoint.SpawnPointTransform.position;
+            enemy.EnemyPrefab.transform.parent = spawnPoint.IsOnGameObject
+                ? spawnPoint.SpawnOverObject.transform
+                : sceneObject.transform;
+            enemy.IsOnGameObject = spawnPoint.IsOnGameObject;
+            enemy.EnemyPrefab.SetActive(true);
+
+            //assign waypoints to enemies
+            for (int j = 0; j < enemy.NoOfWayPoints; j++)
+            {
+                int temp = FindClosestWayPoint(enemy);
+                //need to add way points to enemies 
+                if (temp == -1)
+                {
+                    continue;
+                }
+                //check if returned waypoint is in front of enemy
+                if (!Util.IsObjectInFront(enemy.EnemyPrefab,
+                    m_AssignedWaypoints[temp].TargetDestination.gameObject))
+                {
+                    continue;
+                }
+
+                //if (IsWayPointAssigned(m_AssignedWaypoints[temp]))
+                //{
+                //    continue;
+                //}
+                //set waypoint parent depending on waypoint position
+                if (sceneObject.WayPoints[temp].IsOverGameObject)
+                {
+                    sceneObject.WayPoints[temp].TargetDestination.parent = sceneObject.WayPoints[temp].OverGameObject.transform;
+                }
+                if (enemyAi != null)
+                {
+                    enemyAi.AddWayPoint(m_AssignedWaypoints[temp]);
+                    m_AssignedWaypoints.Remove(m_AssignedWaypoints[temp]);
+                    // m_WayPoints[temp].IsWayPointAssigned = true;
+                }
+
+
+            }
+
+        
+    }
+
+
+
+    private int FindClosestWayPoint(Enemy enemy)
+    {
+        if (m_AssignedWaypoints.Count == 0)
+        {
+            return -1;
+        }
+        int closest = 0;
+        float lastDistance = Vector3.Distance(enemy.EnemyPrefab.transform.position,
+            m_AssignedWaypoints[0].TargetDestination.position);
+        for (int i = 1; i < m_AssignedWaypoints.Count; i++)
+        {
+            float thisDistance = Vector3.Distance(enemy.EnemyPrefab.transform.position,
+                m_AssignedWaypoints[i].TargetDestination.position);
+
+            if (lastDistance > thisDistance && i != closest)
+            {
+                closest = i;
+            }
+        }
+        return closest;
     }
 }
 
@@ -131,6 +211,7 @@ public class Enemy
         get { return isOnGameObject; }
         set { isOnGameObject = value; }
     }
+
 }
 
 [Serializable]

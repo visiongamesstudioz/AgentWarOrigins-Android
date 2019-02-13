@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using EndlessRunner;
+using Firebase.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -105,6 +106,19 @@ public class MissionManager : MonoBehaviour
             var t1 = t;
             EventManager.StartListening(t.MissionTitle, () => OnMissionComplete(t1));
         }
+        //track appsflyer rich event
+        Dictionary<string, string> missionCompleteEvent = new Dictionary<string, string>();
+        missionCompleteEvent.Add(AFInAppEvents.CONTENT_TYPE, "missions");
+        missionCompleteEvent.Add(AFInAppEvents.CONTENT_ID, mission.MissionId.ToString());
+        missionCompleteEvent.Add(AFInAppEvents.CONTENT_TITLE, mission.MissionTitle);
+        missionCompleteEvent.Add("af_mission_type", Enum.GetName(typeof(MissionType), mission.MissionType));
+           
+        AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.MISSION_COMPLETED, missionCompleteEvent);
+
+        //log firebase event
+        Parameter unlockAchievementParameters = new Parameter(FirebaseAnalytics.ParameterAchievementId, mission.MissionTitle);
+        
+        FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventUnlockAchievement, unlockAchievementParameters);
     }
 
     public void SkipMission(Mission mission)

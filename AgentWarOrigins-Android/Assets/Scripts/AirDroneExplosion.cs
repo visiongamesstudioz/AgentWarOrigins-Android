@@ -103,7 +103,7 @@ public class AirDroneExplosion : MonoBehaviour
     {
         if (droneHealth)
         {
-            if (!droneHealth.IsDestroyed && Vector3.Angle(m_Player.transform.forward, transform.position - m_Player.transform.position) < 45)
+            if (!droneHealth.IsDestroyed && Vector3.Angle(m_Player.transform.forward, transform.position - m_Player.transform.position) < 65)
             {
                 m_ParticleSystem.Play(true);
                 if (m_ParticleSystem.isPlaying)

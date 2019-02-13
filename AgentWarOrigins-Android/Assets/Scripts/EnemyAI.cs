@@ -208,7 +208,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (!isMoving)
                 {
-                    if (distanceToPlayer <= ScanDistance && distanceToPlayer > AttackDistance && !isCrouching)
+                    if (distanceToPlayer <= ScanDistance && distanceToPlayer > _currentWeapon.Weapon.WeaponRange && !isCrouching)
                     {
                         if (IsLookingAtPlayer())
                             m_CurrentEnemyState = EnemyState.Aim;
@@ -220,7 +220,7 @@ public class EnemyAI : MonoBehaviour
                         if (!IsLookingAtPlayer())
                             m_CurrentEnemyState = EnemyState.LookAtTarget;
 
-                        else if (distanceToPlayer <= AttackDistance && !_currentWeapon.IsReloading())
+                        else if (distanceToPlayer <= _currentWeapon.Weapon.WeaponRange && !_currentWeapon.IsReloading())
                             m_CurrentEnemyState = EnemyState.Attack;
                     }
                 }
@@ -429,8 +429,11 @@ public class EnemyAI : MonoBehaviour
 
         if (m_IsGrounded)
         {
-          //  Debug.Log("enemy is on ground" + transform.localPosition);
-            transform.parent = m_DefaultEnemyParent.transform;
+            //  Debug.Log("enemy is on ground" + transform.localPosition);
+            if (m_DefaultEnemyParent)
+            {
+                transform.parent = m_DefaultEnemyParent.transform;
+            }
             m_PlayOtherAnimation = false;
             _mAnimation.JumpDown(false);
 

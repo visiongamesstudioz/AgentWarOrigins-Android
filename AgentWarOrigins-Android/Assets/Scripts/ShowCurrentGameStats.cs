@@ -72,16 +72,25 @@ public class ShowCurrentGameStats : MonoBehaviour
             LastRateShowTime = 0;
         }
 
-        DoubleXpButton.interactable = Vungle.isAdvertAvailable(Util.VungleNonSkippablePlacementId);
+      //  DoubleXpButton.interactable = Vungle.isAdvertAvailable(Util.VungleNonSkippablePlacementId);
         PlayAgainButton.onClick.AddListener(()=>Util.ResetCurrentGameStats(currentGameStats));
         UiManager.Instance.UpdateUi();
 
         InputControl inputcontrol;
         PlayerControl playercontrol;
-        m_player= GameManager.Instance.InitializeSelectedCharacter();
-
+        Animator playeranimator;
+        m_player = GameManager.m_InstantiatedPlayer;
+        if (m_player == null)
+        {
+            m_player= GameManager.Instance.InitializeSelectedCharacter();
+        }
         inputcontrol = m_player.GetComponent<InputControl>();
         playercontrol = m_player.GetComponent<PlayerControl>();
+        playeranimator = m_player.GetComponent<Animator>();
+        if (playeranimator.runtimeAnimatorController == null)
+        {
+            playeranimator.runtimeAnimatorController = m_player.GetComponent<Player>().PlayerAnimatorController;
+        }
         if (inputcontrol)
         {
             Destroy(inputcontrol);
@@ -189,7 +198,7 @@ public class ShowCurrentGameStats : MonoBehaviour
         //show menu and retry
         PlayAgainButton.gameObject.SetActive(true);
         DoubleXpButton.gameObject.SetActive(true);
-        if (currentGameStats.CurrentXpEarned > 0)
+        if (currentGameStats.CurrentXpEarned > 0 && AdmobAdManager.Instance.isRewardedVideoReady())
         {
             DoubleXpButton.interactable = true;
         }

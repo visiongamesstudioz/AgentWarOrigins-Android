@@ -66,6 +66,7 @@ public class SceneLoader : MonoBehaviour
                     {
                         slider.value = 1f;
                         asyncLoad.allowSceneActivation = true;
+                        FirebaseInitializer.Instance.SetScreenName(SceneManager.GetSceneByBuildIndex(levelIndex).name);
                     }
                 }
 
@@ -103,6 +104,7 @@ public class SceneLoader : MonoBehaviour
                     {
                         slider.value = 1f;
                         asyncLoad.allowSceneActivation = true;
+                        FirebaseInitializer.Instance.SetScreenName(SceneManager.GetSceneByBuildIndex(levelIndex).name);
                     }
                 }
 
@@ -120,7 +122,13 @@ public class SceneLoader : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             if (asyncLoad.progress == 0.9f)
+            {
                 asyncLoad.allowSceneActivation = true;
+                FirebaseInitializer.Instance.SetScreenName(SceneManager.GetSceneByBuildIndex(levelIndex).name);
+
+            }
+
+
             yield return null;
         }
 

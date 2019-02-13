@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Analytics;
 using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,10 @@ namespace EndlessRunner
     public class UiManager : MonoBehaviour
     {
         public static UiManager Instance;
+
+
+        public Player TutorialPlayer;
+
         public Slider HealthBar;
         public Slider CurrentLevelXpSlider;
         public Text CurrentLevel;
@@ -26,10 +31,15 @@ namespace EndlessRunner
         public Canvas SettingsCanvas;
         public Canvas PauseCanvas;
         public Button PauseButton;
+        public GameObject DistanceTravelled;
+       
+        public GameObject CurrentKills;
+        public GameObject TokensCollected;
         public Button BackButton;
         public Button Tokensbutton;
         public Button BuyCoinsButton;
         public Button BuyDiamondsButton;
+        public Button WatchResumeVideoButton;
         public GameObject PauseMenu;
         public GameObject RefillAmmoHolder;
         public Button BuyAmmoButton;
@@ -55,18 +65,31 @@ namespace EndlessRunner
         public Image TapToShoot;
         public Image TapOnEnemies;
         public Image TutorialCompleted;
+        public FixedJoystick FixedJoystick;
+        public Button ZoomToWeapon;
+        public LayerMask NothingLayerMask;
+
+        private static Player m_Tutorialplayer;
+
         private readonly Color m_minHealthColor = Color.red;
         private readonly Color m_MaxHealthColor = Color.green;
         private static Image m_HealthBarColorImage;
         private static Coroutine hideGameObjectCoroutine;
         private Coroutine scaleUiObject;
         private static Button m_pauseButton;
+        private static Button m_WatchResumeVideoButton;
         private static Canvas m_GameOverCanvas;
         private static Canvas m_GameMenuCanvas;
         private static Button m_GameMenuCanvasButton;
         private static Text m_RemainingTimeTorevive;
         private static Canvas m_PauseCanvas;
         private static GameObject m_PauseMenu;
+        private static GameObject m_DistanceTravelled;
+        private static Text m_distanceTravelledText;
+        private static Text m_tokensCollectedText;
+        private static Text m_CurrentKillsText;
+        private static GameObject m_CurrentKills;
+        private static GameObject m_TokensCollected;
         private static GameObject m_RefillAmmoHolder;
         private static Button m_BuyAmmoButton;
         private static RectTransform m_GameOverCanvasRectTransform;
@@ -111,6 +134,12 @@ namespace EndlessRunner
         private static Image m_TutorialCompleted;
         private static Text m_ShootText;
         private static Button m_AutoDetectButton;
+        private static FixedJoystick m_FixedJoyStick;
+        private static Button m_ZoomtoWeapon;
+        private static LayerMask m_nothingLayerMask;
+        private static bool isZoomToWeaponEnabled;
+        public Camera mainCamera;
+        private static Camera activeCamera;
         private void Awake()
         {
             if (Instance == null)
@@ -121,8 +150,13 @@ namespace EndlessRunner
             else
             {
                 Destroy(this);
-            }           
+            }
 
+            m_Tutorialplayer = TutorialPlayer;
+            //joystick refernce
+            m_FixedJoyStick = FixedJoystick;
+            m_ZoomtoWeapon = ZoomToWeapon;
+            m_nothingLayerMask = NothingLayerMask;
             m_HealthBar = HealthBar;
 
             m_HealthBarColorImage = HealthBar.GetComponentInChildren<Image>();
@@ -132,8 +166,15 @@ namespace EndlessRunner
             m_pauseButton = PauseButton;
             m_GameMenuCanvas = GameMenuCanvas;
             m_GameOverCanvas = GameOverCanvas;
+            m_WatchResumeVideoButton = WatchResumeVideoButton;
             m_RemainingTimeTorevive = RemainingTimeTorevive;
             m_PauseCanvas = PauseCanvas;
+            m_DistanceTravelled = DistanceTravelled;
+            m_distanceTravelledText = m_DistanceTravelled.GetComponentInChildren<Text>();
+            m_TokensCollected = TokensCollected;
+            m_tokensCollectedText = m_TokensCollected.GetComponentInChildren<Text>();
+            m_CurrentKills = CurrentKills;
+            m_CurrentKillsText = m_CurrentKills.GetComponentInChildren<Text>();
             m_GameOverCanvasRectTransform = GameOverCanvasRectTransform;
             m_ChestButton = ChestButton;
             m_ChestBoxgameObject = ChestBoxGameObject;
@@ -176,6 +217,8 @@ namespace EndlessRunner
 
         private void Start()
         {
+          //  mainCamera=Camera.main;
+            activeCamera = mainCamera;
             //   m_HealthBarColorImage.color = m_MaxHealthColor;
 
             //load vungle ads
@@ -616,15 +659,21 @@ namespace EndlessRunner
                 //resolutionPercentage = 80;
                 if (autoQuality < 1)
                 {
-                    resolutionPercentage = 80;
+                    resolutionPercentage = 60;
                     PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
+                } 
+                else if(autoQuality==1)
+                {
+                    resolutionPercentage = 80;
+
+                    PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
+
                 }
                 else
                 {
                     resolutionPercentage = 100;
 
                     PlayerPrefs.SetInt("ScreenResolution", resolutionPercentage);
-
                 }
             }
 
@@ -799,6 +848,7 @@ namespace EndlessRunner
             GameOverCanvas = m_GameOverCanvas;
             PauseButton = m_pauseButton;
             PauseButton.gameObject.SetActive(false);
+
             GameOverCanvas.gameObject.SetActive(true);
             Button[] buttons = GameOverCanvas.GetComponentsInChildren<Button>();
             Text charactername = GameOverCanvas.GetComponentInChildren<Text>();
@@ -814,6 +864,16 @@ namespace EndlessRunner
             {
                 EnableBuywithDiamondsButton();
             }
+
+            if (AdmobAdManager.Instance.isRewardedVideoReady())
+            {
+                m_WatchResumeVideoButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                m_WatchResumeVideoButton.gameObject.SetActive(false);
+            }
+
             hideGameObjectCoroutine =  StartCoroutine(LoadSceneAfterDelay(timeInSeconds));
         }
 
@@ -998,10 +1058,15 @@ namespace EndlessRunner
 
                 }
 
-                Vector3 position = Camera.main.ScreenToWorldPoint(playerPos);
-                xpText.transform.SetParent(PauseCanvas.transform, false);
-                xpText.transform.position = position;
-                xpText.SetActive(true);
+                if (Camera.main)
+                {
+                    Vector3 position = Camera.main.ScreenToWorldPoint(playerPos);
+                    xpText.transform.SetParent(PauseCanvas.transform, false);
+                    xpText.transform.position = position;
+                    xpText.SetActive(true);
+                }
+                
+               
             }
 
     
@@ -1127,6 +1192,10 @@ namespace EndlessRunner
                     SetGraphicsToggle(2);
                     break;
             }
+
+            //track appsflyer custom event
+            AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.VIEW_SETTINGS);
+            FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.VIEW_SETTINGS);
 
         }
 
@@ -1366,11 +1435,16 @@ namespace EndlessRunner
                 statisticsPanel.SetActive(true);
 
             }
-
+            //track appsflyer event
+            AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.VIEW_STATS);
+            //log firebase view event
+            FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.VIEW_STATS);
         }
 
         public void OnRateButtonClicked()
         {
+            AppsFlyerStartUp.Instance.TrackCustomEvent(AFInAppEvents.CLICK_RATE_NOW);
+            FirebaseInitializer.Instance.LogClickEvent(AFInAppEvents.CLICK_RATE_NOW);
             Util.RateGame();
         }
 
@@ -1456,6 +1530,14 @@ namespace EndlessRunner
         }
         public IEnumerator OnTutorialCompleted()
         {
+            //log appsflyer event
+            Dictionary<string, string> TutorialCompletiondEvent = new Dictionary<string, string>();
+            TutorialCompletiondEvent.Add(AFInAppEvents.SUCCESS, "true");
+            TutorialCompletiondEvent.Add(AFInAppEvents.CONTENT_TITLE, "Getting started");
+            AppsFlyerStartUp.Instance.TrackRichEvent(AFInAppEvents.TUTORIAL_COMPLETION,TutorialCompletiondEvent);
+            //log firebase event
+            FirebaseInitializer.Instance.LogCustomEvent(FirebaseAnalytics.EventTutorialComplete);
+
             PlayerPrefs.SetInt("IsTutorialComplete", 1);
             PlayerPrefs.Save();
             ShowTutorialCompletedImage();
@@ -1479,6 +1561,125 @@ namespace EndlessRunner
             OnTutorialSkipped();
         }
 
+        public void EnableJoyStick()
+        {
+            m_FixedJoyStick.gameObject.SetActive(true);
+        }
+
+        public void EnableJoyStickAnimator()
+        {
+            m_FixedJoyStick.GetComponent<Animator>().enabled = true;
+        }
+
+        public void DisableJoyStickAnimator()
+        {
+            m_FixedJoyStick.GetComponent<Animator>().enabled = false;
+        }
+
+        public void DisableJoyStick()
+        {
+            m_FixedJoyStick.gameObject.SetActive(false);
+        }
+
+        public Camera GetActiveCamera()
+        {
+            return activeCamera;
+        }
+
+        public void EnableZoomToWeaponButton()
+        {
+            m_ZoomtoWeapon.gameObject.SetActive(true);
+        }
+
+        public void DisableZoomToWeaponButton()
+        {
+            m_ZoomtoWeapon.gameObject.SetActive(false);
+        }
+        public void ZoomToWeapons()
+        {
+            isZoomToWeaponEnabled = !isZoomToWeaponEnabled;
+            GameObject player= GameManager.m_InstantiatedPlayer;
+
+            if (player == null)
+            {
+                //get tutorial player
+                player = m_Tutorialplayer.gameObject;
+            }
+
+            if (player)
+            {
+                PlayerShoot playerShoot = player.GetComponent<PlayerShoot>();
+                Camera zoomToWeaponCamera = playerShoot.CurrentWeapon.ZoomToWeaponCamera;
+
+                zoomToWeaponCamera.transform.localPosition = playerShoot.CurrentWeapon.DefaultCamTransform;
+
+                if (isZoomToWeaponEnabled)
+                {
+                    //enable zoom camera and disable main cam
+                    Camera.main.cullingMask = NothingLayerMask;
+                    zoomToWeaponCamera.gameObject.SetActive(true);
+                    activeCamera = zoomToWeaponCamera;
+                    m_FixedJoyStick.gameObject.SetActive(false);
+                }
+                else
+                {
+
+                    zoomToWeaponCamera.gameObject.SetActive(false);
+                    Camera.main.cullingMask = ~(1 << 5);  //5 for UI layer
+                    activeCamera = Camera.main;
+                    m_FixedJoyStick.gameObject.SetActive(true);
+                }
+            }
+     
+
+        }
+
+        public void SetisZoomToWeaponEnabled(bool value)
+        {
+            isZoomToWeaponEnabled = value;
+            GameObject player = GameManager.m_InstantiatedPlayer;
+            if (player == null)
+            {
+                player = m_Tutorialplayer.gameObject;
+            }
+            if (player)
+            {
+                PlayerShoot playerShoot = player.GetComponent<PlayerShoot>();
+                Camera zoomToWeaponCamera = playerShoot.CurrentWeapon.ZoomToWeaponCamera;
+                zoomToWeaponCamera.gameObject.SetActive(value);
+            }
+  
+            activeCamera = Camera.main;
+            Camera.main.cullingMask = ~(1 << 5);  //5 for UI layer
+        }
+
+        public void UpdateDistanceTravelled(float value)
+        {
+            m_distanceTravelledText.text = value.ToString();
+        }
+
+        public void UpdateCurrentKills(int value)
+        {
+            m_CurrentKillsText.text = value.ToString();
+        }
+
+        public void UpdateTokensCollected(int value)
+        {
+            m_tokensCollectedText.text = value.ToString();
+        }
+
+        public void ShowCurrentStatsInPauseCanvas()
+        {
+            m_DistanceTravelled.SetActive(true);
+            m_CurrentKills.SetActive(true);
+            m_TokensCollected.SetActive(true);
+        }
+
+        public void ChangeCameraCullingMask()
+        {
+            
+
+        }
     }
 
 }

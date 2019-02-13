@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 namespace EndlessRunner
 {
@@ -68,7 +69,7 @@ namespace EndlessRunner
         private bool[] spawnedSceneSectionTransition;
 
         private InfiniteObjectManager infiniteObjectManager;
-
+        private Stack<SceneObject> m_SceneObjectsStack=new Stack<SceneObject>();
         public void Awake()
         {
             instance = this;
@@ -208,6 +209,25 @@ namespace EndlessRunner
             }
         }
 
+        public void AddSceneToStack(SceneObject sceneObject)
+        {
+            m_SceneObjectsStack.Push(sceneObject);
+        }
+
+        public SceneObject RemoveTopSceneFromStack()
+        {
+            return m_SceneObjectsStack.Pop();
+        }
+
+        public SceneObject PeekTopSceneFromStack()
+        {
+           return m_SceneObjectsStack.Peek();
+        }
+
+        public int GetSceneStackCount()
+        {
+            return m_SceneObjectsStack.Count;
+        }
         // Increase the distance travelled by the specified amount
         public void AddTotalDistance(float amount, ObjectLocation location, bool isSceneObject)
         {

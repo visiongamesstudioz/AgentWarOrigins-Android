@@ -136,11 +136,11 @@ public class PSMeshRendererUpdater : MonoBehaviour
         var meshRenderers = go.GetComponentsInChildren<MeshRenderer>();
         var skinMeshRenderers = go.GetComponentsInChildren<SkinnedMeshRenderer>();
 
-        foreach (var meshRenderer in meshRenderers)
-        {
-            rendererMaterials.Add(meshRenderer.sharedMaterials);
-            meshRenderer.sharedMaterials = AddToSharedMaterial(meshRenderer.sharedMaterials, meshMatEffect);
-        }
+        //foreach (var meshRenderer in meshRenderers)
+        //{
+        //    rendererMaterials.Add(meshRenderer.sharedMaterials);
+        //    meshRenderer.sharedMaterials = AddToSharedMaterial(meshRenderer.sharedMaterials, meshMatEffect);
+        //}
 
         foreach (var skinMeshRenderer in skinMeshRenderers)
         {

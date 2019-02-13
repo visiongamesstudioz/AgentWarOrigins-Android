@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occurProbabilities:
     values:
-    - startDistance: 800
+    - startDistance: 0
       startValue: 1
       endDistance: 0
       endValue: 1
@@ -1301,7 +1301,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b4a8db8473f9d44b8c1d8aef027a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avoidObjectRuleMaps: []
+  avoidObjectRuleMaps:
+  - targetObject: {fileID: 114080420900003664}
+    rules:
+    - minDistanceSameObjectType: 0
+      minDistance: 0
+      minObjectSeparation: 1
+      forceOccurance: 0
+      probability:
+        startDistance: 0
+        startValue: 1
+        endDistance: 1000
+        endValue: 1
+        useEndDistance: 1
   probabilityAdjustmentMaps: []
   CannotSpawnAfterScene: 0
   TargetSceneObjects: []

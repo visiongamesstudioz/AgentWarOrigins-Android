@@ -37,7 +37,7 @@ namespace EndlessRunner
         public float objectDeactivationTime;
         public float SpawnCollidableTime;
         public Vector3 DistanceBetweenCollidables;
-
+        public float TimeSpanBetweenEnemyWave;
         public Vector3 ObstacleOffset = new Vector3(10, 0, 0);
         // the probability that no collidables will spawn on the platform
         [HideInInspector] public DistanceValueList noCollidableProbability;
@@ -62,6 +62,7 @@ namespace EndlessRunner
         private float currentTotalSceneLength;
         private Vector3 currentSceneSpawnPosition;
         private InfiniteObject prevScene;
+        private InfiniteObject currentScene;
         private GameObject infiniteObjectsParent;
         private GameObject obstacleObjectparent;
         private static bool isSessionStarted;
@@ -74,9 +75,12 @@ namespace EndlessRunner
         private Vector3 prevTokenPosition;
         private GameManager gameManager;
 
-        private Queue<SceneObject> m_SceneObjectsQueue;
         private List<SceneObject> m_SceneObjectsList;
         private Vector3 DistanceBetweenSpawns = new Vector3(100, 0, 0);
+
+        private float m_RemainingTImeBetweenEnemyWave;
+        private EnemyManager m_EnemyManager;
+
         public void Awake()
         {
             instance = this;
@@ -85,9 +89,9 @@ namespace EndlessRunner
             obstacleObjectparent = GameObject.FindGameObjectWithTag("ObstaclesParent");
             spawnSceneUpdateTimer = SpawnSceneTime;
             objectDeactivationTimer = objectDeactivationTime;
+            m_EnemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 
-            m_SceneObjectsQueue = new Queue<SceneObject>();
-            m_SceneObjectsList = new List<SceneObject>();
+
         }
 
         public void Start()
@@ -97,6 +101,7 @@ namespace EndlessRunner
 
             infiniteObjectManager = InfiniteObjectManager.instance;
             infiniteObjectHistory = InfiniteObjectHistory.instance;
+
             infiniteObjectManager.Init();
             if (InfiniteObjectHistory.instance != null)
                 InfiniteObjectHistory.instance.Init(infiniteObjectManager.GetTotalObjectCount());
@@ -129,6 +134,8 @@ namespace EndlessRunner
             //    GameManager.Instance.OnStartGame += StartGame;
 
           //  InvokeRepeating("SpawnCollidable", 10, 5);
+
+            m_RemainingTImeBetweenEnemyWave = TimeSpanBetweenEnemyWave;
         }
 
         //private void SpawnCollidable()
@@ -154,27 +161,27 @@ namespace EndlessRunner
             spawnSceneUpdateTimer -= Time.fixedDeltaTime;
             objectDeactivationTimer -= Time.fixedDeltaTime;
             SpawnCollidableUpdateTimer -= Time.fixedDeltaTime;
+            m_RemainingTImeBetweenEnemyWave -= Time.fixedDeltaTime;
             if (gameManager == null)
             {
                 gameManager = GameManager.Instance;
             }
-           
-            if (spawnSceneUpdateTimer < 0 && GameManager.m_InstantiatedPlayer)
-            {
-                float sceneDistanceToPlayer = Vector3.Distance(currentSceneSpawnPosition, GameManager.m_InstantiatedPlayer.transform.position);
+                if (spawnSceneUpdateTimer < 0 && GameManager.m_InstantiatedPlayer)
+                {
+                    float sceneDistanceToPlayer = Vector3.Distance(currentSceneSpawnPosition, GameManager.m_InstantiatedPlayer.transform.position);
 
                 if (gameManager)
-                {
-                    if (gameManager.IsGameActive() && sceneDistanceToPlayer < 750)
                     {
-                        SpawnObjectRun(false);
-
-                        spawnSceneUpdateTimer = SpawnSceneTime;
+                        if (gameManager.IsGameActive() && sceneDistanceToPlayer < 750)
+                        {
+                            SpawnObjectRun(false);
+                            spawnSceneUpdateTimer = SpawnSceneTime;
+                        }
                     }
-                }
 
-            }
+                }                 
 
+            //spawn tokens
             if (SpawnCollidableUpdateTimer < 0 && GameManager.m_InstantiatedPlayer)
             {
                 prevTokenPosition = new Vector3(GameManager.m_InstantiatedPlayer.transform.position.x,0,0) + DistanceBetweenSpawns;
@@ -186,7 +193,6 @@ namespace EndlessRunner
                 }
                 SpawnCollidableUpdateTimer = SpawnCollidableTime;
             }
-
 
 
             ////time to spawn again
@@ -342,32 +348,32 @@ namespace EndlessRunner
 
             //    }
             //}
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (GameManager.Instance.IsGameActive())
-                if (m_SceneObjectsQueue.Count > 0)
-                {
-                    var bottomSceneObject = m_SceneObjectsQueue.Peek();
-                    if (!bottomSceneObject) return;
-                    //Debug.Log("bottom scene position" + bottomSceneObject.transform.position);
-                    //Debug.Log("player current position " + playerControl.GetPlayerCurrentPosition());
-                    if (
-                        !((bottomSceneObject.transform.position -
-                           player.GetComponent<PlayerControl>().GetPlayerCurrentPosition()).x <
-                          removeHorizon)) return;
-                    //Debug.Log("object if out of origin");
-                    bottomSceneObject = m_SceneObjectsQueue.Dequeue();
-                    bottomSceneObject.Deactivate();
-                    //else if ((bottomSceneObject.transform.position - playerControl.GetPlayerCurrentPosition()).x <
-                    //         Camera.main.farClipPlane &&
-                    //         bottomSceneObject.gameObject.layer != LayerMask.NameToLayer("Obstacle"))
-                    //{
-                    //    Debug.Log("object if out of origin else");
+            //var player = GameObject.FindGameObjectWithTag("Player");
+            //if (GameManager.Instance.IsGameActive())
+            //    if (m_SceneObjectsQueue.Count > 0)
+            //    {
+            //        var bottomSceneObject = m_SceneObjectsQueue.Peek();
+            //        if (!bottomSceneObject) return;
+            //        //Debug.Log("bottom scene position" + bottomSceneObject.transform.position);
+            //        //Debug.Log("player current position " + playerControl.GetPlayerCurrentPosition());
+            //        if (
+            //            !((bottomSceneObject.transform.position -
+            //               player.GetComponent<PlayerControl>().GetPlayerCurrentPosition()).x <
+            //              removeHorizon)) return;
+            //        //Debug.Log("object if out of origin");
+            //        bottomSceneObject = m_SceneObjectsQueue.Dequeue();
+            //        bottomSceneObject.Deactivate();
+            //        //else if ((bottomSceneObject.transform.position - playerControl.GetPlayerCurrentPosition()).x <
+            //        //         Camera.main.farClipPlane &&
+            //        //         bottomSceneObject.gameObject.layer != LayerMask.NameToLayer("Obstacle"))
+            //        //{
+            //        //    Debug.Log("object if out of origin else");
 
-                    //    m_SceneObjectsQueue.Dequeue();
-                    //    bottomSceneObject.Activate();
+            //        //    m_SceneObjectsQueue.Dequeue();
+            //        //    bottomSceneObject.Activate();
 
-                    //}
-                }
+            //        //}
+            //    }
 
 
             //if (m_SceneObjectsList.Count > 0)
@@ -500,10 +506,11 @@ namespace EndlessRunner
                 if (prevTopScene != null)
                 {
                     //add latest scene to queue
-                    m_SceneObjectsQueue.Enqueue(scene);
                     //    m_SceneObjectsList.Add(scene);
                     infiniteObjectHistory.AddTotalDistance(prevTopScene.GetCurrentSceneLength(), location, true);
+                    infiniteObjectHistory.AddSceneToStack(scene);
                 }
+
 
                 //spawn collidables in entire scene
                 int currentSceneLength = (int)scene.GetCurrentSceneLength();
@@ -526,10 +533,8 @@ namespace EndlessRunner
                 //    prevTokenPosition += new Vector3(100, 0, 0);
                 //}
 
-                //SpawnCollidableUpdateTimer = SpawnCollidableTime;
-
-
-
+                //SpawnCollidableUpdateTimer = SpawnCollidableTime;                  
+                
             }
     
          //   Debug.Log("total distance spawned till now " + scene.name + "is" + infiniteObjectHistory.GetTotalSceneDistance());

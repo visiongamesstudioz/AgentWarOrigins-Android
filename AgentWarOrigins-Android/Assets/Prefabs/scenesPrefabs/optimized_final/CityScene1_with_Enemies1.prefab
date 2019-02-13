@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 114704585706804492}
   - component: {fileID: 114979056836451744}
   - component: {fileID: 114286465298175992}
-  - component: {fileID: 65957436652389240}
+  - component: {fileID: 65635298568350736}
   m_Layer: 12
   m_Name: CityScene1_with_Enemies1
   m_TagString: Untagged
@@ -1764,7 +1764,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110102733224318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.086009, z: 0}
+  m_LocalPosition: {x: -224.4, y: -0.086009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4611103854922560}
@@ -4919,7 +4919,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 150.12009, y: 0.14561346, z: 128.79346}
   m_Center: {x: 337.5907, y: 0.09080428, z: 0.028003693}
---- !u!65 &65957436652389240
+--- !u!65 &65635298568350736
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4929,8 +4929,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 157.52722, y: 24.629135, z: 74.61853}
-  m_Center: {x: 70.5845, y: 11.814568, z: -2.8287888}
+  m_Size: {x: 215.22566, y: 73.729996, z: 128.79346}
+  m_Center: {x: 41.387215, y: 35.29, z: 0.027999878}
 --- !u!95 &95046038977164302
 Animator:
   serializedVersion: 3
@@ -5983,7 +5983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occurProbabilities:
     values:
-    - startDistance: 800
+    - startDistance: 300
       startValue: 1
       endDistance: 0
       endValue: 1

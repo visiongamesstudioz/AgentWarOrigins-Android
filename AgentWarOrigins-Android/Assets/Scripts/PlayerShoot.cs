@@ -9,6 +9,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform PlayerSpineTransform;
     public Transform PlayerLeftHandTransform;
     public Transform PlayerRightHandTransform;
+
     private PlayerAnimation m_PlayerAnimation;
     private PlayerControl m_PlayerControl;
     private PlayerHealth m_PlayerHealth;
@@ -16,7 +17,7 @@ public class PlayerShoot : MonoBehaviour
     private Animator m_Animator;
     [SerializeField]
     private WeaponManagement currentWeapon;
-    private Camera mainCamera;
+    public Camera mainCameraToUse;
     public WeaponManagement CurrentWeapon
     {
         get { return currentWeapon; }
@@ -34,7 +35,8 @@ public class PlayerShoot : MonoBehaviour
 
     private void Start()
     {
-        mainCamera = Camera.main;
+
+       // mainCameraToUse = Camera.main;
         m_Animator.SetLayerWeight(1,1);
         if (currentWeapon.CurrentWeaponType == WeaponType.Sr45)
         {
@@ -65,7 +67,8 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
-
+        
+        
         if (currentWeapon.IsReloading())
         {
             currentWeapon.DisableMuzzleFlash2();
@@ -99,44 +102,45 @@ public class PlayerShoot : MonoBehaviour
         {
             return;
         }
+
         if (currentWeapon.CanFire())
         {
             Ray ray;
-            if (Util.IsTutorialComplete())
+            mainCameraToUse = UiManager.Instance.GetActiveCamera();
+            if (mainCameraToUse == null)
             {
-                ray = mainCamera.ScreenPointToRay(position);
+                mainCameraToUse=Camera.main;
+            }
+            ray = mainCameraToUse.ScreenPointToRay(position);
 
-            }
-            else
-            {
-                ray = GetComponentInChildren<Camera>().ScreenPointToRay(position);
-            }
+   
+
 #if UNITY_EDITOR
 
-            //    Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 10f);
+            Debug.DrawRay(ray.origin, ray.direction * 150, Color.yellow, 10f);
 #endif
             //   Debug.Log("can fire");
 
             RaycastHit hit;
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, currentWeapon.Weapon.WeaponRange))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, currentWeapon.Weapon.WeaponRange,~0,QueryTriggerInteraction.Ignore))
             {
                 if (hit.collider)
                 {
                     //we found an collider
-                    //    Debug.Log(hit.collider.name);
                     var targetDirection = hit.point - currentWeapon.FirePoint.position;
 
                     currentWeapon.Shoot(targetDirection);
                     m_PlayerAnimation.Shoot();
                 }
-                else
-                {
-                    currentWeapon.Shoot(ray.direction);
-                    m_PlayerAnimation.Shoot();
-
-                }
+              
             }
-          
+            else
+            {
+                currentWeapon.Shoot(ray.direction);
+                m_PlayerAnimation.Shoot();
+
+            }
+
             currentWeapon.UpdateWeaponAmmoDisplay();   
         }
         else
@@ -177,7 +181,7 @@ public class PlayerShoot : MonoBehaviour
 
         //    PlayerSpineTransform.rotation = Quaternion.Slerp(PlayerSpineTransform.rotation, targetRotation, Time.deltaTime * 10f);
         //}
-        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        var ray = mainCameraToUse.ScreenPointToRay(Input.mousePosition);
         var hits = Physics.RaycastAll(ray.origin, ray.direction, Mathf.Infinity);
         foreach (var hit in hits)
         {
@@ -219,6 +223,14 @@ public class PlayerShoot : MonoBehaviour
     private void OnDisable()
     {
         //hide weapon
+       // mainCameraToUse = UiManager.Instance.GetActiveCamera();
+
+        UiManager.Instance.SetisZoomToWeaponEnabled(false);
+
+       
+        UiManager.Instance.DisableJoyStick();
+        UiManager.Instance.DisableZoomToWeaponButton();
+        
         currentWeapon.gameObject.SetActive(false);
         //disable muzzle flash
         GameObject muzzleFlash= currentWeapon.GetComponentInChildren<MuzzleFlash>(true).gameObject;
@@ -239,11 +251,25 @@ public class PlayerShoot : MonoBehaviour
         UiManager.Instance.HideWeaponAmmoDisplay();
         //hide refill ammo
         UiManager.Instance.HideRefillAmmoMenu();
+        UiManager.Instance.DisableZoomToWeaponButton();
     }
 
     private void OnEnable()
     {
-
+        mainCameraToUse = UiManager.Instance.GetActiveCamera();
+        if (mainCameraToUse == null)
+        {
+            mainCameraToUse=Camera.main;
+        }
+        if (mainCameraToUse.CompareTag("MainCamera"))
+        {
+            UiManager.Instance.EnableJoyStick();
+        }
+        else
+        {
+            UiManager.Instance.DisableJoyStick();
+        }
+        UiManager.Instance.EnableZoomToWeaponButton();
         //show  weapon
         currentWeapon.gameObject.SetActive(true);
         m_PlayerAnimation.Aim();

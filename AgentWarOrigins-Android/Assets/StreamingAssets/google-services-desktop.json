@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "211968580204",
+    "firebase_url": "https://agent-war-origins-8f968.firebaseio.com",
+    "project_id": "agent-war-origins-8f968",
+    "storage_bucket": "agent-war-origins-8f968.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211968580204:android:3b329a17f3a5afe5",
+        "android_client_info": {
+          "package_name": "com.vgsz.android.agentwarorigins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211968580204-tbc1m1nhe98l2rs2anarap88csbski74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTPsD7stM9wCwdwm8SIfBrulov1Nb_qIY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
