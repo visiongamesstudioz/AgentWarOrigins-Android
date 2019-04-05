@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 8dbe967cfbef4da44bc3e6d5eb5fdd67
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: subway_back
+    100002: //RootNode
+    100004: subway_light
+    100006: subway_light1
+    100008: subway_path
+    100010: subway_poster
+    100012: subway_rails
+    100014: subway_side_rails
+    100016: subway_side_walls
+    100018: subway_small_rails
+    400000: subway_back
+    400002: //RootNode
+    400004: subway_light
+    400006: subway_light1
+    400008: subway_path
+    400010: subway_poster
+    400012: subway_rails
+    400014: subway_side_rails
+    400016: subway_side_walls
+    400018: subway_small_rails
+    2300000: subway_back
+    2300002: subway_light
+    2300004: subway_light1
+    2300006: subway_path
+    2300008: subway_poster
+    2300010: subway_rails
+    2300012: subway_side_rails
+    2300014: subway_side_walls
+    2300016: subway_small_rails
+    3300000: subway_back
+    3300002: subway_light
+    3300004: subway_light1
+    3300006: subway_path
+    3300008: subway_poster
+    3300010: subway_rails
+    3300012: subway_side_rails
+    3300014: subway_side_walls
+    3300016: subway_small_rails
+    4300000: subway_path
+    4300002: subway_back
+    4300004: subway_rails
+    4300006: subway_poster
+    4300008: subway_small_rails
+    4300010: subway_light
+    4300012: subway_light1
+    4300014: subway_side_rails
+    4300016: subway_side_walls
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_back1
+    second: {fileID: 2100000, guid: a6b71b046318f8f4dbb2ede75ab5c57f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_light2
+    second: {fileID: 2100000, guid: 5935bc2c3c454344eaf63b6c8d11b927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_path1
+    second: {fileID: 2100000, guid: 53a080bc9f4ee3544971ca95b9ca8a78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_poster1
+    second: {fileID: 2100000, guid: 626be54be2b735848a2a48a8ea3fc2be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_rails1
+    second: {fileID: 2100000, guid: 03c3bcaf75ca15245a1287a0fdfa1edd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_side_rails1
+    second: {fileID: 2100000, guid: 47f63b36c53933d4a96751d3a7cac606, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_side_walls1
+    second: {fileID: 2100000, guid: c3b205e80e1dd444b87752148d58686f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: subway_small_rails1
+    second: {fileID: 2100000, guid: 7140db616fb828448a28fec7f83c2f3a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

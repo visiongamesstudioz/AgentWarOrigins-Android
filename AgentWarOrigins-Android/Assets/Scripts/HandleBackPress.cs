@@ -28,7 +28,7 @@ public class HandleBackPress : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "Home")
+            if (SceneManager.GetActiveScene().buildIndex==2)
             {
                 GameObject canvas=GameObject.Find("Canvas");
                 if (canvas != null)

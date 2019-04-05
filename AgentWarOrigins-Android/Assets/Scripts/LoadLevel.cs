@@ -7,6 +7,9 @@ public class LoadLevel : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //temporarily set tutotial completed
+        PlayerPrefs.SetInt("IsTutorialComplete", 1);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(1);
     }
 }

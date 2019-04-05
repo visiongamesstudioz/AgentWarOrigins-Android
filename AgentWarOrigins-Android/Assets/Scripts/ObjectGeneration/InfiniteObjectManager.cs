@@ -247,7 +247,7 @@ namespace EndlessRunner
                 //    break;
             }
 
-            obj = (Instantiate(objects[localIndex].gameObject,new Vector3(-1000f * (objectPool.Count + 1 ),objects[localIndex].gameObject.transform.position.y ,0),objects[localIndex].gameObject.transform.rotation) as GameObject).GetComponent<InfiniteObject>();
+            obj = (Instantiate(objects[localIndex].gameObject,new Vector3(-1000f,objects[localIndex].gameObject.transform.position.y ,0),objects[localIndex].gameObject.transform.rotation) as GameObject).GetComponent<InfiniteObject>();
 
             AssignParent(obj, objectType);
             obj.SetLocalIndex(localIndex);

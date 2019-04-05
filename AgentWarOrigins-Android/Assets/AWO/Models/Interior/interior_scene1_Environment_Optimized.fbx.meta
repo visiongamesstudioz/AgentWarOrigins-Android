@@ -1,0 +1,461 @@
+fileFormatVersion: 2
+guid: 2c0b82d0f5ead884bb0758dddf4ab6dc
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ceiling_beams
+    100002: //RootNode
+    100004: left
+    100006: left 1
+    100008: light_GRP
+    100010: pillars
+    100012: right
+    100014: right 1
+    100016: scif_inner__door
+    100018: scifi_entrance_combined
+    100020: scifi_grounds_combined
+    100022: scifi_outer_door
+    100024: scifi_walls_combined
+    400000: ceiling_beams
+    400002: //RootNode
+    400004: left
+    400006: left 1
+    400008: light_GRP
+    400010: pillars
+    400012: right
+    400014: right 1
+    400016: scif_inner__door
+    400018: scifi_entrance_combined
+    400020: scifi_grounds_combined
+    400022: scifi_outer_door
+    400024: scifi_walls_combined
+    2100000: scifi_door_mat
+    2100002: scifi_door_mat1
+    2100004: scifi_walls1
+    2100006: scifi_grounds_mat1
+    2100008: scifi_gounds_MAT
+    2100010: scifi_entrance_mat_MAT
+    2100012: scifi_beams
+    2100014: scifi_pillar_mat
+    2100016: scifi_interior_light1_mat
+    2300000: ceiling_beams
+    2300002: left
+    2300004: left 1
+    2300006: light_GRP
+    2300008: pillars
+    2300010: right
+    2300012: right 1
+    2300014: scifi_entrance_combined
+    2300016: scifi_grounds_combined
+    2300018: scifi_walls_combined
+    3300000: ceiling_beams
+    3300002: left
+    3300004: left 1
+    3300006: light_GRP
+    3300008: pillars
+    3300010: right
+    3300012: right 1
+    3300014: scifi_entrance_combined
+    3300016: scifi_grounds_combined
+    3300018: scifi_walls_combined
+    4300000: right
+    4300002: left
+    4300004: right
+    4300006: left
+    4300008: scifi_walls_combined
+    4300010: scifi_grounds_combined
+    4300012: scifi_entrance_combined
+    4300014: ceiling_beams
+    4300016: pillars
+    4300018: light_GRP
+  externalObjects:
+  - first:
+      type: UnityEngine:Cubemap
+      assembly: UnityEngine.CoreModule
+      name: diffuse_cube
+    second: {fileID: 8900000, guid: 268e3a5cffb1b0443a2fad45a6270e8f, type: 3}
+  - first:
+      type: UnityEngine:Cubemap
+      assembly: UnityEngine.CoreModule
+      name: specular_cube
+    second: {fileID: 8900000, guid: 805a4502413ee5c4b98a34f44a6ae48f, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams
+    second: {fileID: 2100000, guid: 1ad1de27df287fc49aba819b43d963d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat
+    second: {fileID: 2100000, guid: fe3f6b8e99b8d984d9a9e0582f471eff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1
+    second: {fileID: 2100000, guid: 74964d65e1c7c4549be90721a05fbd99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT
+    second: {fileID: 2100000, guid: ad55f414ea1a7e24eae1df4c042b6bd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT
+    second: {fileID: 2100000, guid: 31973913c552a0f47aa4c2f343c31dd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat1
+    second: {fileID: 2100000, guid: 9dda4bc87b9046346aa56fc18918dbb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat
+    second: {fileID: 2100000, guid: b417156ca98ad1840bddadbe408cc3c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat
+    second: {fileID: 2100000, guid: 738242df0662ba0488e717e5b407cd50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1
+    second: {fileID: 2100000, guid: 96ca5582b513ec1408ab780cfd59f74c, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_AlbedoTransparency
+    second: {fileID: 2800000, guid: aeef0e27423bad24bad9388fe287835b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_Emission
+    second: {fileID: 2800000, guid: 6d786d459361b3942aec3364eb92a0e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_MetallicSmoothness
+    second: {fileID: 2800000, guid: 923baa42ab18d34469d3897150076248, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_Normal
+    second: {fileID: 2800000, guid: 8027784647657f04daa4147c9af63bbc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_Roughness
+    second: {fileID: 2800000, guid: eebe6337a288b4345b13be087646cb1a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_beams_ambient_occlusion
+    second: {fileID: 2800000, guid: 89e76d1d67fe11a47a6e4aaf8db070b3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1_AlbedoTransparency
+    second: {fileID: 2800000, guid: a03a1feda5a953343874a0fce11ffe9a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1_MetallicSmoothness
+    second: {fileID: 2800000, guid: b8d9cc7f52fcfcc4ea214776ad561745, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1_Normal
+    second: {fileID: 2800000, guid: 235e1480d2c441147a0bd1809be8097a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1_Roughness
+    second: {fileID: 2800000, guid: 0910973ed7049f8449fb082fdbb02cce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat1_ambient_occlusion
+    second: {fileID: 2800000, guid: d1cdd41dc82700d4b95bb73acfbf2537, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat_AlbedoTransparency
+    second: {fileID: 2800000, guid: 05dd1bdf65bf8804a94dc6f3b6e87eac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat_MetallicSmoothness
+    second: {fileID: 2800000, guid: 3ef78b9e44f125945bd73435940b9d81, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat_Normal
+    second: {fileID: 2800000, guid: 09fdcc771d3b74a459f9be97c155152e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat_Roughness
+    second: {fileID: 2800000, guid: 6186b52b6f5069845886fb3dbeee6c12, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_door_mat_ambient_occlusion
+    second: {fileID: 2800000, guid: 99f5200398d83f54d98044e9fbbd6957, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_AlbedoTransparency
+    second: {fileID: 2800000, guid: 3e626f0472a95f243a26c469a3f3e07d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_Emission
+    second: {fileID: 2800000, guid: 8d8d587a26c11ef44b286b97f954439f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_MetallicSmoothness
+    second: {fileID: 2800000, guid: 26fed439b7aa7cb45bf60eade985a838, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_Normal
+    second: {fileID: 2800000, guid: 3fb0cf04a8afd6740af8f3a7cc9ae1a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_Roughness
+    second: {fileID: 2800000, guid: cf289e858fede4449bd8d3a67a06ce37, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_entrance_mat_MAT_ambient_occlusion
+    second: {fileID: 2800000, guid: 88ba3e3117e2f104a9c35baea29f1f14, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT_AlbedoTransparency
+    second: {fileID: 2800000, guid: 2e18caaa79a8fed45a8fb8f5b023c1f4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT_Emission
+    second: {fileID: 2800000, guid: 6d1624e254f86ed4781854f3f2a4d86e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT_MetallicSmoothness
+    second: {fileID: 2800000, guid: c87e05caf25e56b4baf8788e3c8c5797, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT_Normal
+    second: {fileID: 2800000, guid: 024c6861fff2cc14ba93e92c0292c7eb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_gounds_MAT_Roughness
+    second: {fileID: 2800000, guid: 4f1fe7be2444b5f49a43bf7ce6d5265b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_AlbedoTransparency
+    second: {fileID: 2800000, guid: 2bf307ed793f0ca46995a926cc4ec304, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_Emission
+    second: {fileID: 2800000, guid: a23cb3ad4dcbfb94fb8806c6da7809e1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_MetallicSmoothness
+    second: {fileID: 2800000, guid: 8e2d850c9309ca445bba2ccf34746ade, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_Normal
+    second: {fileID: 2800000, guid: 03a5226ec9be0f04aa71540f93c055c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_Roughness
+    second: {fileID: 2800000, guid: 76daa18c973a7cd4f8897d253677854f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_grounds_mat2_ambient_occlusion
+    second: {fileID: 2800000, guid: 347c960150f2efb49a8740c6eb4291de, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_AlbedoTransparency
+    second: {fileID: 2800000, guid: ceaab220dada1c144988a03a0c98bffb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_Emission
+    second: {fileID: 2800000, guid: 9d60bce73f14944459df120b0abfb3a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_MetallicSmoothness
+    second: {fileID: 2800000, guid: 0738344bee6ac8840a850b0866ef2721, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_Normal
+    second: {fileID: 2800000, guid: 6131636fb7b08a244b81fa629387d04c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_Roughness
+    second: {fileID: 2800000, guid: ec4277a16091d574d939936db1804785, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_interior_light1_mat_ambient_occlusion
+    second: {fileID: 2800000, guid: d3d66ca9806766d4d87c369a036ae6bc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_AlbedoTransparency
+    second: {fileID: 2800000, guid: 78469da60fe31ba45a638fe1446e2c18, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_Emission
+    second: {fileID: 2800000, guid: 767593972059eaa43801d899a825ed01, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_MetallicSmoothness
+    second: {fileID: 2800000, guid: 672f164b209bf5044b071a0a59940de2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_Normal
+    second: {fileID: 2800000, guid: 85cb015bdec99ca47a83747bd2c32499, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_Roughness
+    second: {fileID: 2800000, guid: ceff7575d372df34c8520339a2f8a138, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_pillar_mat_ambient_occlusion
+    second: {fileID: 2800000, guid: 108c2b912da795f4ca6104a23a4839d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1_AlbedoTransparency
+    second: {fileID: 2800000, guid: 590c808ded1cd724ea09a8b16ab70ec4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1_MetallicSmoothness
+    second: {fileID: 2800000, guid: eba2ea7cbc7656843aeb2f7b4a04d8e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1_Normal
+    second: {fileID: 2800000, guid: ef712c5fd5b510f4b9fa030841d1b7bd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1_Roughness
+    second: {fileID: 2800000, guid: 0bc3a2aa356f1264dbadb20f11530cd4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: scifi_walls1_ambient_occlusion
+    second: {fileID: 2800000, guid: 913959be301a30b4abe56624559d8e57, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

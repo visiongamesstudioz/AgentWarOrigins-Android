@@ -54,6 +54,7 @@ namespace EndlessRunner
         // if enabled, only the object renderer and collider will be activated/deactivated
         public bool optimizeDeactivation;
         protected Renderer[] childRenderers;
+        protected IOClod[] childIoClod;
         protected Renderer renderers;
         protected Collider[] childColliders;
         protected List<Collider> GameObjectsInCollisionLayer;

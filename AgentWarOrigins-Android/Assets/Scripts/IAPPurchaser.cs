@@ -533,7 +533,7 @@ public class IAPPurchaser : MonoBehaviour, IStoreListener
 
         // A consumable product has been purchased by this user.
         //track inapp purchase
-        AppsFlyerStartUp.Instance.TrackInAppPurchase(args.purchasedProduct);
+      //  AppsFlyerStartUp.Instance.TrackInAppPurchase(args.purchasedProduct);
 
         //get stats of player       
         if (string.Equals(args.purchasedProduct.definition.id, kPocketOfCoinsProductIDConsumable,

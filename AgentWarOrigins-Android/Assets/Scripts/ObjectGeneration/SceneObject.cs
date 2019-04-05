@@ -91,6 +91,14 @@ namespace EndlessRunner
         public override void Awake()
         {
             base.Awake();
+
+            //assign ioclod
+            childIoClod = GetComponentsInChildren<IOClod>();
+
+            foreach (var childLod in childIoClod)
+            {
+                Util.ioClodsDictionary.Add(childLod.gameObject, childLod);
+            }
             //get all drones in scene
             if (hasDrones)
             {
@@ -253,24 +261,54 @@ namespace EndlessRunner
             {
                 var targetPosition =
                     GameManager.m_InstantiatedPlayer.GetComponent<PlayerControl>().GetPlayerCurrentPosition();
+                //if (Camera.main)
+                //{
+
+                //    if ((transform.position - targetPosition).x <
+                //        Camera.main.farClipPlane && (transform.position - targetPosition).x + GetCurrentSceneLength() > -10f)
+                //    {
+                //        //check if first child is not active
+                //        if (!childRenderers[0].enabled)
+                //        {
+                //            Activate();
+
+                //        }
+
+                //    }
+                //    else
+                //    {
+                //        //check if first child is not active
+
+                //        if (childRenderers[0].enabled)
+                //            Deactivate();
+
+                //    }
+                //}
+
                 if (Camera.main)
                 {
-                    if ((transform.position - targetPosition).x <
-                        Camera.main.farClipPlane && (transform.position - targetPosition).x + GetCurrentSceneLength() > -10f)
+                    if (!((transform.position - targetPosition).x <
+                          Camera.main.farClipPlane &&
+                          (transform.position - targetPosition).x + GetCurrentSceneLength() > -10f))
                     {
-                        //check if first child is not active
-                        if (!childRenderers[0].enabled)
-                            Activate();
+
+                    //    Deactivate();
+                        //check for occlusion culling here
+                        foreach (var childLod in childIoClod)
+                        {
+                            childLod.HideAll();
+                        }
+
                     }
                 }
-          
-                else
-                {
-                    //check if first child is not active
+                //check for occlusion culling here
+                ////foreach (var childLod in childIoClod)
+                ////{
+                ////    childLod.ShowLOD();
+                ////}
 
-                    if (childRenderers[0].enabled)
-                        Deactivate();
-                }
+
+
             }
         }
 

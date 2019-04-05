@@ -1501,7 +1501,7 @@ namespace EndlessRunner
             m_TapToShoot.enabled = false;
         }
 
-        public void ShowTapOnEnemiesText(string text)
+        public void ShowIndicatorText(string text)
         {
             m_ShootText.text = text;
             m_TapOnEnemies.gameObject.SetActive(true);

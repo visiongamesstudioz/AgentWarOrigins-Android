@@ -23,6 +23,7 @@ public static class Util
     public static float Aspectratio;
     public static int ScreenWidth;
     public static int ScreenHeight;
+    public static Dictionary<GameObject, IOCcomp> ioClodsDictionary = new Dictionary<GameObject, IOCcomp>();
 
     public static void SetResolution(int percentage)
     {
@@ -58,6 +59,18 @@ public static class Util
         return null;
     }
 
+    public static GameObject FindGameObjectWhichContainsName(GameObject parent, string substring)
+    {
+        var trs = parent.GetComponentsInChildren<Transform>(true);
+        foreach (var t in trs)
+        {
+            if (t.name.Contains(substring))
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
+    }
     public static T FindGameObjectWithComponent<T>(GameObject parent, string name) where T: Component 
     {
         var trs = parent.GetComponentsInChildren<T>(true);

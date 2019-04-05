@@ -125,6 +125,7 @@ public class TimelineController : MonoBehaviour
     public void PlayCutScene()
     {
         CutSceneTimeLinePlayableDirector.RebuildGraph();
+        CutSceneTimeLinePlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1.2);
         CutSceneTimeLinePlayableDirector.Play();
     }
 

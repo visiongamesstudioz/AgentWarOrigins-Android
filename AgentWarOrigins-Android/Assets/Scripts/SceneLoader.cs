@@ -56,7 +56,7 @@ public class SceneLoader : MonoBehaviour
             var slider = loadingScreen.GetComponentInChildren<Slider>(true);
             slider.gameObject.SetActive(true);
             //show banner ad
-            //     AdmobAdManager.Instance.RequestBanner();
+            AdmobAdManager.Instance.RequestBanner();
             while (!asyncLoad.isDone)
             {
                 if (slider)
@@ -65,12 +65,19 @@ public class SceneLoader : MonoBehaviour
                     if (asyncLoad.progress == 0.9f)
                     {
                         slider.value = 1f;
+                        //destroy bannr ad
+                        AdmobAdManager.Instance.DestroyBannerAd();
+
                         asyncLoad.allowSceneActivation = true;
+
+
                         FirebaseInitializer.Instance.SetScreenName(SceneManager.GetSceneByBuildIndex(levelIndex).name);
+
+
                     }
                 }
 
-                //destroy bannr ad
+
                 yield return null;
             }
         }

@@ -16,7 +16,7 @@ public class PrefabLightMapEditor : EditorWindow {
     }
 
 
-    public string pathToFolder = "Assets/Resources/Lightmaps/CityFlyOver/";
+    public string pathToFolder = "Assets/Resources/Lightmaps/NewCity1/";
 
     int selected = 0;
 

@@ -81,6 +81,7 @@ namespace EndlessRunner
         private CameraVerticalMovementController tutorialPlayerCameraVerticalMovementController;
         private Image taptoshooticon;
         TapToShoot tapToShootcomp;
+        private Collider[] colliders = new Collider[50];
 
         private void Awake()
         {
@@ -222,20 +223,28 @@ namespace EndlessRunner
 
         private void FixedUpdate()
         {
-           
-
+            //reset array
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i] = null;
+            }
             if (playerShoot.CurrentWeapon)
             {
-                Collider[] colliders = Physics.OverlapSphere(transform.position, playerShoot.CurrentWeapon.Weapon.WeaponRange, SphereCastLayerMask);
+                int noOfColliders = Physics.OverlapSphereNonAlloc(transform.position, playerShoot.CurrentWeapon.Weapon.WeaponRange,
+                    colliders, SphereCastLayerMask);
                 int closestIndex = -1;
                 float distanceToClosestEnemy = float.MaxValue;
                 m_aliveEnemies.Clear();
                 foreach (var col in colliders)
                 {
-                    if (col.GetComponent<Health>().GetCurrentHealth() > 0)
+                    if (col != null)
                     {
-                        m_aliveEnemies.Add(col);
+                        if (col.GetComponent<Health>().GetCurrentHealth() > 0)
+                        {
+                            m_aliveEnemies.Add(col);
+                        }
                     }
+                 
                 }
 
                 closestIndex = Util.FindClosestGameObjectIndexInFront(gameObject, m_aliveEnemies);
@@ -500,39 +509,39 @@ namespace EndlessRunner
                     case TriggerEnum.SwipeUp:
                         //show swipe up image
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe Up On Right Side to jump");
+                        UiManager.Instance.ShowIndicatorText("Swipe Up On Right Side of the screen to jump");
                         UiManager.Instance.ShowSwipeUp();
                         break;
                     case TriggerEnum.SwipeDown:
 
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe down On Right Side to Slide");
+                        UiManager.Instance.ShowIndicatorText("Swipe down On Right Side of the screen to Slide");
                         UiManager.Instance.ShowSwipeDown();
 
                         break;
                     case TriggerEnum.SwipeLeft:
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe left On Right Side to move Left");
+                        UiManager.Instance.ShowIndicatorText("Swipe left On Right Side of the screen to move Left");
                         UiManager.Instance.ShowSwipeLeft();
 
                         break;
                     case TriggerEnum.SwipeRight:
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe left On Right Side to move Left");
+                        UiManager.Instance.ShowIndicatorText("Swipe Right On Right Side of the screen to move Right");
                         UiManager.Instance.ShowSwipeRight();
                         break;
                     case TriggerEnum.Tap:
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Tap on enemies to shoot ");
+                        UiManager.Instance.ShowIndicatorText("Tap on enemies to shoot ");
                         break;
                     case TriggerEnum.swipeUpJoyStick:
-                        UiManager.Instance.ShowTapOnEnemiesText("Swipe up the joy stick to aim higher");
+                        UiManager.Instance.ShowIndicatorText("Swipe up the joy stick to aim higher");
                         UiManager.Instance.EnableJoyStickAnimator();
                         UiManager.Instance.ShowTapToShoot();
                         break;
                     case TriggerEnum.AimDownSights:
                         UiManager.Instance.ShowTapToShoot();
-                        UiManager.Instance.ShowTapOnEnemiesText("Tap on scope to aim enemy closer" );
+                        UiManager.Instance.ShowIndicatorText("Tap on scope to aim enemy closer" );
 
                         break;
                 }
@@ -783,7 +792,7 @@ namespace EndlessRunner
         {
             //set scene object to null 
             sceneObject = null;
-            UiManager.Instance.HideTutorial();
+
 
             if (m_cameraVerticalMovementController)
             {
@@ -812,11 +821,20 @@ namespace EndlessRunner
                 }
       
             }
+
+    
+           
             if (!Util.IsTutorialComplete())
             {
                 m_MoveSpeedMultiplier = Mathf.Max(m_PreviousSpeedMultiplier, 1);
+                UiManager.Instance.HideTutorial();
+
             }
-            UiManager.Instance.DisableJoyStickAnimator();
+            if (UiManager.Instance)
+            {
+                UiManager.Instance.DisableJoyStickAnimator();
+
+            }
         }
 
         private void LateUpdate()

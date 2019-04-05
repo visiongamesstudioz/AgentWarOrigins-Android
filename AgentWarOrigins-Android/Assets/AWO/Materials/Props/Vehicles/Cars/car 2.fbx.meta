@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 105a3fddd3b022843b141a42183df5db
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: car_body
+    100004: glass1
+    100006: glass_2
+    100008: group2
+    100010: group3
+    100012: Gta_shell
+    100014: lights
+    100016: number_pla
+    100018: tyre_fron0
+    100020: tyre_front
+    100022: tyre_rear
+    100024: tyre_rear0
+    100026: wipers
+    400000: //RootNode
+    400002: car_body
+    400004: glass1
+    400006: glass_2
+    400008: group2
+    400010: group3
+    400012: Gta_shell
+    400014: lights
+    400016: number_pla
+    400018: tyre_fron0
+    400020: tyre_front
+    400022: tyre_rear
+    400024: tyre_rear0
+    400026: wipers
+    2300000: glass1
+    2300002: glass_2
+    2300004: Gta_shell
+    2300006: lights
+    2300008: number_pla
+    2300010: tyre_fron0
+    2300012: tyre_front
+    2300014: tyre_rear
+    2300016: tyre_rear0
+    2300018: wipers
+    3300000: glass1
+    3300002: glass_2
+    3300004: Gta_shell
+    3300006: lights
+    3300008: number_pla
+    3300010: tyre_fron0
+    3300012: tyre_front
+    3300014: tyre_rear
+    3300016: tyre_rear0
+    3300018: wipers
+    4300000: number_pla
+    4300002: lights
+    4300004: wipers
+    4300006: tyre_rear
+    4300008: tyre_rear0
+    4300010: tyre_front
+    4300012: tyre_fron0
+    4300014: Gta_shell
+    4300016: glass1
+    4300018: glass_2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default
+    second: {fileID: 2100000, guid: b4cd6b44f1c1b5140a97fec9596d5ca9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default1
+    second: {fileID: 2100000, guid: b4cd6b44f1c1b5140a97fec9596d5ca9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__89
+    second: {fileID: 2100000, guid: b4cd6b44f1c1b5140a97fec9596d5ca9, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -267,7 +267,7 @@ namespace EndlessRunner
             {
                 // currentTotalSceneLength = WarehouseMesh.GetComponent<BoxCollider>().bounds.size.x;
 
-                position.x += 429.22f;
+                position.x += 279.24f;
                 currentSceneSpawnPosition += position;
             }
             else

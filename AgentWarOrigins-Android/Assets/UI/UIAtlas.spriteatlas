@@ -4,7 +4,8 @@
 SpriteAtlas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: UIAtlas
   m_EditorData:
     serializedVersion: 2
@@ -30,6 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 9fe3a803ec385ba41be1843c8238aaad, type: 3}
+    totalSpriteSurfaceArea: 3556670
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -46,6 +48,7 @@ SpriteAtlas:
   - {fileID: 21300002, guid: 8640ef3b950dc01419a5369463f74721, type: 3}
   - {fileID: 21300002, guid: 5362fbfb8a7d67b499bebb4e286cea71, type: 3}
   - {fileID: 21300000, guid: b1f8607cbf39a7547bac588f805ad4a9, type: 3}
+  - {fileID: 21300000, guid: 099472ec202fc774fbcde5f3ba959257, type: 3}
   - {fileID: 21300000, guid: 352f8bfc35929964c997ebf53801ad86, type: 3}
   - {fileID: 21300000, guid: db2a8e0d4486d3d4db24651a8770c6f2, type: 3}
   - {fileID: 21300000, guid: 6da8a28d96fb6be4cb8ce20c7849a535, type: 3}
@@ -65,6 +68,7 @@ SpriteAtlas:
   - GUISliderFill_0
   - GUIButtonHighlighted_0
   - safe of coins
+  - blue_background
   - BlueButton27
   - shoot_icon
   - Button1

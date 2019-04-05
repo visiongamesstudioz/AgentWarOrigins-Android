@@ -16,10 +16,6 @@ namespace UnityStandardAssets.Utility
 
         private void Start()
         {
-            if (QualitySettings.GetQualityLevel() > 2)
-            {
-            //    Application.targetFrameRate = 60;
-            }
             m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;
             m_GuiText = GetComponent<GUIText>();
         }
